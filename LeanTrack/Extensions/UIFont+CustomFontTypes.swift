@@ -9,7 +9,6 @@
 import UIKit
 
 enum CustomFonts {
-    case Brilliante
     case ConduitBold
     case ConduitLight
     case ConduitMedium
@@ -29,8 +28,6 @@ extension UILabel {
     func setCustomFont(size : CGFloat, fontType : CustomFonts){
         
         switch fontType {
-        case .Brilliante:
-            font = UIFont(name: "BrillianttePresonalUseOnly", size: size)
         case .ConduitBold:
             font = UIFont(name: "ConduitITC-Bold", size: size)
         case .ConduitLight:

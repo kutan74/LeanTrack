@@ -7,9 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5691E3105F7D342F09DE2C1A /* Pods_LeanTrackTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 449EFD758D2E79F34E8608F2 /* Pods_LeanTrackTests.framework */; };
 		A0983CE1223C0F56005BEA8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0983CE0223C0F56005BEA8E /* AppDelegate.swift */; };
-		A0983CE3223C0F56005BEA8E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0983CE2223C0F56005BEA8E /* ViewController.swift */; };
-		A0983CE6223C0F56005BEA8E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0983CE4223C0F56005BEA8E /* Main.storyboard */; };
 		A0983CE9223C0F56005BEA8E /* LeanTrack.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A0983CE7223C0F56005BEA8E /* LeanTrack.xcdatamodeld */; };
 		A0983CEB223C0F57005BEA8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0983CEA223C0F57005BEA8E /* Assets.xcassets */; };
 		A0983CEE223C0F57005BEA8E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0983CEC223C0F57005BEA8E /* LaunchScreen.storyboard */; };
@@ -23,6 +22,12 @@
 		A0983D24223D6DD8005BEA8E /* Conduit_ITC_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A0983D20223D6DD8005BEA8E /* Conduit_ITC_Bold.ttf */; };
 		A0983D25223D6DD8005BEA8E /* Conduit_ITC_Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A0983D21223D6DD8005BEA8E /* Conduit_ITC_Medium.ttf */; };
 		A0983D27223D6DE6005BEA8E /* UIFont+CustomFontTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0983D26223D6DE6005BEA8E /* UIFont+CustomFontTypes.swift */; };
+		A0983D29223D6F2C005BEA8E /* UIColor+Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0983D28223D6F2C005BEA8E /* UIColor+Colors.swift */; };
+		A0983D2C223D6F4F005BEA8E /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0983D2B223D6F4F005BEA8E /* BaseViewController.swift */; };
+		A0983D2E223D6FC5005BEA8E /* HomeSegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0983D2D223D6FC5005BEA8E /* HomeSegmentView.swift */; };
+		A0983D31223D70B2005BEA8E /* HomeSegmentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0983D30223D70B2005BEA8E /* HomeSegmentCollectionViewCell.swift */; };
+		BC4861F7BD9DE016447475B2 /* Pods_LeanTrack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CD66A6788522CE3E9567F26 /* Pods_LeanTrack.framework */; };
+		FFF0B5E9A551183C84FA05DE /* Pods_LeanTrackUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A100B6D4AE79EDEEC2F9E81 /* Pods_LeanTrackUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,10 +48,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1A100B6D4AE79EDEEC2F9E81 /* Pods_LeanTrackUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LeanTrackUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2CD66A6788522CE3E9567F26 /* Pods_LeanTrack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LeanTrack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		449EFD758D2E79F34E8608F2 /* Pods_LeanTrackTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LeanTrackTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5692615D72930A2D8EA87CCB /* Pods-LeanTrackUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeanTrackUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LeanTrackUITests/Pods-LeanTrackUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		96FEB475A3AB87762E88824E /* Pods-LeanTrackUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeanTrackUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LeanTrackUITests/Pods-LeanTrackUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A0983CDD223C0F56005BEA8E /* LeanTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeanTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0983CE0223C0F56005BEA8E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A0983CE2223C0F56005BEA8E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		A0983CE5223C0F56005BEA8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A0983CE8223C0F56005BEA8E /* LeanTrack.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LeanTrack.xcdatamodel; sourceTree = "<group>"; };
 		A0983CEA223C0F57005BEA8E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A0983CED223C0F57005BEA8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -65,6 +73,14 @@
 		A0983D20223D6DD8005BEA8E /* Conduit_ITC_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Conduit_ITC_Bold.ttf; sourceTree = "<group>"; };
 		A0983D21223D6DD8005BEA8E /* Conduit_ITC_Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Conduit_ITC_Medium.ttf; sourceTree = "<group>"; };
 		A0983D26223D6DE6005BEA8E /* UIFont+CustomFontTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+CustomFontTypes.swift"; sourceTree = "<group>"; };
+		A0983D28223D6F2C005BEA8E /* UIColor+Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Colors.swift"; sourceTree = "<group>"; };
+		A0983D2B223D6F4F005BEA8E /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		A0983D2D223D6FC5005BEA8E /* HomeSegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSegmentView.swift; sourceTree = "<group>"; };
+		A0983D30223D70B2005BEA8E /* HomeSegmentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSegmentCollectionViewCell.swift; sourceTree = "<group>"; };
+		A653212EBC00494990434004 /* Pods-LeanTrackTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeanTrackTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LeanTrackTests/Pods-LeanTrackTests.debug.xcconfig"; sourceTree = "<group>"; };
+		AD92783674C7F6F0CD71300F /* Pods-LeanTrackTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeanTrackTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LeanTrackTests/Pods-LeanTrackTests.release.xcconfig"; sourceTree = "<group>"; };
+		D590F0F984177A4EE8D75F8E /* Pods-LeanTrack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeanTrack.release.xcconfig"; path = "Pods/Target Support Files/Pods-LeanTrack/Pods-LeanTrack.release.xcconfig"; sourceTree = "<group>"; };
+		DDD59C044A08B73F86FFFCC4 /* Pods-LeanTrack.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeanTrack.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LeanTrack/Pods-LeanTrack.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC4861F7BD9DE016447475B2 /* Pods_LeanTrack.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5691E3105F7D342F09DE2C1A /* Pods_LeanTrackTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,12 +104,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFF0B5E9A551183C84FA05DE /* Pods_LeanTrackUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		187F5D96B3B5B9A46191FDAB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DDD59C044A08B73F86FFFCC4 /* Pods-LeanTrack.debug.xcconfig */,
+				D590F0F984177A4EE8D75F8E /* Pods-LeanTrack.release.xcconfig */,
+				A653212EBC00494990434004 /* Pods-LeanTrackTests.debug.xcconfig */,
+				AD92783674C7F6F0CD71300F /* Pods-LeanTrackTests.release.xcconfig */,
+				5692615D72930A2D8EA87CCB /* Pods-LeanTrackUITests.debug.xcconfig */,
+				96FEB475A3AB87762E88824E /* Pods-LeanTrackUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		8702D3775002465253F5BFAA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2CD66A6788522CE3E9567F26 /* Pods_LeanTrack.framework */,
+				449EFD758D2E79F34E8608F2 /* Pods_LeanTrackTests.framework */,
+				1A100B6D4AE79EDEEC2F9E81 /* Pods_LeanTrackUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A0983CD4223C0F56005BEA8E = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +141,8 @@
 				A0983CF7223C0F57005BEA8E /* LeanTrackTests */,
 				A0983D02223C0F57005BEA8E /* LeanTrackUITests */,
 				A0983CDE223C0F56005BEA8E /* Products */,
+				187F5D96B3B5B9A46191FDAB /* Pods */,
+				8702D3775002465253F5BFAA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -120,9 +164,6 @@
 				A0983D13223C0F75005BEA8E /* Controllers */,
 				A0983D11223C0F69005BEA8E /* Model */,
 				A0983CE0223C0F56005BEA8E /* AppDelegate.swift */,
-				A0983CE2223C0F56005BEA8E /* ViewController.swift */,
-				A0983CE4223C0F56005BEA8E /* Main.storyboard */,
-				A0983CEA223C0F57005BEA8E /* Assets.xcassets */,
 				A0983CEC223C0F57005BEA8E /* LaunchScreen.storyboard */,
 				A0983CEF223C0F57005BEA8E /* Info.plist */,
 				A0983CE7223C0F56005BEA8E /* LeanTrack.xcdatamodeld */,
@@ -158,6 +199,7 @@
 		A0983D13223C0F75005BEA8E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A0983D2A223D6F46005BEA8E /* Base */,
 				A0983D17223D6B9A005BEA8E /* Home */,
 			);
 			path = Controllers;
@@ -168,6 +210,7 @@
 			children = (
 				A0983D15223C10F4005BEA8E /* UIView+NSConstraints.swift */,
 				A0983D26223D6DE6005BEA8E /* UIFont+CustomFontTypes.swift */,
+				A0983D28223D6F2C005BEA8E /* UIColor+Colors.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -175,8 +218,10 @@
 		A0983D17223D6B9A005BEA8E /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				A0983D2F223D70A0005BEA8E /* SegmentCells */,
 				A0983D18223D6BA7005BEA8E /* HomeViewController.swift */,
 				A0983D1A223D6D49005BEA8E /* HomeView.swift */,
+				A0983D2D223D6FC5005BEA8E /* HomeSegmentView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -184,6 +229,7 @@
 		A0983D1C223D6D51005BEA8E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A0983CEA223C0F57005BEA8E /* Assets.xcassets */,
 				A0983D1D223D6D58005BEA8E /* Fonts */,
 			);
 			path = Resources;
@@ -200,6 +246,22 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		A0983D2A223D6F46005BEA8E /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				A0983D2B223D6F4F005BEA8E /* BaseViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		A0983D2F223D70A0005BEA8E /* SegmentCells */ = {
+			isa = PBXGroup;
+			children = (
+				A0983D30223D70B2005BEA8E /* HomeSegmentCollectionViewCell.swift */,
+			);
+			path = SegmentCells;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -207,6 +269,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A0983D08223C0F57005BEA8E /* Build configuration list for PBXNativeTarget "LeanTrack" */;
 			buildPhases = (
+				C7494D3C75226A0260CDB3D5 /* [CP] Check Pods Manifest.lock */,
 				A0983CD9223C0F56005BEA8E /* Sources */,
 				A0983CDA223C0F56005BEA8E /* Frameworks */,
 				A0983CDB223C0F56005BEA8E /* Resources */,
@@ -224,6 +287,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A0983D0B223C0F57005BEA8E /* Build configuration list for PBXNativeTarget "LeanTrackTests" */;
 			buildPhases = (
+				6CF273AE77054102016AFE3D /* [CP] Check Pods Manifest.lock */,
 				A0983CF0223C0F57005BEA8E /* Sources */,
 				A0983CF1223C0F57005BEA8E /* Frameworks */,
 				A0983CF2223C0F57005BEA8E /* Resources */,
@@ -242,6 +306,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A0983D0E223C0F57005BEA8E /* Build configuration list for PBXNativeTarget "LeanTrackUITests" */;
 			buildPhases = (
+				CFD8BD89C1D91B21B38DEF0D /* [CP] Check Pods Manifest.lock */,
 				A0983CFB223C0F57005BEA8E /* Sources */,
 				A0983CFC223C0F57005BEA8E /* Frameworks */,
 				A0983CFD223C0F57005BEA8E /* Resources */,
@@ -309,7 +374,6 @@
 				A0983CEE223C0F57005BEA8E /* LaunchScreen.storyboard in Resources */,
 				A0983CEB223C0F57005BEA8E /* Assets.xcassets in Resources */,
 				A0983D25223D6DD8005BEA8E /* Conduit_ITC_Medium.ttf in Resources */,
-				A0983CE6223C0F56005BEA8E /* Main.storyboard in Resources */,
 				A0983D23223D6DD8005BEA8E /* Conduit_ITC_Light.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -330,16 +394,88 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6CF273AE77054102016AFE3D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LeanTrackTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C7494D3C75226A0260CDB3D5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LeanTrack-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CFD8BD89C1D91B21B38DEF0D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LeanTrackUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A0983CD9223C0F56005BEA8E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0983D2E223D6FC5005BEA8E /* HomeSegmentView.swift in Sources */,
 				A0983D19223D6BA7005BEA8E /* HomeViewController.swift in Sources */,
 				A0983CE9223C0F56005BEA8E /* LeanTrack.xcdatamodeld in Sources */,
-				A0983CE3223C0F56005BEA8E /* ViewController.swift in Sources */,
 				A0983D1B223D6D49005BEA8E /* HomeView.swift in Sources */,
+				A0983D29223D6F2C005BEA8E /* UIColor+Colors.swift in Sources */,
 				A0983D16223C10F4005BEA8E /* UIView+NSConstraints.swift in Sources */,
+				A0983D2C223D6F4F005BEA8E /* BaseViewController.swift in Sources */,
+				A0983D31223D70B2005BEA8E /* HomeSegmentCollectionViewCell.swift in Sources */,
 				A0983CE1223C0F56005BEA8E /* AppDelegate.swift in Sources */,
 				A0983D27223D6DE6005BEA8E /* UIFont+CustomFontTypes.swift in Sources */,
 			);
@@ -377,14 +513,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		A0983CE4223C0F56005BEA8E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A0983CE5223C0F56005BEA8E /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		A0983CEC223C0F57005BEA8E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -514,6 +642,7 @@
 		};
 		A0983D09223C0F57005BEA8E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DDD59C044A08B73F86FFFCC4 /* Pods-LeanTrack.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -532,6 +661,7 @@
 		};
 		A0983D0A223C0F57005BEA8E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D590F0F984177A4EE8D75F8E /* Pods-LeanTrack.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -550,6 +680,7 @@
 		};
 		A0983D0C223C0F57005BEA8E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A653212EBC00494990434004 /* Pods-LeanTrackTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -571,6 +702,7 @@
 		};
 		A0983D0D223C0F57005BEA8E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD92783674C7F6F0CD71300F /* Pods-LeanTrackTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -592,6 +724,7 @@
 		};
 		A0983D0F223C0F57005BEA8E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5692615D72930A2D8EA87CCB /* Pods-LeanTrackUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -612,6 +745,7 @@
 		};
 		A0983D10223C0F57005BEA8E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 96FEB475A3AB87762E88824E /* Pods-LeanTrackUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

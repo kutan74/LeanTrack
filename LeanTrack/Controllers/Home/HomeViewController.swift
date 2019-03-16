@@ -8,11 +8,11 @@
 
 import UIKit
 
-class HomeViewController : UIViewController {
+class HomeViewController : BaseViewController {
     
     override func loadView() {
         view = UIView()
-        
+        view.backgroundColor = UIColor.background
     }
     
 }

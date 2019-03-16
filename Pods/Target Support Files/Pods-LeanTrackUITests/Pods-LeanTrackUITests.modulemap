@@ -1,0 +1,6 @@
+framework module Pods_LeanTrackUITests {
+  umbrella header "Pods-LeanTrackUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
