@@ -9,12 +9,10 @@
 import UIKit
 
 class HomeSegmentView : UIView {
-    
-    var collectionView : UICollectionView!
+    var collectionView: UICollectionView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         setupCollectionViewLayout()
     }
     
@@ -22,8 +20,7 @@ class HomeSegmentView : UIView {
         fatalError("init (coder) has not been implemented")
     }
     
-    func setupCollectionViewLayout(){
-        
+    func setupCollectionViewLayout() {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = .init(width: UIScreen.main.bounds.size.width / 2, height: 62)
         layout.scrollDirection = .horizontal
@@ -31,11 +28,12 @@ class HomeSegmentView : UIView {
         layout.minimumInteritemSpacing = 0
         layout.sectionInset = .zero
         
-        collectionView = UICollectionView(frame: self.frame, collectionViewLayout : layout)
+        collectionView = UICollectionView(frame: self.frame, collectionViewLayout: layout)
+        addSubview(collectionView)
+        
+        collectionView.register(HomeSegmentCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         collectionView.backgroundColor = .black
-        
-        collectionView.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, traling: trailingAnchor)
-        
+        collectionView.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, traling: trailingAnchor, padding: .zero, size: .init(width: 0, height: 62))        
     }
     
 }

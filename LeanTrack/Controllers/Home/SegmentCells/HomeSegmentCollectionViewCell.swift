@@ -10,20 +10,18 @@ import UIKit
 
 class HomeSegmentCollectionViewCell : UICollectionViewCell {
     
-    let segmentTitle : UILabel = {
+    let segmentTitle: UILabel = {
        
         let label = UILabel()
         label.textColor = .white
-        label.setCustomFont(size: 18, fontType: CustomFonts.ConduitBold)
+        label.setCustomFont(size: 18, fontType: CustomFonts.conduitBold)
         return label
         
     }()
     
     override init(frame: CGRect) {
-        super.init(frame: frame)
-        
+        super.init(frame: frame)        
         addSubview(segmentTitle)
-        
         segmentTitle.translatesAutoresizingMaskIntoConstraints = false
         segmentTitle.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         segmentTitle.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true

@@ -23,9 +23,13 @@ class BaseViewController : UIViewController {
     
     // Set base properties. We have some common properties like background color, status bar color for view controllers
     func setBaseProperties(){
-        
         view.backgroundColor = UIColor.background
-        
+    }
+    
+    // Layout subview
+    func setupViews(_ subView : UIView){        
+        view.addSubview(subView)
+        subView.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, traling: view.trailingAnchor)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

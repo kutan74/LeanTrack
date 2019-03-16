@@ -6,7 +6,7 @@ target 'LeanTrack' do
   use_frameworks!
 
   # Pods for LeanTrack
-  pod 'SwiftLint'
+  
 
   target 'LeanTrackTests' do
     inherit! :search_paths
