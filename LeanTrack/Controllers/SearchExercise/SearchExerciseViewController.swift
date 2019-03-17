@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Hero
 
 class SearchExerciseViewController : BaseViewController {
     
@@ -14,14 +15,22 @@ class SearchExerciseViewController : BaseViewController {
     let exercises = ["Back Squat", "Front Squat", "Deadlift", "Overhead Press","Barbell Row",
                      "Bench Press", "Chin Ups", "Triceps Pulldown"]
     var searchResult : [String] = []
+    weak var delegate : SearchResultProtocol?
     
     override func loadView() {
         view = UIView()
         view.backgroundColor = UIColor.background
         
+        subView.searchTextField.becomeFirstResponder()
         setupViews(subView)
         setCollectionViewDatasource()
-        setTextFieldDelegate()
+        setInitialValues()
+    }
+    
+    func setInitialValues(){
+        hero.isEnabled = true
+        subView.searchTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        subView.backButton.addTarget(self, action: #selector(onDismissByBackButton), for: .touchUpInside)
     }
     
     // MARK: CollectionView Datasource
@@ -30,18 +39,12 @@ class SearchExerciseViewController : BaseViewController {
         subView.collectionView.delegate = self
     }
     
-    func setTextFieldDelegate(){
-        subView.searchTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
-    }
-    
 }
 
 // MARK: Textfield Change Listener
 extension SearchExerciseViewController {
     
     @objc func textFieldDidChange(_ textField: UITextField) {
-        
-        searchResult = []
         
         guard let typedText = textField.text else {
             return
@@ -63,5 +66,21 @@ extension SearchExerciseViewController : UICollectionViewDelegate,UICollectionVi
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! SearchExerciseCollectionViewCell
         cell.exerciseTitle.text = searchResult[indexPath.row]
         return cell
-    }    
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        onDismissBySelection(searchResult[indexPath.row])
+    }
+}
+
+extension SearchExerciseViewController {
+    @objc func onDismissByBackButton(){
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func onDismissBySelection(_ selection : String){
+        dismiss(animated: true, completion: {
+            self.delegate?.onExerciseSelected(selection)
+        })
+    }
 }

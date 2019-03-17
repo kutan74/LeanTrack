@@ -29,6 +29,9 @@
 		A0983D35223E728C005BEA8E /* SearchExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0983D34223E728C005BEA8E /* SearchExerciseViewController.swift */; };
 		A0983D37223E72FC005BEA8E /* SearchExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0983D36223E72FC005BEA8E /* SearchExerciseView.swift */; };
 		A0983D3A223E73E5005BEA8E /* SearchExerciseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0983D39223E73E5005BEA8E /* SearchExerciseCollectionViewCell.swift */; };
+		A0983D3C223EBBB7005BEA8E /* SearchResultProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0983D3B223EBBB7005BEA8E /* SearchResultProtocol.swift */; };
+		A0983D3F223EC1F4005BEA8E /* ExerciseSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0983D3E223EC1F4005BEA8E /* ExerciseSettingsViewController.swift */; };
+		A0983D41223EC21B005BEA8E /* ExerciseSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0983D40223EC21B005BEA8E /* ExerciseSettingsView.swift */; };
 		BC4861F7BD9DE016447475B2 /* Pods_LeanTrack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CD66A6788522CE3E9567F26 /* Pods_LeanTrack.framework */; };
 		FFF0B5E9A551183C84FA05DE /* Pods_LeanTrackUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A100B6D4AE79EDEEC2F9E81 /* Pods_LeanTrackUITests.framework */; };
 /* End PBXBuildFile section */
@@ -83,6 +86,9 @@
 		A0983D34223E728C005BEA8E /* SearchExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchExerciseViewController.swift; sourceTree = "<group>"; };
 		A0983D36223E72FC005BEA8E /* SearchExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchExerciseView.swift; sourceTree = "<group>"; };
 		A0983D39223E73E5005BEA8E /* SearchExerciseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchExerciseCollectionViewCell.swift; sourceTree = "<group>"; };
+		A0983D3B223EBBB7005BEA8E /* SearchResultProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultProtocol.swift; sourceTree = "<group>"; };
+		A0983D3E223EC1F4005BEA8E /* ExerciseSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseSettingsViewController.swift; sourceTree = "<group>"; };
+		A0983D40223EC21B005BEA8E /* ExerciseSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseSettingsView.swift; sourceTree = "<group>"; };
 		A653212EBC00494990434004 /* Pods-LeanTrackTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeanTrackTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LeanTrackTests/Pods-LeanTrackTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AD92783674C7F6F0CD71300F /* Pods-LeanTrackTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeanTrackTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LeanTrackTests/Pods-LeanTrackTests.release.xcconfig"; sourceTree = "<group>"; };
 		D590F0F984177A4EE8D75F8E /* Pods-LeanTrack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeanTrack.release.xcconfig"; path = "Pods/Target Support Files/Pods-LeanTrack/Pods-LeanTrack.release.xcconfig"; sourceTree = "<group>"; };
@@ -205,6 +211,7 @@
 		A0983D13223C0F75005BEA8E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A0983D3D223EC1D8005BEA8E /* ExerciseSettingsChildVC */,
 				A0983D33223E7277005BEA8E /* SearchExercise */,
 				A0983D2A223D6F46005BEA8E /* Base */,
 				A0983D17223D6B9A005BEA8E /* Home */,
@@ -275,6 +282,7 @@
 				A0983D38223E73D4005BEA8E /* Cells */,
 				A0983D34223E728C005BEA8E /* SearchExerciseViewController.swift */,
 				A0983D36223E72FC005BEA8E /* SearchExerciseView.swift */,
+				A0983D3B223EBBB7005BEA8E /* SearchResultProtocol.swift */,
 			);
 			path = SearchExercise;
 			sourceTree = "<group>";
@@ -285,6 +293,15 @@
 				A0983D39223E73E5005BEA8E /* SearchExerciseCollectionViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		A0983D3D223EC1D8005BEA8E /* ExerciseSettingsChildVC */ = {
+			isa = PBXGroup;
+			children = (
+				A0983D3E223EC1F4005BEA8E /* ExerciseSettingsViewController.swift */,
+				A0983D40223EC21B005BEA8E /* ExerciseSettingsView.swift */,
+			);
+			path = ExerciseSettingsChildVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,6 +316,7 @@
 				A0983CDA223C0F56005BEA8E /* Frameworks */,
 				A0983CDB223C0F56005BEA8E /* Resources */,
 				A0983D32223D71B8005BEA8E /* ShellScript */,
+				F09D67D330731894468CEBDC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -505,6 +523,28 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		F09D67D330731894468CEBDC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-LeanTrack/Pods-LeanTrack-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LeanTrack/Pods-LeanTrack-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -512,13 +552,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0983D3C223EBBB7005BEA8E /* SearchResultProtocol.swift in Sources */,
 				A0983D37223E72FC005BEA8E /* SearchExerciseView.swift in Sources */,
 				A0983D2E223D6FC5005BEA8E /* HomeSegmentView.swift in Sources */,
 				A0983D19223D6BA7005BEA8E /* HomeViewController.swift in Sources */,
 				A0983CE9223C0F56005BEA8E /* LeanTrack.xcdatamodeld in Sources */,
+				A0983D3F223EC1F4005BEA8E /* ExerciseSettingsViewController.swift in Sources */,
 				A0983D1B223D6D49005BEA8E /* HomeView.swift in Sources */,
 				A0983D29223D6F2C005BEA8E /* UIColor+Colors.swift in Sources */,
 				A0983D16223C10F4005BEA8E /* UIView+NSConstraints.swift in Sources */,
+				A0983D41223EC21B005BEA8E /* ExerciseSettingsView.swift in Sources */,
 				A0983D3A223E73E5005BEA8E /* SearchExerciseCollectionViewCell.swift in Sources */,
 				A0983D2C223D6F4F005BEA8E /* BaseViewController.swift in Sources */,
 				A0983D31223D70B2005BEA8E /* HomeSegmentCollectionViewCell.swift in Sources */,
