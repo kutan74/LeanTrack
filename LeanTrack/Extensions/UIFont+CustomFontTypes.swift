@@ -31,7 +31,7 @@ extension UILabel {
         case .conduitBold:
             font = UIFont(name: "ConduitITC-Bold", size: size)
         case .conduitLight:
-            font = UIFont(name: "ConduitITC-Light", size: size)
+            font = UIFont(name: "Conduit    ITC-Light", size: size)
         case .conduitMedium:
             font = UIFont(name: "ConduitITC-Medium", size: size)
         }
