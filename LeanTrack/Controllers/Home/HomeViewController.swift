@@ -17,18 +17,29 @@ class HomeViewController : BaseViewController {
         view = UIView()
         view.backgroundColor = UIColor.background
         
-        setCollectionViewDatasource()
         setupViews(subView)
+        setCollectionViewDatasource()
+        setTapActions()
     }
     
     // MARK: Datasource
     func setCollectionViewDatasource(){
-        
         subView.segmentMenu.collectionView.delegate = self
         subView.segmentMenu.collectionView.dataSource = self
     }
+    
+    // MARK: Tap Actions
+    func setTapActions(){
+        
+        let searchTextFieldTapGesture = UITapGestureRecognizer(target: self, action: #selector(onSearchTapped))
+        subView.searchTextField.isUserInteractionEnabled = true
+        subView.searchTextField.addGestureRecognizer(searchTextFieldTapGesture)
+        
+    }
+    
 }
 
+// MARK: CollectionView Delegate & Datasource
 extension HomeViewController : UICollectionViewDataSource,UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -39,6 +50,16 @@ extension HomeViewController : UICollectionViewDataSource,UICollectionViewDelega
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! HomeSegmentCollectionViewCell
         cell.segmentTitle.text = segmentCells[indexPath.row]
         return cell
+    }
+    
+}
+
+// MARK: Tap Methods
+extension HomeViewController {
+    
+    @objc func onSearchTapped(){
+        let controller = SearchExerciseViewController()
+        self.show(controller, sender: self)
     }
     
 }

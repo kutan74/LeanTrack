@@ -38,17 +38,15 @@ class HomeView : UIView {
 class HomeSearchTextField : UITextField {
     
     let divider : UIView = {
-       
         let view = UIView()
         view.backgroundColor = UIColor.white.withAlphaComponent(0.23)
         return view
-        
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         addSubview(divider)
+        setupTextFieldProperties()
         setupViews()
     }
     
@@ -56,12 +54,15 @@ class HomeSearchTextField : UITextField {
         fatalError("init (coder) has not been implemented")
     }
     
-    func setupViews(){
-        
+    func setupTextFieldProperties(){
+        clearButtonMode = .whileEditing
+        textColor = .white
         attributedPlaceholder = NSAttributedString(string:"Do you even lift bro ?", attributes:[NSAttributedString.Key.foregroundColor: UIColor.white.withAlphaComponent(0.23),NSAttributedString.Key.font : UIFont(name: "ConduitITC-Bold", size: 12)!])
-        
+        font = UIFont(name: "ConduitITC-Bold", size: 12)!
+    }
+    
+    func setupViews(){
         divider.anchor(top: nil, leading: leadingAnchor, bottom: bottomAnchor, traling: trailingAnchor, padding: .zero, size: .init(width: 0, height: 1))
-        
     }
     
 }
