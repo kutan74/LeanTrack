@@ -12,6 +12,7 @@ import Hero
 class HomeViewController: BaseViewController {    
     let subView = HomeView()
     let segmentCells = ["LIFT", "REPORTS"]
+    var exercises: [Exercise] = []
     
     override func loadView() {
         view = UIView()
@@ -47,14 +48,30 @@ class HomeViewController: BaseViewController {
 // MARK: CollectionView Delegate & Datasource
 extension HomeViewController: UICollectionViewDataSource,UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        if collectionView == subView.segmentMenu.collectionView {
+            return 2
+        }else {
+            return exercises.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! HomeSegmentCollectionViewCell
-        cell.segmentTitle.text = segmentCells[indexPath.row]
-        return cell
-    }    
+        if collectionView == subView.segmentMenu.collectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! HomeSegmentCollectionViewCell
+            cell.segmentTitle.text = segmentCells[indexPath.row]
+            return cell
+        }else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! HomeExerciseCollectionViewCell
+            cell.exerciseNameLabel.text = exercises[indexPath.row].exerciseName
+            cell.addSetButton.addTarget(self, action: #selector(onAddSetButtonTapped(_:)), for: .touchUpInside)
+            return cell
+        }
+    }
+    
+    @objc func onAddSetButtonTapped(_ sender: UIButton){
+        //let selectedExerciseName = exercises[sender.tag]
+        add(ExerciseSettingsViewController())
+    }
 }
 
 // MARK: Tap Methods
@@ -70,6 +87,7 @@ extension HomeViewController {
 // MARK: SearchResultViewController Delegate
 extension HomeViewController : SearchResultProtocol {
     func onExerciseSelected(_ exercise: String) {
-        
+        exercises.append(Exercise(exerciseName: exercise))
+        subView.collectionView.reloadData()
     }
 }

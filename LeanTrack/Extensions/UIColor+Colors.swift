@@ -19,5 +19,13 @@ extension UIColor {
     
     @nonobjc class var cellBorder: UIColor {
         return UIColor(white: 35.0 / 255.0, alpha: 1.0)
-    }    
+    }
+    
+    @nonobjc class var buttonBorder: UIColor {
+        return UIColor(red: 41.0 / 255.0, green: 40.0 / 255.0, blue: 40.0 / 255.0, alpha: 1.0)
+    }
+       
+    @nonobjc class var emerald: UIColor {
+        return UIColor(red: 7.0 / 255.0, green: 152.0 / 255.0, blue: 70.0 / 255.0, alpha: 1.0)
+    }
 }

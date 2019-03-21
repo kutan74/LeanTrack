@@ -11,6 +11,7 @@
 		A06BA9242243D4AE0088929F /* HomeExerciseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06BA9232243D4AE0088929F /* HomeExerciseCollectionViewCell.swift */; };
 		A06BA9262243DB230088929F /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06BA9252243DB230088929F /* Exercise.swift */; };
 		A06BA9282243DE360088929F /* UIView+UICollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06BA9272243DE360088929F /* UIView+UICollectionViewLayout.swift */; };
+		A06BA92A2243F8D10088929F /* UIViewController+ChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06BA9292243F8D10088929F /* UIViewController+ChildViewController.swift */; };
 		A0983CE1223C0F56005BEA8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0983CE0223C0F56005BEA8E /* AppDelegate.swift */; };
 		A0983CE9223C0F56005BEA8E /* LeanTrack.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A0983CE7223C0F56005BEA8E /* LeanTrack.xcdatamodeld */; };
 		A0983CEB223C0F57005BEA8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0983CEA223C0F57005BEA8E /* Assets.xcassets */; };
@@ -65,6 +66,7 @@
 		A06BA9232243D4AE0088929F /* HomeExerciseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExerciseCollectionViewCell.swift; sourceTree = "<group>"; };
 		A06BA9252243DB230088929F /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		A06BA9272243DE360088929F /* UIView+UICollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+UICollectionViewLayout.swift"; sourceTree = "<group>"; };
+		A06BA9292243F8D10088929F /* UIViewController+ChildViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ChildViewController.swift"; sourceTree = "<group>"; };
 		A0983CDD223C0F56005BEA8E /* LeanTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeanTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0983CE0223C0F56005BEA8E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0983CE8223C0F56005BEA8E /* LeanTrack.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LeanTrack.xcdatamodel; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 				A0983D26223D6DE6005BEA8E /* UIFont+CustomFontTypes.swift */,
 				A0983D28223D6F2C005BEA8E /* UIColor+Colors.swift */,
 				A06BA9272243DE360088929F /* UIView+UICollectionViewLayout.swift */,
+				A06BA9292243F8D10088929F /* UIViewController+ChildViewController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -585,6 +588,7 @@
 				A0983D31223D70B2005BEA8E /* HomeSegmentCollectionViewCell.swift in Sources */,
 				A0983CE1223C0F56005BEA8E /* AppDelegate.swift in Sources */,
 				A06BA9282243DE360088929F /* UIView+UICollectionViewLayout.swift in Sources */,
+				A06BA92A2243F8D10088929F /* UIViewController+ChildViewController.swift in Sources */,
 				A0983D27223D6DE6005BEA8E /* UIFont+CustomFontTypes.swift in Sources */,
 				A0983D35223E728C005BEA8E /* SearchExerciseViewController.swift in Sources */,
 				A06BA9262243DB230088929F /* Exercise.swift in Sources */,

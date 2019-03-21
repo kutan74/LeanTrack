@@ -36,12 +36,13 @@ class HomeView: UIView {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = .zero
         layout.estimatedItemSize = .init(width: UIScreen.main.bounds.size.width - 46, height: 120)
-        layout.minimumLineSpacing = 0
+        layout.minimumLineSpacing = 20
         layout.minimumInteritemSpacing = 0
         layout.scrollDirection = .vertical
         layout.sectionInset = .zero
         
         collectionView = UICollectionView(frame: self.frame, collectionViewLayout: layout)
+        addSubview(collectionView)
         collectionView.register(HomeExerciseCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         collectionView.backgroundColor = .clear
         collectionView.showsVerticalScrollIndicator = false
