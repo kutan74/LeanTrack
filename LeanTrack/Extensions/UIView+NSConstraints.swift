@@ -8,10 +8,7 @@
 
 import UIKit
 
-import UIKit
-
 extension UIView {
-    
     func anchor(top : NSLayoutYAxisAnchor?, leading : NSLayoutXAxisAnchor?, bottom: NSLayoutYAxisAnchor?, traling : NSLayoutXAxisAnchor?, padding : UIEdgeInsets = .zero, size : CGSize = .zero) {
         
         translatesAutoresizingMaskIntoConstraints = false
@@ -36,8 +33,5 @@ extension UIView {
         if size.height != 0 {
             heightAnchor.constraint(equalToConstant: size.height).isActive = true
         }
-        
-    }
-    
-    
+    }    
 }

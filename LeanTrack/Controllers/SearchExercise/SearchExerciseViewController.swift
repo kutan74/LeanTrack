@@ -9,13 +9,12 @@
 import UIKit
 import Hero
 
-class SearchExerciseViewController : BaseViewController {
-    
+class SearchExerciseViewController: BaseViewController {
     let subView = SearchExerciseView()
     let exercises = ["Back Squat", "Front Squat", "Deadlift", "Overhead Press","Barbell Row",
                      "Bench Press", "Chin Ups", "Triceps Pulldown"]
-    var searchResult : [String] = []
-    weak var delegate : SearchResultProtocol?
+    var searchResult: [String] = []
+    weak var delegate: SearchResultProtocol?
     
     override func loadView() {
         view = UIView()
@@ -38,14 +37,11 @@ class SearchExerciseViewController : BaseViewController {
         subView.collectionView.dataSource = self
         subView.collectionView.delegate = self
     }
-    
 }
 
 // MARK: Textfield Change Listener
 extension SearchExerciseViewController {
-    
     @objc func textFieldDidChange(_ textField: UITextField) {
-        
         guard let typedText = textField.text else {
             return
         }
@@ -53,11 +49,10 @@ extension SearchExerciseViewController {
         searchResult = exercises.filter { $0.prefix(typedText.count).lowercased() == typedText.lowercased()}
         subView.collectionView.reloadData()
     }
-    
 }
 
 // MARK: CollectionView Delegate & Datasource
-extension SearchExerciseViewController : UICollectionViewDelegate,UICollectionViewDataSource {
+extension SearchExerciseViewController: UICollectionViewDelegate,UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return searchResult.count
     }

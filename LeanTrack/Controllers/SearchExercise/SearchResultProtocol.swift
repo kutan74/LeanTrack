@@ -12,7 +12,5 @@ import Foundation
  * Protocol to whenever user selects an item from SearchExerciseViewController
  */
 protocol SearchResultProtocol: class {
-    
     func onExerciseSelected(_ exercise : String)
-    
 }

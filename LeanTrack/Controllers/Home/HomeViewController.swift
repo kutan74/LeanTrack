@@ -9,8 +9,7 @@
 import UIKit
 import Hero
 
-class HomeViewController : BaseViewController {
-    
+class HomeViewController: BaseViewController {    
     let subView = HomeView()
     let segmentCells = ["LIFT", "REPORTS"]
     
@@ -28,6 +27,9 @@ class HomeViewController : BaseViewController {
     func setCollectionViewDatasource(){
         subView.segmentMenu.collectionView.delegate = self
         subView.segmentMenu.collectionView.dataSource = self
+        
+        subView.collectionView.dataSource = self
+        subView.collectionView.delegate = self
     }
     
     // MARK: Tap Actions
@@ -40,12 +42,10 @@ class HomeViewController : BaseViewController {
     func setHeroModifiers(){
         view.hero.id = "homeVC"
     }
-    
 }
 
 // MARK: CollectionView Delegate & Datasource
-extension HomeViewController : UICollectionViewDataSource,UICollectionViewDelegate {
-    
+extension HomeViewController: UICollectionViewDataSource,UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 2
     }
@@ -54,25 +54,22 @@ extension HomeViewController : UICollectionViewDataSource,UICollectionViewDelega
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! HomeSegmentCollectionViewCell
         cell.segmentTitle.text = segmentCells[indexPath.row]
         return cell
-    }
-    
+    }    
 }
 
 // MARK: Tap Methods
 extension HomeViewController {
-    
     @objc func onSearchTapped(){
         let controller = SearchExerciseViewController()
         controller.delegate = self
         self.hero.modalAnimationType = .selectBy(presenting:.fade, dismissing:.fade)
         self.present(controller, animated: true, completion: nil)
     }
-    
 }
 
 // MARK: SearchResultViewController Delegate
 extension HomeViewController : SearchResultProtocol {
     func onExerciseSelected(_ exercise: String) {
-        print(exercise)
+        
     }
 }

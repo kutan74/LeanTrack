@@ -15,18 +15,15 @@ enum CustomFonts {
 }
 
 extension UILabel {
-    
-    func setFont(size : CGFloat, weight : UIFont.Weight){
+    func setFont(size: CGFloat, weight: UIFont.Weight){
         font = UIFont.systemFont(ofSize: size, weight: weight)
     }
     
-    
-    func setItalicFont(size : CGFloat, weight : UIFont.Weight){
+    func setItalicFont(size : CGFloat, weight: UIFont.Weight){
         font = UIFont.italicSystemFont(ofSize: size)
     }
     
-    func setCustomFont(size : CGFloat, fontType : CustomFonts){
-        
+    func setCustomFont(size: CGFloat, fontType: CustomFonts){
         switch fontType {
         case .conduitBold:
             font = UIFont(name: "ConduitITC-Bold", size: size)
@@ -35,7 +32,5 @@ extension UILabel {
         case .conduitMedium:
             font = UIFont(name: "ConduitITC-Medium", size: size)
         }
-        
     }
-    
 }

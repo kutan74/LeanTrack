@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeSegmentView : UIView {
+class HomeSegmentView: UIView {
     var collectionView: UICollectionView!
     
     override init(frame: CGRect) {

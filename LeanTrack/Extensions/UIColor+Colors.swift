@@ -9,7 +9,6 @@
 import UIKit
 
 extension UIColor {
-    
     @nonobjc class var background: UIColor {
         return UIColor(white: 21.0 / 255.0, alpha: 1.0)
     }
@@ -20,6 +19,5 @@ extension UIColor {
     
     @nonobjc class var cellBorder: UIColor {
         return UIColor(white: 35.0 / 255.0, alpha: 1.0)
-    }
-    
+    }    
 }
