@@ -10,6 +10,7 @@ import UIKit
 
 class ExerciseSettingsViewController : UIViewController {
     let subView = ExerciseSettingsView()
+    weak var delegate: ExerciseSettingsProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +22,24 @@ class ExerciseSettingsViewController : UIViewController {
     func setupViews(){
         view.addSubview(subView)
         subView.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, traling: view.trailingAnchor)
+        subView.cancelButton.addTarget(self, action: #selector(onCancelButtonTapped), for: .touchUpInside)
     }
     
+}
+
+extension ExerciseSettingsViewController {
+    @objc func onCancelButtonTapped(){
+        delegate?.onCancelButtonTapped()
+    }
+    
+    @objc func onDoneButtonTapped(){
+        
+    }
+    
+    func validateInputFields() throws {
+        guard let weight = subView.weightLabel.text else {
+            return
+        }
+    }
 }
 

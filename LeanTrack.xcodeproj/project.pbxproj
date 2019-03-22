@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5691E3105F7D342F09DE2C1A /* Pods_LeanTrackTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 449EFD758D2E79F34E8608F2 /* Pods_LeanTrackTests.framework */; };
+		A016A0E22244D11D000CA546 /* ExerciseSettingsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A016A0E12244D11D000CA546 /* ExerciseSettingsProtocol.swift */; };
+		A016A0E42244D1F6000CA546 /* LeanTrackErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A016A0E32244D1F6000CA546 /* LeanTrackErrors.swift */; };
 		A06BA9242243D4AE0088929F /* HomeExerciseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06BA9232243D4AE0088929F /* HomeExerciseCollectionViewCell.swift */; };
 		A06BA9262243DB230088929F /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06BA9252243DB230088929F /* Exercise.swift */; };
 		A06BA9282243DE360088929F /* UIView+UICollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06BA9272243DE360088929F /* UIView+UICollectionViewLayout.swift */; };
@@ -63,6 +65,8 @@
 		449EFD758D2E79F34E8608F2 /* Pods_LeanTrackTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LeanTrackTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5692615D72930A2D8EA87CCB /* Pods-LeanTrackUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeanTrackUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LeanTrackUITests/Pods-LeanTrackUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		96FEB475A3AB87762E88824E /* Pods-LeanTrackUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeanTrackUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LeanTrackUITests/Pods-LeanTrackUITests.release.xcconfig"; sourceTree = "<group>"; };
+		A016A0E12244D11D000CA546 /* ExerciseSettingsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseSettingsProtocol.swift; sourceTree = "<group>"; };
+		A016A0E32244D1F6000CA546 /* LeanTrackErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeanTrackErrors.swift; sourceTree = "<group>"; };
 		A06BA9232243D4AE0088929F /* HomeExerciseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExerciseCollectionViewCell.swift; sourceTree = "<group>"; };
 		A06BA9252243DB230088929F /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		A06BA9272243DE360088929F /* UIView+UICollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+UICollectionViewLayout.swift"; sourceTree = "<group>"; };
@@ -154,6 +158,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A016A0E52244D1FB000CA546 /* ErrorHandling */ = {
+			isa = PBXGroup;
+			children = (
+				A016A0E32244D1F6000CA546 /* LeanTrackErrors.swift */,
+			);
+			path = ErrorHandling;
+			sourceTree = "<group>";
+		};
 		A06BA9222243D49A0088929F /* CollectionViewCells */ = {
 			isa = PBXGroup;
 			children = (
@@ -228,6 +240,7 @@
 		A0983D13223C0F75005BEA8E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A016A0E52244D1FB000CA546 /* ErrorHandling */,
 				A0983D3D223EC1D8005BEA8E /* ExerciseSettingsChildVC */,
 				A0983D33223E7277005BEA8E /* SearchExercise */,
 				A0983D2A223D6F46005BEA8E /* Base */,
@@ -318,6 +331,7 @@
 		A0983D3D223EC1D8005BEA8E /* ExerciseSettingsChildVC */ = {
 			isa = PBXGroup;
 			children = (
+				A016A0E12244D11D000CA546 /* ExerciseSettingsProtocol.swift */,
 				A0983D3E223EC1F4005BEA8E /* ExerciseSettingsViewController.swift */,
 				A0983D40223EC21B005BEA8E /* ExerciseSettingsView.swift */,
 			);
@@ -572,6 +586,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A016A0E42244D1F6000CA546 /* LeanTrackErrors.swift in Sources */,
 				A0983D3C223EBBB7005BEA8E /* SearchResultProtocol.swift in Sources */,
 				A0983D37223E72FC005BEA8E /* SearchExerciseView.swift in Sources */,
 				A0983D2E223D6FC5005BEA8E /* HomeSegmentView.swift in Sources */,
@@ -579,6 +594,7 @@
 				A0983CE9223C0F56005BEA8E /* LeanTrack.xcdatamodeld in Sources */,
 				A06BA9242243D4AE0088929F /* HomeExerciseCollectionViewCell.swift in Sources */,
 				A0983D3F223EC1F4005BEA8E /* ExerciseSettingsViewController.swift in Sources */,
+				A016A0E22244D11D000CA546 /* ExerciseSettingsProtocol.swift in Sources */,
 				A0983D1B223D6D49005BEA8E /* HomeView.swift in Sources */,
 				A0983D29223D6F2C005BEA8E /* UIColor+Colors.swift in Sources */,
 				A0983D16223C10F4005BEA8E /* UIView+NSConstraints.swift in Sources */,

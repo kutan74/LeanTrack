@@ -14,6 +14,8 @@ class HomeViewController: BaseViewController {
     let segmentCells = ["LIFT", "REPORTS"]
     var exercises: [Exercise] = []
     
+    let exerciseSettingsVC = ExerciseSettingsViewController()
+    
     override func loadView() {
         view = UIView()
         view.backgroundColor = UIColor.background
@@ -70,7 +72,8 @@ extension HomeViewController: UICollectionViewDataSource,UICollectionViewDelegat
     
     @objc func onAddSetButtonTapped(_ sender: UIButton){
         //let selectedExerciseName = exercises[sender.tag]
-        add(ExerciseSettingsViewController())
+        exerciseSettingsVC.delegate = self
+        add(exerciseSettingsVC)
     }
 }
 
@@ -89,5 +92,12 @@ extension HomeViewController : SearchResultProtocol {
     func onExerciseSelected(_ exercise: String) {
         exercises.append(Exercise(exerciseName: exercise))
         subView.collectionView.reloadData()
+    }
+}
+
+// MARK: ExerciseSettings ChildViewController
+extension HomeViewController: ExerciseSettingsProtocol {
+    func onCancelButtonTapped() {
+        exerciseSettingsVC.remove()
     }
 }
