@@ -40,6 +40,12 @@ extension ExerciseSettingsViewController {
         guard let weight = subView.weightLabel.text else {
             return
         }
+        
+        guard let rep = subView.repsCountLabel.text else {
+            return
+        }
+        
+        delegate?.onDoneButtonTapped(weight: Double(weight)!, repCount: Int(rep)!)
     }
 }
 

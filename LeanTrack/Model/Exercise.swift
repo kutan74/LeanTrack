@@ -20,4 +20,9 @@ struct Exercise {
 struct ExerciseSet {
     var repCount = 0
     var weight = 0.0
+    
+    init(weight: Double, repCount: Int) {
+        self.weight = weight
+        self.repCount = repCount
+    }
 }

@@ -10,6 +10,9 @@
 		5691E3105F7D342F09DE2C1A /* Pods_LeanTrackTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 449EFD758D2E79F34E8608F2 /* Pods_LeanTrackTests.framework */; };
 		A016A0E22244D11D000CA546 /* ExerciseSettingsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A016A0E12244D11D000CA546 /* ExerciseSettingsProtocol.swift */; };
 		A016A0E42244D1F6000CA546 /* LeanTrackErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A016A0E32244D1F6000CA546 /* LeanTrackErrors.swift */; };
+		A016A0E72245052B000CA546 /* ExerciseSetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A016A0E62245052B000CA546 /* ExerciseSetCollectionViewCell.swift */; };
+		A016A0E922450624000CA546 /* HomeDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A016A0E822450624000CA546 /* HomeDatasource.swift */; };
+		A016A0EC22451199000CA546 /* HomeDatasourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A016A0EB22451199000CA546 /* HomeDatasourceProtocol.swift */; };
 		A06BA9242243D4AE0088929F /* HomeExerciseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06BA9232243D4AE0088929F /* HomeExerciseCollectionViewCell.swift */; };
 		A06BA9262243DB230088929F /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06BA9252243DB230088929F /* Exercise.swift */; };
 		A06BA9282243DE360088929F /* UIView+UICollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06BA9272243DE360088929F /* UIView+UICollectionViewLayout.swift */; };
@@ -67,6 +70,9 @@
 		96FEB475A3AB87762E88824E /* Pods-LeanTrackUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeanTrackUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LeanTrackUITests/Pods-LeanTrackUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A016A0E12244D11D000CA546 /* ExerciseSettingsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseSettingsProtocol.swift; sourceTree = "<group>"; };
 		A016A0E32244D1F6000CA546 /* LeanTrackErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeanTrackErrors.swift; sourceTree = "<group>"; };
+		A016A0E62245052B000CA546 /* ExerciseSetCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseSetCollectionViewCell.swift; sourceTree = "<group>"; };
+		A016A0E822450624000CA546 /* HomeDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDatasource.swift; sourceTree = "<group>"; };
+		A016A0EB22451199000CA546 /* HomeDatasourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDatasourceProtocol.swift; sourceTree = "<group>"; };
 		A06BA9232243D4AE0088929F /* HomeExerciseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExerciseCollectionViewCell.swift; sourceTree = "<group>"; };
 		A06BA9252243DB230088929F /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		A06BA9272243DE360088929F /* UIView+UICollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+UICollectionViewLayout.swift"; sourceTree = "<group>"; };
@@ -166,10 +172,20 @@
 			path = ErrorHandling;
 			sourceTree = "<group>";
 		};
+		A016A0EA2245116E000CA546 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A0983D1A223D6D49005BEA8E /* HomeView.swift */,
+				A0983D2D223D6FC5005BEA8E /* HomeSegmentView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		A06BA9222243D49A0088929F /* CollectionViewCells */ = {
 			isa = PBXGroup;
 			children = (
 				A06BA9232243D4AE0088929F /* HomeExerciseCollectionViewCell.swift */,
+				A016A0E62245052B000CA546 /* ExerciseSetCollectionViewCell.swift */,
 			);
 			path = CollectionViewCells;
 			sourceTree = "<group>";
@@ -264,11 +280,12 @@
 		A0983D17223D6B9A005BEA8E /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				A016A0EA2245116E000CA546 /* Views */,
 				A06BA9222243D49A0088929F /* CollectionViewCells */,
 				A0983D2F223D70A0005BEA8E /* SegmentCells */,
 				A0983D18223D6BA7005BEA8E /* HomeViewController.swift */,
-				A0983D1A223D6D49005BEA8E /* HomeView.swift */,
-				A0983D2D223D6FC5005BEA8E /* HomeSegmentView.swift */,
+				A016A0E822450624000CA546 /* HomeDatasource.swift */,
+				A016A0EB22451199000CA546 /* HomeDatasourceProtocol.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -589,6 +606,7 @@
 				A016A0E42244D1F6000CA546 /* LeanTrackErrors.swift in Sources */,
 				A0983D3C223EBBB7005BEA8E /* SearchResultProtocol.swift in Sources */,
 				A0983D37223E72FC005BEA8E /* SearchExerciseView.swift in Sources */,
+				A016A0E922450624000CA546 /* HomeDatasource.swift in Sources */,
 				A0983D2E223D6FC5005BEA8E /* HomeSegmentView.swift in Sources */,
 				A0983D19223D6BA7005BEA8E /* HomeViewController.swift in Sources */,
 				A0983CE9223C0F56005BEA8E /* LeanTrack.xcdatamodeld in Sources */,
@@ -597,12 +615,14 @@
 				A016A0E22244D11D000CA546 /* ExerciseSettingsProtocol.swift in Sources */,
 				A0983D1B223D6D49005BEA8E /* HomeView.swift in Sources */,
 				A0983D29223D6F2C005BEA8E /* UIColor+Colors.swift in Sources */,
+				A016A0E72245052B000CA546 /* ExerciseSetCollectionViewCell.swift in Sources */,
 				A0983D16223C10F4005BEA8E /* UIView+NSConstraints.swift in Sources */,
 				A0983D41223EC21B005BEA8E /* ExerciseSettingsView.swift in Sources */,
 				A0983D3A223E73E5005BEA8E /* SearchExerciseCollectionViewCell.swift in Sources */,
 				A0983D2C223D6F4F005BEA8E /* BaseViewController.swift in Sources */,
 				A0983D31223D70B2005BEA8E /* HomeSegmentCollectionViewCell.swift in Sources */,
 				A0983CE1223C0F56005BEA8E /* AppDelegate.swift in Sources */,
+				A016A0EC22451199000CA546 /* HomeDatasourceProtocol.swift in Sources */,
 				A06BA9282243DE360088929F /* UIView+UICollectionViewLayout.swift in Sources */,
 				A06BA92A2243F8D10088929F /* UIViewController+ChildViewController.swift in Sources */,
 				A0983D27223D6DE6005BEA8E /* UIFont+CustomFontTypes.swift in Sources */,

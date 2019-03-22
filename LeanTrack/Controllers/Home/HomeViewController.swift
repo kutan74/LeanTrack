@@ -11,10 +11,13 @@ import Hero
 
 class HomeViewController: BaseViewController {    
     let subView = HomeView()
+    let exerciseSettingsVC = ExerciseSettingsViewController()
+    
     let segmentCells = ["LIFT", "REPORTS"]
     var exercises: [Exercise] = []
+    var selectedExerciseIndex = 0
     
-    let exerciseSettingsVC = ExerciseSettingsViewController()
+    var dataSource: HomeDatasource!
     
     override func loadView() {
         view = UIView()
@@ -28,11 +31,9 @@ class HomeViewController: BaseViewController {
     
     // MARK: Datasource
     func setCollectionViewDatasource(){
-        subView.segmentMenu.collectionView.delegate = self
-        subView.segmentMenu.collectionView.dataSource = self
-        
-        subView.collectionView.dataSource = self
-        subView.collectionView.delegate = self
+        dataSource = HomeDatasource(segmentCollectionView: subView.segmentMenu.collectionView, exercisesCollectionView: subView.collectionView)
+        dataSource.setDelegates()
+        dataSource.delegate = self
     }
     
     // MARK: Tap Actions
@@ -47,32 +48,8 @@ class HomeViewController: BaseViewController {
     }
 }
 
-// MARK: CollectionView Delegate & Datasource
-extension HomeViewController: UICollectionViewDataSource,UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == subView.segmentMenu.collectionView {
-            return 2
-        }else {
-            return exercises.count
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView == subView.segmentMenu.collectionView {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! HomeSegmentCollectionViewCell
-            cell.segmentTitle.text = segmentCells[indexPath.row]
-            return cell
-        }else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! HomeExerciseCollectionViewCell
-            cell.exerciseNameLabel.text = exercises[indexPath.row].exerciseName
-            cell.addSetButton.addTarget(self, action: #selector(onAddSetButtonTapped(_:)), for: .touchUpInside)
-            return cell
-        }
-    }
-    
-    @objc func onAddSetButtonTapped(_ sender: UIButton){
-        //let selectedExerciseName = exercises[sender.tag]
-        exerciseSettingsVC.delegate = self
+extension HomeViewController: HomeDatasourceProtocol {
+    func onAddSetButtonTappedForExercise(at index: Int) {
         add(exerciseSettingsVC)
     }
 }
@@ -97,6 +74,10 @@ extension HomeViewController : SearchResultProtocol {
 
 // MARK: ExerciseSettings ChildViewController
 extension HomeViewController: ExerciseSettingsProtocol {
+    func onDoneButtonTapped(weight: Double, repCount: Int) {
+        exercises[selectedExerciseIndex].sets?.append(ExerciseSet(weight: weight, repCount: repCount))
+    }
+    
     func onCancelButtonTapped() {
         exerciseSettingsVC.remove()
     }

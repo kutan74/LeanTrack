@@ -9,5 +9,6 @@
 import Foundation
 
 protocol ExerciseSettingsProtocol: class {
-    func onCancelButtonTapped()    
+    func onCancelButtonTapped()
+    func onDoneButtonTapped(weight: Double, repCount: Int)
 }
