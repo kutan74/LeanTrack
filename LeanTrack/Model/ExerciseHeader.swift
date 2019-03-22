@@ -8,7 +8,30 @@
 
 import Foundation
 
-struct Exercise {
+/* We have two different types of collectionviewcells
+ Exercise: Movements like (Squat, Deadlift, Bench Press)
+ Set: 140kg x 8 reps
+ */
+enum CellType {
+    case exercise
+    case set
+}
+
+struct Exercises {
+    var exercises : [Exercise<Any>]!
+}
+
+struct Exercise<T> {
+    var cellType: CellType
+    var item: T
+    
+    mutating func setItems(cellType: CellType, item: T) {
+        self.cellType = cellType
+        self.item = item
+    }
+}
+
+struct ExerciseHeader {
     var exerciseName: String!
     var sets: [ExerciseSet]?
     

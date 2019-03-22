@@ -23,17 +23,23 @@ class ExerciseSettingsViewController : UIViewController {
         view.addSubview(subView)
         subView.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, traling: view.trailingAnchor)
         subView.cancelButton.addTarget(self, action: #selector(onCancelButtonTapped), for: .touchUpInside)
+        subView.doneButton.addTarget(self, action: #selector(onDoneButtonTapped), for: .touchUpInside)
     }
     
 }
 
+// MARK: Button actions
 extension ExerciseSettingsViewController {
     @objc func onCancelButtonTapped(){
         delegate?.onCancelButtonTapped()
     }
     
     @objc func onDoneButtonTapped(){
-        
+        do {
+            try validateInputFields()
+        }catch {
+            print(error.localizedDescription)
+        }
     }
     
     func validateInputFields() throws {

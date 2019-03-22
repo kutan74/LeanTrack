@@ -35,6 +35,6 @@ class ExerciseSetCollectionViewCell: UICollectionViewCell {
     
     func setupViews(){
         weightLabel.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, traling: nil)
-        repCountLabel.anchor(top: topAnchor, leading: weightLabel.trailingAnchor, bottom: bottomAnchor, traling: nil)
+        repCountLabel.anchor(top: topAnchor, leading: weightLabel.trailingAnchor, bottom: bottomAnchor, traling: trailingAnchor)
     }
 }

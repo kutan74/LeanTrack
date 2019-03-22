@@ -14,7 +14,7 @@ class HomeViewController: BaseViewController {
     let exerciseSettingsVC = ExerciseSettingsViewController()
     
     let segmentCells = ["LIFT", "REPORTS"]
-    var exercises: [Exercise] = []
+    var exercises : Exercises!
     var selectedExerciseIndex = 0
     
     var dataSource: HomeDatasource!
@@ -26,17 +26,17 @@ class HomeViewController: BaseViewController {
         setupViews(subView)
         setCollectionViewDatasource()
         setTapActions()
+        setExerciseSettingsVCDelegate()
         setHeroModifiers()
     }
     
-    // MARK: Datasource
     func setCollectionViewDatasource(){
         dataSource = HomeDatasource(segmentCollectionView: subView.segmentMenu.collectionView, exercisesCollectionView: subView.collectionView)
-        dataSource.setDelegates()
+        dataSource.setCollectionViewDatasource()
         dataSource.delegate = self
+        dataSource.loadSegments(segmentCells)
     }
     
-    // MARK: Tap Actions
     func setTapActions(){
         let searchTextFieldTapGesture = UITapGestureRecognizer(target: self, action: #selector(onSearchTapped))
         subView.searchTextField.isUserInteractionEnabled = true
@@ -46,11 +46,9 @@ class HomeViewController: BaseViewController {
     func setHeroModifiers(){
         view.hero.id = "homeVC"
     }
-}
-
-extension HomeViewController: HomeDatasourceProtocol {
-    func onAddSetButtonTappedForExercise(at index: Int) {
-        add(exerciseSettingsVC)
+    
+    func setExerciseSettingsVCDelegate(){
+        exerciseSettingsVC.delegate = self
     }
 }
 
@@ -64,18 +62,31 @@ extension HomeViewController {
     }
 }
 
-// MARK: SearchResultViewController Delegate
-extension HomeViewController : SearchResultProtocol {
-    func onExerciseSelected(_ exercise: String) {
-        exercises.append(Exercise(exerciseName: exercise))
-        subView.collectionView.reloadData()
+// MARK: HomeDatasource delegate methdos
+extension HomeViewController: HomeDatasourceProtocol {
+    func onAddSetButtonTappedForExercise(at index: Int) {
+        selectedExerciseIndex = index
+        add(exerciseSettingsVC)
     }
 }
 
-// MARK: ExerciseSettings ChildViewController
+// MARK: SearchResultViewController Delegate (Whenever user adds new exercises)
+extension HomeViewController : SearchResultProtocol {
+    func onExerciseSelected(_ exercise: String) {
+        //let exercise = Exercise(cellType: CellType.exercise, item: ExerciseHeader(exerciseName: exercise))
+        let exercise = Exercise<ExerciseHeader>(cellType: CellType.exercise, item: ExerciseHeader(exerciseName: exercise))
+        exercises.exercises.append(exercise as! Exercise<Any>)  
+        //exercises.exercises.append(exercise as! ExerciseHeader)
+        //dataSource.updateExercises(add: ExerciseHeader(exerciseName: exercise))
+    }
+}
+
+// MARK: ExerciseSettings ChildViewController (Exercise settings like rep count and weight)
 extension HomeViewController: ExerciseSettingsProtocol {
     func onDoneButtonTapped(weight: Double, repCount: Int) {
-        exercises[selectedExerciseIndex].sets?.append(ExerciseSet(weight: weight, repCount: repCount))
+        //exercises[selectedExerciseIndex].sets?.append(ExerciseSet(weight: weight, repCount: repCount))
+        dataSource.updateExerciseSets(with: selectedExerciseIndex, for: ExerciseSet(weight: weight, repCount: repCount))
+        exerciseSettingsVC.remove()
     }
     
     func onCancelButtonTapped() {

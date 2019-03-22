@@ -17,8 +17,8 @@ class HomeDatasource: NSObject,UICollectionViewDelegate,UICollectionViewDataSour
     var segmentCollectionView: UICollectionView!
     var exercisesCollectionView: UICollectionView!
     
-    var segments: [String]!
-    var exercises: [Exercise]!
+    var segments: [String] = []
+    var exercises: [ExerciseHeader] = []
     weak var delegate: HomeDatasourceProtocol?
     
     init(segmentCollectionView: UICollectionView, exercisesCollectionView: UICollectionView) {
@@ -26,7 +26,7 @@ class HomeDatasource: NSObject,UICollectionViewDelegate,UICollectionViewDataSour
         self.exercisesCollectionView = exercisesCollectionView
     }
     
-    func setDelegates(){
+    func setCollectionViewDatasource(){
         segmentCollectionView.delegate = self
         segmentCollectionView.dataSource = self
         exercisesCollectionView.delegate = self
@@ -35,11 +35,23 @@ class HomeDatasource: NSObject,UICollectionViewDelegate,UICollectionViewDataSour
     
     func loadSegments(_ segments: [String]){
         self.segments = segments
+        segmentCollectionView.reloadData()
     }
     
-    // Add new exercise set
-    func updateExercises(add exercise: Exercise){
+    func updateExercises(add exercise: ExerciseHeader){
         exercises.append(exercise)
+        exercisesCollectionView.reloadData()
+    }
+    
+    // TODO: Pretty fucked up logic here !
+    // Should sets not be optional maybe ?
+    func updateExerciseSets(with exerciseIndex: Int, for set: ExerciseSet){
+        if exercises[exerciseIndex].sets != nil {
+            exercises[exerciseIndex].sets?.append(set)
+        }else {
+            exercises[exerciseIndex].sets = []
+            exercises[exerciseIndex].sets?.append(set)
+        }
         exercisesCollectionView.reloadData()
     }
 }
