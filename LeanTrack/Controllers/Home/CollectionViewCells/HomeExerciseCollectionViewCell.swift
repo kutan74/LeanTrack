@@ -77,12 +77,3 @@ class HomeExerciseCollectionViewCell: UICollectionViewCell {
     }
 }
 
-extension HomeExerciseCollectionViewCell: UICollectionViewDelegate,UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-    }
-}
