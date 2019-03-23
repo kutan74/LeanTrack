@@ -48,7 +48,7 @@ extension ExerciseSettingsViewController {
             return
         }
         
-        guard let rep = subView.repsCountLabel.text else {
+        guard let rep = subView.repsCountLabel.text, rep != "" else {
             return
         }
         

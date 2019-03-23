@@ -71,7 +71,7 @@ class HomeExerciseCollectionViewCell: UITableViewCell {
     
     func setupCollectionViewLayout(){
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = .init(width: UIScreen.main.bounds.size.width - 70, height: 20)
+        layout.itemSize = .init(width: UIScreen.main.bounds.size.width - 50, height: 20)
         layout.minimumLineSpacing = 1
         layout.minimumInteritemSpacing = 0
         layout.scrollDirection = .vertical
@@ -88,12 +88,13 @@ class HomeExerciseCollectionViewCell: UITableViewCell {
     }
 }
 
+// MARK: CollectionViewCell DataSource
 extension HomeExerciseCollectionViewCell {
     func setCollectionViewDataSourceDelegate<D: UICollectionViewDataSource & UICollectionViewDelegate>(_ dataSourceDelegate: D, forRow row: Int) {
         collectionView.delegate = dataSourceDelegate
         collectionView.dataSource = dataSourceDelegate
         collectionView.tag = row
-        collectionView.setContentOffset(collectionView.contentOffset, animated:false) // Stops collection view if it was scrolling.
+        //collectionView.setContentOffset(collectionView.contentOffset, animated:false) // Stops collection view if it was scrolling.
         collectionView.reloadData()        
     }
     
