@@ -50,7 +50,7 @@ class HomeExerciseCollectionViewCell: UICollectionViewCell {
     }
     
     func setupViews(){
-        exerciseNameLabel.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, traling: nil, padding: .init(top: 15, left: 17, bottom: 0, right: 0))
+        exerciseNameLabel.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, traling: nil, padding: .init(top: 16, left: 17, bottom: 16, right: 0))
         addSetButton.anchor(top: nil, leading: nil, bottom: nil, traling: trailingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 14), size: .init(width: 55, height: 26))
         addSetButton.centerYAnchor.constraint(equalTo: exerciseNameLabel.centerYAnchor).isActive = true
     }  

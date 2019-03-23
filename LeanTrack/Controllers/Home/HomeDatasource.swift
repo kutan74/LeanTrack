@@ -18,6 +18,7 @@ class HomeDatasource: NSObject,UICollectionViewDelegate,UICollectionViewDataSour
     var exercisesCollectionView: UICollectionView!
     
     var segments: [String] = []
+    var workoutSession = WorkoutSession()
     var exercises: [ExerciseHeader] = []
     weak var delegate: HomeDatasourceProtocol?
     
@@ -38,8 +39,8 @@ class HomeDatasource: NSObject,UICollectionViewDelegate,UICollectionViewDataSour
         segmentCollectionView.reloadData()
     }
     
-    func updateExercises(add exercise: ExerciseHeader){
-        exercises.append(exercise)
+    func updateExercises(add exercise: Workout<Any>){
+        workoutSession.workouts.append(exercise)
         exercisesCollectionView.reloadData()
     }
     
@@ -61,7 +62,7 @@ extension HomeDatasource {
         if collectionView == segmentCollectionView {
             return segments.count
         }else {
-            return exercises.count
+            return workoutSession.workouts.count
         }
     }
     
@@ -71,10 +72,20 @@ extension HomeDatasource {
             cell.segmentTitle.text = segments[indexPath.row]
             return cell
         }else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! HomeExerciseCollectionViewCell
-            cell.exerciseNameLabel.text = exercises[indexPath.row].exerciseName
-            cell.addSetButton.addTarget(self, action: #selector(onAddSetButtonTapped(_:)), for: .touchUpInside)
-            return cell
+            let workout = workoutSession.workouts[indexPath.row]
+            if workout.cellType == CellType.exercise {
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! HomeExerciseCollectionViewCell
+                let exerciseHeader = workout.item as! ExerciseHeader
+                cell.exerciseNameLabel.text = exerciseHeader.exerciseName
+                cell.addSetButton.addTarget(self, action: #selector(onAddSetButtonTapped(_:)), for: .touchUpInside)
+                return cell
+            }else {
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "set", for: indexPath) as! ExerciseSetCollectionViewCell
+                let exerciseSet = workout.item as! ExerciseSet
+                cell.weightLabel.text = String(exerciseSet.weight)
+                cell.repCountLabel.text = String(exerciseSet.repCount)
+                return cell
+            }
         }
     }
     

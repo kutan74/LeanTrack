@@ -23,10 +23,10 @@ class WorkoutSession {
 
 struct Workout<T> {
     var cellType: CellType!
-    var item = T.self
+    var item : T!
     
     mutating func load(_ item: T, cellType: CellType){
-        self.item = item as! T.Type
+        self.item = item
         self.cellType = cellType
     }
 }

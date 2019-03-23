@@ -44,10 +44,11 @@ class HomeView: UIView {
         collectionView = UICollectionView(frame: self.frame, collectionViewLayout: layout)
         addSubview(collectionView)
         collectionView.register(HomeExerciseCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionView.register(ExerciseSetCollectionViewCell.self, forCellWithReuseIdentifier: "set")
         collectionView.backgroundColor = .clear
         collectionView.showsVerticalScrollIndicator = false
         
-        collectionView.anchor(top: searchTextField.bottomAnchor, leading: leadingAnchor, bottom: segmentMenu.topAnchor, traling: trailingAnchor, padding: .init(top: 30, left: 0, bottom: 30, right: 0))
+        collectionView.anchor(top: searchTextField.bottomAnchor, leading: leadingAnchor, bottom: nil, traling: trailingAnchor, padding: .init(top: 30, left: 22, bottom: 30, right: 22), size: .init(width: 0, height: UIScreen.main.bounds.size.height - 70))
     }
 }
 

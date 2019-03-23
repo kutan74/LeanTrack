@@ -12,14 +12,14 @@ class ExerciseSetCollectionViewCell: UICollectionViewCell {
     let weightLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
-        label.setCustomFont(size: 14, fontType: CustomFonts.conduitBold)
+        label.setCustomFont(size: 16, fontType: CustomFonts.conduitBold)
         return label
     }()
     
     let repCountLabel: UILabel = {
         let label = UILabel()
-        label.textColor = UIColor.cellBorder
-        label.setCustomFont(size: 14, fontType: CustomFonts.conduitBold)
+        label.textColor = UIColor.paleRed
+        label.setCustomFont(size: 16, fontType: CustomFonts.conduitBold)
         return label
     }()
     override init(frame: CGRect) {
@@ -27,6 +27,7 @@ class ExerciseSetCollectionViewCell: UICollectionViewCell {
         [weightLabel,repCountLabel].forEach {
             addSubview($0)
         }
+        setupViews()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -34,7 +35,7 @@ class ExerciseSetCollectionViewCell: UICollectionViewCell {
     }
     
     func setupViews(){
-        weightLabel.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, traling: nil)
-        repCountLabel.anchor(top: topAnchor, leading: weightLabel.trailingAnchor, bottom: bottomAnchor, traling: trailingAnchor)
+        weightLabel.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, traling: nil, padding: .init(top: 0, left: 17, bottom: 0, right: 0))
+        repCountLabel.anchor(top: topAnchor, leading: weightLabel.trailingAnchor, bottom: bottomAnchor, traling: nil, padding: .init(top: 0, left: 17, bottom: 0, right: 0))
     }
 }
