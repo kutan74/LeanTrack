@@ -44,7 +44,7 @@ extension ExerciseSettingsViewController {
     }
     
     func validateInputFields() throws {
-        guard let weight = subView.weightLabel.text?.replacingOccurrences(of: ",", with: ".") else {
+        guard let weightInput = subView.weightLabel.text?.replacingOccurrences(of: ",", with: ".") else {
             return
         }
         
@@ -52,7 +52,11 @@ extension ExerciseSettingsViewController {
             return
         }
         
-        delegate?.onDoneButtonTapped(weight: Double(weight)!, repCount: Int(rep)!)
+        guard let weight = Double(weightInput) else {
+            return
+        }
+        
+        delegate?.onDoneButtonTapped(weight: weight, repCount: Int(rep)!)
     }
 }
 
@@ -64,7 +68,6 @@ extension ExerciseSettingsViewController: UITextFieldDelegate {
         if dotsCount > 0 && string == "," {
             return false
         }
-                
         return true
     }
 }
