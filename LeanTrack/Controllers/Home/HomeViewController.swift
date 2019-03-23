@@ -14,7 +14,8 @@ class HomeViewController: BaseViewController {
     let exerciseSettingsVC = ExerciseSettingsViewController()
     
     let segmentCells = ["LIFT", "REPORTS"]
-    var exercises : Exercises!
+    //var exercises : [Exercise<Any>]!
+    var workoutSession = WorkoutSession()
     var selectedExerciseIndex = 0
     
     var dataSource: HomeDatasource!
@@ -73,10 +74,10 @@ extension HomeViewController: HomeDatasourceProtocol {
 // MARK: SearchResultViewController Delegate (Whenever user adds new exercises)
 extension HomeViewController : SearchResultProtocol {
     func onExerciseSelected(_ exercise: String) {
-        //let exercise = Exercise(cellType: CellType.exercise, item: ExerciseHeader(exerciseName: exercise))
-        let exercise = Exercise<ExerciseHeader>(cellType: CellType.exercise, item: ExerciseHeader(exerciseName: exercise))
-        exercises.exercises.append(exercise as! Exercise<Any>)  
-        //exercises.exercises.append(exercise as! ExerciseHeader)
+        let exercise = ExerciseHeader(exerciseName: exercise)
+        var exerciseHeader = Workout<Any>()
+        exerciseHeader.load(exercise, cellType: CellType.exercise)
+        workoutSession.workouts.append(exerciseHeader)
         //dataSource.updateExercises(add: ExerciseHeader(exerciseName: exercise))
     }
 }

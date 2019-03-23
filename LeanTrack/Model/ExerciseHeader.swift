@@ -17,17 +17,17 @@ enum CellType {
     case set
 }
 
-struct Exercises {
-    var exercises : [Exercise<Any>]!
+class WorkoutSession {
+    var workouts = [Workout<Any>]()
 }
 
-struct Exercise<T> {
-    var cellType: CellType
-    var item: T
+struct Workout<T> {
+    var cellType: CellType!
+    var item = T.self
     
-    mutating func setItems(cellType: CellType, item: T) {
+    mutating func load(_ item: T, cellType: CellType){
+        self.item = item as! T.Type
         self.cellType = cellType
-        self.item = item
     }
 }
 
