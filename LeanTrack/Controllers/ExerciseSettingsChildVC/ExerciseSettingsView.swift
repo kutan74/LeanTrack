@@ -37,6 +37,7 @@ class ExerciseSettingsView: UIView {
         
         repsCountLabel.anchor(top: nil, leading: cancelButton.leadingAnchor, bottom: cancelButton.topAnchor, traling: doneButton.trailingAnchor, padding: .init(top: 0, left: 0, bottom: 30, right: 0), size: .init(width: 0, height: 40))
         repsCountLabel.setPlaceHolderTitle("REPS")
+        repsCountLabel.keyboardType = .numberPad
         weightLabel.anchor(top: nil, leading: repsCountLabel.leadingAnchor, bottom: repsCountLabel.topAnchor, traling: repsCountLabel.trailingAnchor, padding: .init(top: 0, left: 0, bottom: 30, right: 0), size: .init(width: 0, height: 40))
         weightLabel.setPlaceHolderTitle("WEIGHT")
     }

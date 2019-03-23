@@ -24,6 +24,7 @@ class ExerciseSettingsViewController : UIViewController {
         subView.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, traling: view.trailingAnchor)
         subView.cancelButton.addTarget(self, action: #selector(onCancelButtonTapped), for: .touchUpInside)
         subView.doneButton.addTarget(self, action: #selector(onDoneButtonTapped), for: .touchUpInside)
+        subView.weightLabel.delegate = self
     }
     
 }
@@ -43,7 +44,7 @@ extension ExerciseSettingsViewController {
     }
     
     func validateInputFields() throws {
-        guard let weight = subView.weightLabel.text else {
+        guard let weight = subView.weightLabel.text?.replacingOccurrences(of: ",", with: ".") else {
             return
         }
         
@@ -52,6 +53,19 @@ extension ExerciseSettingsViewController {
         }
         
         delegate?.onDoneButtonTapped(weight: Double(weight)!, repCount: Int(rep)!)
+    }
+}
+
+extension ExerciseSettingsViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField,
+                   shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool {
+        let dotsCount = textField.text!.components(separatedBy: ",").count - 1
+        if dotsCount > 0 && string == "," {
+            return false
+        }
+                
+        return true
     }
 }
 
