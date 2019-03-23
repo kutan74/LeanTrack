@@ -8,10 +8,6 @@
 
 import UIKit
 
-/**
- We have two different collectionviews, 1st for loading segments at the bottom of the page
- Other to load added exercises by the user
- */
 class HomeDatasource: NSObject{
     var exercisesTableView: UITableView!
     var workoutSession = WorkoutSession()
@@ -38,8 +34,8 @@ class HomeDatasource: NSObject{
     }
 }
 
+// MARK: UITableViewDelegate & DataSource
 extension HomeDatasource: UITableViewDelegate,UITableViewDataSource  {
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return exercises.count
     }
@@ -56,7 +52,6 @@ extension HomeDatasource: UITableViewDelegate,UITableViewDataSource  {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return CGFloat(75 + (exercises[indexPath.row].sets.count * 20))
-        // Or customize the way you want using the indexPath
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -81,6 +76,4 @@ extension HomeDatasource: UICollectionViewDelegate,UICollectionViewDataSource {
         cell.setNeedsLayout()
         return cell
     }
-    
-    
 }

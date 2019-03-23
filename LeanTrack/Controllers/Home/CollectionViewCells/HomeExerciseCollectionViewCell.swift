@@ -50,7 +50,7 @@ class HomeExerciseCollectionViewCell: UITableViewCell {
     }
     
     override func layoutSubviews() {
-        super.layoutSubviews()        
+        super.layoutSubviews()
         let padding = UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
         bounds = bounds.inset(by: padding)
     }
@@ -71,7 +71,7 @@ class HomeExerciseCollectionViewCell: UITableViewCell {
     
     func setupCollectionViewLayout(){
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = .init(width: UIScreen.main.bounds.size.width, height: 20)        
+        layout.itemSize = .init(width: UIScreen.main.bounds.size.width - 70, height: 20)
         layout.minimumLineSpacing = 1
         layout.minimumInteritemSpacing = 0
         layout.scrollDirection = .vertical
@@ -84,7 +84,7 @@ class HomeExerciseCollectionViewCell: UITableViewCell {
         collectionView.isScrollEnabled = false
         collectionView.showsVerticalScrollIndicator = false
         
-        collectionView.anchor(top: exerciseNameLabel.bottomAnchor, leading: leadingAnchor, bottom: bottomAnchor, traling: trailingAnchor, padding: .init(top: 12, left: 17, bottom: 12, right: 22), size: .init(width: UIScreen.main.bounds.size.width - 40, height: 0))
+        collectionView.anchor(top: exerciseNameLabel.bottomAnchor, leading: leadingAnchor, bottom: bottomAnchor, traling: trailingAnchor, padding: .init(top: 12, left: 17, bottom: 12, right: 22))
     }
 }
 

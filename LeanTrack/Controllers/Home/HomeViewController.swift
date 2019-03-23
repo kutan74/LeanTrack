@@ -12,9 +12,6 @@ import Hero
 class HomeViewController: BaseViewController {    
     let subView = HomeView()
     let exerciseSettingsVC = ExerciseSettingsViewController()
-    
-    let segmentCells = ["LIFT", "REPORTS"]
-    //var exercises : [Exercise<Any>]!
     var workoutSession = WorkoutSession()
     var selectedExerciseIndex = 0
     
@@ -84,19 +81,6 @@ extension HomeViewController: ExerciseSettingsProtocol {
         let exercise = ExerciseSet(weight: weight, repCount: repCount)
         dataSource.updateExerciseSets(with: selectedExerciseIndex, for: exercise)
         exerciseSettingsVC.remove()
-        //dataSource.up
-        /*
-        let exercise = ExerciseSet(weight: weight, repCount: repCount)
-        var exerciseSet = Workout<Any>()
-        exerciseSet.load(exercise, cellType: CellType.set)
-        workoutSession.workouts.append(exerciseSet)        
-        dataSource.updateExercises(add: exerciseSet)
-        exerciseSettingsVC.remove()
-        */
-    }
-    
-    func setAddedExerciseIndex(){
-        //let existingExerciseSetCount = workoutSession.workouts
     }
     
     func onCancelButtonTapped() {
