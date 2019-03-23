@@ -29,6 +29,8 @@ class HomeExerciseCollectionViewCell: UICollectionViewCell {
         return button
     }()
     
+    var collectionView: UICollectionView!
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         [exerciseNameLabel,addSetButton].forEach {
@@ -36,6 +38,7 @@ class HomeExerciseCollectionViewCell: UICollectionViewCell {
         }
         setupBackgroundProperties()
         setupViews()
+        setupCollectionViewLayout()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -50,8 +53,36 @@ class HomeExerciseCollectionViewCell: UICollectionViewCell {
     }
     
     func setupViews(){
-        exerciseNameLabel.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, traling: nil, padding: .init(top: 16, left: 17, bottom: 16, right: 0))
+        exerciseNameLabel.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, traling: nil, padding: .init(top: 16, left: 17, bottom: 16, right: 0))
         addSetButton.anchor(top: nil, leading: nil, bottom: nil, traling: trailingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 14), size: .init(width: 55, height: 26))
         addSetButton.centerYAnchor.constraint(equalTo: exerciseNameLabel.centerYAnchor).isActive = true
-    }  
+    }
+    
+    func setupCollectionViewLayout(){
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = .zero
+        layout.estimatedItemSize = .init(width: UIScreen.main.bounds.size.width - 46, height: 120)
+        layout.minimumLineSpacing = 20
+        layout.minimumInteritemSpacing = 0
+        layout.scrollDirection = .vertical
+        layout.sectionInset = .zero
+        
+        collectionView = UICollectionView(frame: self.frame, collectionViewLayout: layout)
+        addSubview(collectionView)        
+        collectionView.register(ExerciseSetCollectionViewCell.self, forCellWithReuseIdentifier: "set")
+        collectionView.backgroundColor = .clear
+        collectionView.showsVerticalScrollIndicator = false
+        
+        collectionView.anchor(top: exerciseNameLabel.bottomAnchor, leading: leadingAnchor, bottom: bottomAnchor, traling: trailingAnchor, padding: .init(top: 12, left: 17, bottom: 12, right: 22))
+    }
+}
+
+extension HomeExerciseCollectionViewCell: UICollectionViewDelegate,UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+    }
 }

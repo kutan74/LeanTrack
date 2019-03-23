@@ -82,15 +82,21 @@ extension HomeViewController : SearchResultProtocol {
     }
 }
 
-// MARK: ExerciseSettings ChildViewController (Exercise settings like rep count and weight)
+// MARK: ExerciseSettings ChildViewController (Exercise settings such as rep count and weight)
 extension HomeViewController: ExerciseSettingsProtocol {
     func onDoneButtonTapped(weight: Double, repCount: Int) {
+        /*
         let exercise = ExerciseSet(weight: weight, repCount: repCount)
         var exerciseSet = Workout<Any>()
         exerciseSet.load(exercise, cellType: CellType.set)
-        workoutSession.workouts.append(exerciseSet)
+        workoutSession.workouts.append(exerciseSet)        
         dataSource.updateExercises(add: exerciseSet)
         exerciseSettingsVC.remove()
+        */
+    }
+    
+    func setAddedExerciseIndex(){
+        //let existingExerciseSetCount = workoutSession.workouts
     }
     
     func onCancelButtonTapped() {

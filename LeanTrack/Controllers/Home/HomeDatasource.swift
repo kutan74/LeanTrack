@@ -46,7 +46,9 @@ class HomeDatasource: NSObject,UICollectionViewDelegate,UICollectionViewDataSour
     
     // TODO: Pretty fucked up logic here !
     // Should sets not be optional maybe ?
-    func updateExerciseSets(with exerciseIndex: Int, for set: ExerciseSet){
+    func updateExerciseSets(with exerciseIndex: Int, for exercise: Workout<Any>){
+        workoutSession.workouts.append(exercise)
+        let set = exercise.item as! ExerciseSet
         if exercises[exerciseIndex].sets != nil {
             exercises[exerciseIndex].sets?.append(set)
         }else {
@@ -90,6 +92,6 @@ extension HomeDatasource {
     }
     
     @objc func onAddSetButtonTapped(_ sender: UIButton){
-        delegate?.onAddSetButtonTappedForExercise(at: sender.tag)        
+        delegate?.onAddSetButtonTappedForExercise(at: sender.tag)
     }
 }

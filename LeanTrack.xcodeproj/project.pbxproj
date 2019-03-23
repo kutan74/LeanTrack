@@ -14,7 +14,7 @@
 		A016A0E922450624000CA546 /* HomeDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A016A0E822450624000CA546 /* HomeDatasource.swift */; };
 		A016A0EE22455C7B000CA546 /* HomeDatasourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A016A0ED22455C7B000CA546 /* HomeDatasourceProtocol.swift */; };
 		A06BA9242243D4AE0088929F /* HomeExerciseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06BA9232243D4AE0088929F /* HomeExerciseCollectionViewCell.swift */; };
-		A06BA9262243DB230088929F /* ExerciseHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06BA9252243DB230088929F /* ExerciseHeader.swift */; };
+		A06BA9262243DB230088929F /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06BA9252243DB230088929F /* Workout.swift */; };
 		A06BA9282243DE360088929F /* UIView+UICollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06BA9272243DE360088929F /* UIView+UICollectionViewLayout.swift */; };
 		A06BA92A2243F8D10088929F /* UIViewController+ChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06BA9292243F8D10088929F /* UIViewController+ChildViewController.swift */; };
 		A0983CE1223C0F56005BEA8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0983CE0223C0F56005BEA8E /* AppDelegate.swift */; };
@@ -74,7 +74,7 @@
 		A016A0E822450624000CA546 /* HomeDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDatasource.swift; sourceTree = "<group>"; };
 		A016A0ED22455C7B000CA546 /* HomeDatasourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDatasourceProtocol.swift; sourceTree = "<group>"; };
 		A06BA9232243D4AE0088929F /* HomeExerciseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExerciseCollectionViewCell.swift; sourceTree = "<group>"; };
-		A06BA9252243DB230088929F /* ExerciseHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseHeader.swift; sourceTree = "<group>"; };
+		A06BA9252243DB230088929F /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		A06BA9272243DE360088929F /* UIView+UICollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+UICollectionViewLayout.swift"; sourceTree = "<group>"; };
 		A06BA9292243F8D10088929F /* UIViewController+ChildViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ChildViewController.swift"; sourceTree = "<group>"; };
 		A0983CDD223C0F56005BEA8E /* LeanTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeanTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -181,6 +181,13 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		A05C133C22462A7A003AEB43 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
 		A06BA9222243D49A0088929F /* CollectionViewCells */ = {
 			isa = PBXGroup;
 			children = (
@@ -248,7 +255,7 @@
 		A0983D11223C0F69005BEA8E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A06BA9252243DB230088929F /* ExerciseHeader.swift */,
+				A06BA9252243DB230088929F /* Workout.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -256,6 +263,7 @@
 		A0983D13223C0F75005BEA8E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A05C133C22462A7A003AEB43 /* Auth */,
 				A016A0E52244D1FB000CA546 /* ErrorHandling */,
 				A0983D3D223EC1D8005BEA8E /* ExerciseSettingsChildVC */,
 				A0983D33223E7277005BEA8E /* SearchExercise */,
@@ -627,7 +635,7 @@
 				A06BA92A2243F8D10088929F /* UIViewController+ChildViewController.swift in Sources */,
 				A0983D27223D6DE6005BEA8E /* UIFont+CustomFontTypes.swift in Sources */,
 				A0983D35223E728C005BEA8E /* SearchExerciseViewController.swift in Sources */,
-				A06BA9262243DB230088929F /* ExerciseHeader.swift in Sources */,
+				A06BA9262243DB230088929F /* Workout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -43,8 +43,7 @@ class HomeView: UIView {
         
         collectionView = UICollectionView(frame: self.frame, collectionViewLayout: layout)
         addSubview(collectionView)
-        collectionView.register(HomeExerciseCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
-        collectionView.register(ExerciseSetCollectionViewCell.self, forCellWithReuseIdentifier: "set")
+        collectionView.register(HomeExerciseCollectionViewCell.self, forCellWithReuseIdentifier: "cell")    
         collectionView.backgroundColor = .clear
         collectionView.showsVerticalScrollIndicator = false
         
