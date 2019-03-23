@@ -13,6 +13,8 @@
 		A016A0E72245052B000CA546 /* ExerciseSetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A016A0E62245052B000CA546 /* ExerciseSetCollectionViewCell.swift */; };
 		A016A0E922450624000CA546 /* HomeDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A016A0E822450624000CA546 /* HomeDatasource.swift */; };
 		A016A0EE22455C7B000CA546 /* HomeDatasourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A016A0ED22455C7B000CA546 /* HomeDatasourceProtocol.swift */; };
+		A05C133E22468997003AEB43 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A05C133D22468997003AEB43 /* GoogleService-Info.plist */; };
+		A05C134122469DC1003AEB43 /* FirestoreLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C134022469DC1003AEB43 /* FirestoreLoader.swift */; };
 		A06BA9242243D4AE0088929F /* HomeExerciseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06BA9232243D4AE0088929F /* HomeExerciseCollectionViewCell.swift */; };
 		A06BA9262243DB230088929F /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06BA9252243DB230088929F /* Workout.swift */; };
 		A06BA9282243DE360088929F /* UIView+UICollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06BA9272243DE360088929F /* UIView+UICollectionViewLayout.swift */; };
@@ -71,6 +73,8 @@
 		A016A0E62245052B000CA546 /* ExerciseSetCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseSetCollectionViewCell.swift; sourceTree = "<group>"; };
 		A016A0E822450624000CA546 /* HomeDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDatasource.swift; sourceTree = "<group>"; };
 		A016A0ED22455C7B000CA546 /* HomeDatasourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDatasourceProtocol.swift; sourceTree = "<group>"; };
+		A05C133D22468997003AEB43 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A05C134022469DC1003AEB43 /* FirestoreLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreLoader.swift; sourceTree = "<group>"; };
 		A06BA9232243D4AE0088929F /* HomeExerciseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExerciseCollectionViewCell.swift; sourceTree = "<group>"; };
 		A06BA9252243DB230088929F /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		A06BA9272243DE360088929F /* UIView+UICollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+UICollectionViewLayout.swift"; sourceTree = "<group>"; };
@@ -183,6 +187,14 @@
 			path = Auth;
 			sourceTree = "<group>";
 		};
+		A05C133F22469DAB003AEB43 /* FirestoreUpdater */ = {
+			isa = PBXGroup;
+			children = (
+				A05C134022469DC1003AEB43 /* FirestoreLoader.swift */,
+			);
+			path = FirestoreUpdater;
+			sourceTree = "<group>";
+		};
 		A06BA9222243D49A0088929F /* CollectionViewCells */ = {
 			isa = PBXGroup;
 			children = (
@@ -225,6 +237,7 @@
 				A0983CEC223C0F57005BEA8E /* LaunchScreen.storyboard */,
 				A0983CEF223C0F57005BEA8E /* Info.plist */,
 				A0983CE7223C0F56005BEA8E /* LeanTrack.xcdatamodeld */,
+				A05C133D22468997003AEB43 /* GoogleService-Info.plist */,
 			);
 			path = LeanTrack;
 			sourceTree = "<group>";
@@ -283,6 +296,7 @@
 		A0983D17223D6B9A005BEA8E /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				A05C133F22469DAB003AEB43 /* FirestoreUpdater */,
 				A016A0EA2245116E000CA546 /* Views */,
 				A06BA9222243D49A0088929F /* CollectionViewCells */,
 				A0983D18223D6BA7005BEA8E /* HomeViewController.swift */,
@@ -461,6 +475,7 @@
 			files = (
 				A0983D22223D6DD8005BEA8E /* Conduit_ITC.ttf in Resources */,
 				A0983D24223D6DD8005BEA8E /* Conduit_ITC_Bold.ttf in Resources */,
+				A05C133E22468997003AEB43 /* GoogleService-Info.plist in Resources */,
 				A0983CEE223C0F57005BEA8E /* LaunchScreen.storyboard in Resources */,
 				A0983CEB223C0F57005BEA8E /* Assets.xcassets in Resources */,
 				A0983D25223D6DD8005BEA8E /* Conduit_ITC_Medium.ttf in Resources */,
@@ -522,7 +537,8 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\n";
+			shellScript = "
+";
 		};
 		C7494D3C75226A0260CDB3D5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -634,6 +650,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A016A0E42244D1F6000CA546 /* LeanTrackErrors.swift in Sources */,
+				A05C134122469DC1003AEB43 /* FirestoreLoader.swift in Sources */,
 				A0983D3C223EBBB7005BEA8E /* SearchResultProtocol.swift in Sources */,
 				A0983D37223E72FC005BEA8E /* SearchExerciseView.swift in Sources */,
 				A016A0E922450624000CA546 /* HomeDatasource.swift in Sources */,

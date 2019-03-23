@@ -12,10 +12,11 @@ import Hero
 class HomeViewController: BaseViewController {    
     let subView = HomeView()
     let exerciseSettingsVC = ExerciseSettingsViewController()
-    var workoutSession = WorkoutSession()
+    var exercises: [ExerciseHeader] = []
     var selectedExerciseIndex = 0
     
     var dataSource: HomeDatasource!
+    var fireStoreLoader = FirestoreLoader()
     
     override func loadView() {
         view = UIView()
@@ -70,16 +71,27 @@ extension HomeViewController: HomeDatasourceProtocol {
 // MARK: SearchResultViewController Delegate (Whenever user adds new exercises)
 extension HomeViewController : SearchResultProtocol {
     func onExerciseSelected(_ exercise: String) {
-        let exercise = ExerciseHeader(exerciseName: exercise)
-        dataSource.updateExercises(add: exercise)
+        let exerciseHeader = ExerciseHeader(exerciseName: exercise)
+        dataSource.updateExercises(add: exerciseHeader)
+        fireStoreLoader.createNewWorkoutSession(exerciseName: exercise) { (error) in
+            if error == nil {
+                
+            }
+        }
     }
 }
 
 // MARK: ExerciseSettings ChildViewController (Exercise settings such as rep count and weight)
 extension HomeViewController: ExerciseSettingsProtocol {
     func onDoneButtonTapped(weight: Double, repCount: Int) {
-        let exercise = ExerciseSet(weight: weight, repCount: repCount)
-        dataSource.updateExerciseSets(with: selectedExerciseIndex, for: exercise)
+        let set = ExerciseSet(weight: weight, repCount: repCount)
+        exercises[selectedExerciseIndex].sets.append(set)
+        dataSource.updateExerciseSets(with: selectedExerciseIndex, for: set)
+        fireStoreLoader.addWorkoutSet(to: "2JJhuYvn4PEPiIeLD2eD", workout: exercises[selectedExerciseIndex]) { (error) in
+            if error == nil {
+                
+            }
+        }
         exerciseSettingsVC.remove()
     }
     
