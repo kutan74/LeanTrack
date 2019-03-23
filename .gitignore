@@ -63,6 +63,7 @@ Carthage/Build
 # https://docs.fastlane.tools/best-practices/source-control/#source-control
 
 LeanTrack/GoogleService-Info.plist
+
 fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots/**/*.png
