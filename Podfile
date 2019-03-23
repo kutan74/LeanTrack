@@ -7,6 +7,8 @@ target 'LeanTrack' do
 
   # Pods for LeanTrack
   pod 'Hero'
+  pod 'Firebase/Core'
+  pod 'Firebase/Firestore'
 
   target 'LeanTrackTests' do
     inherit! :search_paths
