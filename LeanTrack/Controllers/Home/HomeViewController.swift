@@ -25,17 +25,16 @@ class HomeViewController: BaseViewController {
         view.backgroundColor = UIColor.background
         
         setupViews(subView)
-        setCollectionViewDatasource()
+        setTableViewDatasource()
         setTapActions()
         setExerciseSettingsVCDelegate()
         setHeroModifiers()
     }
     
-    func setCollectionViewDatasource(){
-        dataSource = HomeDatasource(segmentCollectionView: subView.segmentMenu.collectionView, exercisesCollectionView: subView.collectionView)
+    func setTableViewDatasource(){
+        dataSource = HomeDatasource(exercisesTableView: subView.tableView)
         dataSource.setCollectionViewDatasource()
         dataSource.delegate = self
-        dataSource.loadSegments(segmentCells)
     }
     
     func setTapActions(){
@@ -75,16 +74,17 @@ extension HomeViewController: HomeDatasourceProtocol {
 extension HomeViewController : SearchResultProtocol {
     func onExerciseSelected(_ exercise: String) {
         let exercise = ExerciseHeader(exerciseName: exercise)
-        var exerciseHeader = Workout<Any>()
-        exerciseHeader.load(exercise, cellType: CellType.exercise)
-        workoutSession.workouts.append(exerciseHeader)
-        dataSource.updateExercises(add: exerciseHeader)
+        dataSource.updateExercises(add: exercise)
     }
 }
 
 // MARK: ExerciseSettings ChildViewController (Exercise settings such as rep count and weight)
 extension HomeViewController: ExerciseSettingsProtocol {
     func onDoneButtonTapped(weight: Double, repCount: Int) {
+        let exercise = ExerciseSet(weight: weight, repCount: repCount)
+        dataSource.updateExerciseSets(with: selectedExerciseIndex, for: exercise)
+        exerciseSettingsVC.remove()
+        //dataSource.up
         /*
         let exercise = ExerciseSet(weight: weight, repCount: repCount)
         var exerciseSet = Workout<Any>()

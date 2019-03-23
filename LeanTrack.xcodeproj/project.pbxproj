@@ -33,8 +33,6 @@
 		A0983D27223D6DE6005BEA8E /* UIFont+CustomFontTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0983D26223D6DE6005BEA8E /* UIFont+CustomFontTypes.swift */; };
 		A0983D29223D6F2C005BEA8E /* UIColor+Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0983D28223D6F2C005BEA8E /* UIColor+Colors.swift */; };
 		A0983D2C223D6F4F005BEA8E /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0983D2B223D6F4F005BEA8E /* BaseViewController.swift */; };
-		A0983D2E223D6FC5005BEA8E /* HomeSegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0983D2D223D6FC5005BEA8E /* HomeSegmentView.swift */; };
-		A0983D31223D70B2005BEA8E /* HomeSegmentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0983D30223D70B2005BEA8E /* HomeSegmentCollectionViewCell.swift */; };
 		A0983D35223E728C005BEA8E /* SearchExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0983D34223E728C005BEA8E /* SearchExerciseViewController.swift */; };
 		A0983D37223E72FC005BEA8E /* SearchExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0983D36223E72FC005BEA8E /* SearchExerciseView.swift */; };
 		A0983D3A223E73E5005BEA8E /* SearchExerciseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0983D39223E73E5005BEA8E /* SearchExerciseCollectionViewCell.swift */; };
@@ -99,8 +97,6 @@
 		A0983D26223D6DE6005BEA8E /* UIFont+CustomFontTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+CustomFontTypes.swift"; sourceTree = "<group>"; };
 		A0983D28223D6F2C005BEA8E /* UIColor+Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Colors.swift"; sourceTree = "<group>"; };
 		A0983D2B223D6F4F005BEA8E /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		A0983D2D223D6FC5005BEA8E /* HomeSegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSegmentView.swift; sourceTree = "<group>"; };
-		A0983D30223D70B2005BEA8E /* HomeSegmentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSegmentCollectionViewCell.swift; sourceTree = "<group>"; };
 		A0983D34223E728C005BEA8E /* SearchExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchExerciseViewController.swift; sourceTree = "<group>"; };
 		A0983D36223E72FC005BEA8E /* SearchExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchExerciseView.swift; sourceTree = "<group>"; };
 		A0983D39223E73E5005BEA8E /* SearchExerciseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchExerciseCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -176,7 +172,6 @@
 			isa = PBXGroup;
 			children = (
 				A0983D1A223D6D49005BEA8E /* HomeView.swift */,
-				A0983D2D223D6FC5005BEA8E /* HomeSegmentView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -290,7 +285,6 @@
 			children = (
 				A016A0EA2245116E000CA546 /* Views */,
 				A06BA9222243D49A0088929F /* CollectionViewCells */,
-				A0983D2F223D70A0005BEA8E /* SegmentCells */,
 				A0983D18223D6BA7005BEA8E /* HomeViewController.swift */,
 				A016A0E822450624000CA546 /* HomeDatasource.swift */,
 				A016A0ED22455C7B000CA546 /* HomeDatasourceProtocol.swift */,
@@ -324,14 +318,6 @@
 				A0983D2B223D6F4F005BEA8E /* BaseViewController.swift */,
 			);
 			path = Base;
-			sourceTree = "<group>";
-		};
-		A0983D2F223D70A0005BEA8E /* SegmentCells */ = {
-			isa = PBXGroup;
-			children = (
-				A0983D30223D70B2005BEA8E /* HomeSegmentCollectionViewCell.swift */,
-			);
-			path = SegmentCells;
 			sourceTree = "<group>";
 		};
 		A0983D33223E7277005BEA8E /* SearchExercise */ = {
@@ -615,7 +601,6 @@
 				A0983D3C223EBBB7005BEA8E /* SearchResultProtocol.swift in Sources */,
 				A0983D37223E72FC005BEA8E /* SearchExerciseView.swift in Sources */,
 				A016A0E922450624000CA546 /* HomeDatasource.swift in Sources */,
-				A0983D2E223D6FC5005BEA8E /* HomeSegmentView.swift in Sources */,
 				A0983D19223D6BA7005BEA8E /* HomeViewController.swift in Sources */,
 				A0983CE9223C0F56005BEA8E /* LeanTrack.xcdatamodeld in Sources */,
 				A06BA9242243D4AE0088929F /* HomeExerciseCollectionViewCell.swift in Sources */,
@@ -629,7 +614,6 @@
 				A016A0EE22455C7B000CA546 /* HomeDatasourceProtocol.swift in Sources */,
 				A0983D3A223E73E5005BEA8E /* SearchExerciseCollectionViewCell.swift in Sources */,
 				A0983D2C223D6F4F005BEA8E /* BaseViewController.swift in Sources */,
-				A0983D31223D70B2005BEA8E /* HomeSegmentCollectionViewCell.swift in Sources */,
 				A0983CE1223C0F56005BEA8E /* AppDelegate.swift in Sources */,
 				A06BA9282243DE360088929F /* UIView+UICollectionViewLayout.swift in Sources */,
 				A06BA92A2243F8D10088929F /* UIViewController+ChildViewController.swift in Sources */,

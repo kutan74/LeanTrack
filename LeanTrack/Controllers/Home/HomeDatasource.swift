@@ -12,86 +12,75 @@ import UIKit
  We have two different collectionviews, 1st for loading segments at the bottom of the page
  Other to load added exercises by the user
  */
-class HomeDatasource: NSObject,UICollectionViewDelegate,UICollectionViewDataSource {
-    
-    var segmentCollectionView: UICollectionView!
-    var exercisesCollectionView: UICollectionView!
-    
-    var segments: [String] = []
+class HomeDatasource: NSObject{
+    var exercisesTableView: UITableView!
     var workoutSession = WorkoutSession()
     var exercises: [ExerciseHeader] = []
     weak var delegate: HomeDatasourceProtocol?
     
-    init(segmentCollectionView: UICollectionView, exercisesCollectionView: UICollectionView) {
-        self.segmentCollectionView = segmentCollectionView
-        self.exercisesCollectionView = exercisesCollectionView
+    init(exercisesTableView: UITableView) {
+        self.exercisesTableView = exercisesTableView
     }
     
     func setCollectionViewDatasource(){
-        segmentCollectionView.delegate = self
-        segmentCollectionView.dataSource = self
-        exercisesCollectionView.delegate = self
-        exercisesCollectionView.dataSource = self
+        exercisesTableView.delegate = self
+        exercisesTableView.dataSource = self
     }
     
-    func loadSegments(_ segments: [String]){
-        self.segments = segments
-        segmentCollectionView.reloadData()
+    func updateExercises(add exercise: ExerciseHeader){
+        exercises.append(exercise)
+        exercisesTableView.reloadData()
     }
-    
-    func updateExercises(add exercise: Workout<Any>){
-        workoutSession.workouts.append(exercise)
-        exercisesCollectionView.reloadData()
-    }
-    
-    // TODO: Pretty fucked up logic here !
-    // Should sets not be optional maybe ?
-    func updateExerciseSets(with exerciseIndex: Int, for exercise: Workout<Any>){
-        workoutSession.workouts.append(exercise)
-        let set = exercise.item as! ExerciseSet
-        if exercises[exerciseIndex].sets != nil {
-            exercises[exerciseIndex].sets?.append(set)
-        }else {
-            exercises[exerciseIndex].sets = []
-            exercises[exerciseIndex].sets?.append(set)
-        }
-        exercisesCollectionView.reloadData()
+
+    func updateExerciseSets(with exerciseIndex: Int, for exercise: ExerciseSet){
+        exercises[exerciseIndex].sets.append(exercise)
+        exercisesTableView.reloadData()
     }
 }
 
-extension HomeDatasource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == segmentCollectionView {
-            return segments.count
-        }else {
-            return workoutSession.workouts.count
-        }
+extension HomeDatasource: UITableViewDelegate,UITableViewDataSource  {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return exercises.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView == segmentCollectionView {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! HomeSegmentCollectionViewCell
-            cell.segmentTitle.text = segments[indexPath.row]
-            return cell
-        }else {
-            let workout = workoutSession.workouts[indexPath.row]
-            if workout.cellType == CellType.exercise {
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! HomeExerciseCollectionViewCell
-                let exerciseHeader = workout.item as! ExerciseHeader
-                cell.exerciseNameLabel.text = exerciseHeader.exerciseName
-                cell.addSetButton.addTarget(self, action: #selector(onAddSetButtonTapped(_:)), for: .touchUpInside)
-                return cell
-            }else {
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "set", for: indexPath) as! ExerciseSetCollectionViewCell
-                let exerciseSet = workout.item as! ExerciseSet
-                cell.weightLabel.text = String(exerciseSet.weight)
-                cell.repCountLabel.text = String(exerciseSet.repCount)
-                return cell
-            }
-        }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! HomeExerciseCollectionViewCell
+        let exercise = exercises[indexPath.row]
+        cell.exerciseNameLabel.text = exercise.exerciseName
+        cell.addSetButton.tag = indexPath.row
+        cell.addSetButton.addTarget(self, action: #selector(onAddSetButtonTapped(_:)), for: .touchUpInside)
+        cell.setCollectionViewDataSourceDelegate(self, forRow: indexPath.row)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return CGFloat(75 + (exercises[indexPath.row].sets.count * 20))
+        // Or customize the way you want using the indexPath
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 10.0
     }
     
     @objc func onAddSetButtonTapped(_ sender: UIButton){
         delegate?.onAddSetButtonTappedForExercise(at: sender.tag)
     }
+}
+
+extension HomeDatasource: UICollectionViewDelegate,UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {        
+        return exercises[collectionView.tag].sets.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ExerciseSetCollectionViewCell
+        let set = exercises[collectionView.tag].sets[indexPath.row]
+        cell.weightLabel.text = String(set.weight)
+        cell.repCountLabel.text = String(set.repCount)
+        cell.setNeedsLayout()
+        return cell
+    }
+    
+    
 }

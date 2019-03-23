@@ -9,14 +9,12 @@
 import UIKit
 
 class HomeView: UIView {
-    let segmentMenu = HomeSegmentView()
     let searchTextField = HomeSearchTextField()
-    
-    var collectionView: UICollectionView!
+    var tableView: UITableView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        [segmentMenu,searchTextField].forEach {
+        [searchTextField].forEach {
             addSubview($0)
         }
         setupViews()
@@ -28,26 +26,17 @@ class HomeView: UIView {
     }
     
     func setupViews(){
-        segmentMenu.anchor(top: nil, leading: leadingAnchor, bottom: bottomAnchor, traling: trailingAnchor)
         searchTextField.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, traling: trailingAnchor, padding: .init(top: 41, left: 26, bottom: 0, right: 26),size: .init(width: 0, height: 20))
     }
     
-    func setupCollectionViewLayout(){
-        let layout = UICollectionViewFlowLayout()
-        layout.itemSize = .zero
-        layout.estimatedItemSize = .init(width: UIScreen.main.bounds.size.width - 46, height: 120)
-        layout.minimumLineSpacing = 20
-        layout.minimumInteritemSpacing = 0
-        layout.scrollDirection = .vertical
-        layout.sectionInset = .zero
-        
-        collectionView = UICollectionView(frame: self.frame, collectionViewLayout: layout)
-        addSubview(collectionView)
-        collectionView.register(HomeExerciseCollectionViewCell.self, forCellWithReuseIdentifier: "cell")    
-        collectionView.backgroundColor = .clear
-        collectionView.showsVerticalScrollIndicator = false
-        
-        collectionView.anchor(top: searchTextField.bottomAnchor, leading: leadingAnchor, bottom: nil, traling: trailingAnchor, padding: .init(top: 30, left: 22, bottom: 30, right: 22), size: .init(width: 0, height: UIScreen.main.bounds.size.height - 70))
+    func setupCollectionViewLayout(){        
+        tableView = UITableView()        
+        tableView.tableFooterView = UIView()
+        tableView.estimatedRowHeight = 120
+        tableView.backgroundColor = .clear
+        addSubview(tableView)
+        tableView.register(HomeExerciseCollectionViewCell.self, forCellReuseIdentifier: "cell")        
+        tableView.anchor(top: searchTextField.bottomAnchor, leading: leadingAnchor, bottom: nil, traling: trailingAnchor, padding: .init(top: 30, left: 22, bottom: 30, right: 22), size: .init(width: 0, height: UIScreen.main.bounds.size.height - 70))
     }
 }
 

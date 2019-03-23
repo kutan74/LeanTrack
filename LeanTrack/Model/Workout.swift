@@ -33,7 +33,7 @@ struct Workout<T> {
 
 struct ExerciseHeader {
     var exerciseName: String!
-    var sets: [ExerciseSet]?
+    var sets: [ExerciseSet] = []
     
     init(exerciseName: String) {
         self.exerciseName = exerciseName        
