@@ -29,6 +29,7 @@ struct ExerciseHeader {
     mutating func updateDocumentID(_ id: String){
         self.documentID = id
     }
+        
 }
 
 struct ExerciseSet {

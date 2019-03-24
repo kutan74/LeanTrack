@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DZNEmptyDataSet
 
 class HomeDatasource: NSObject{
     var exercisesTableView: UITableView!    
@@ -20,6 +21,8 @@ class HomeDatasource: NSObject{
     func setCollectionViewDatasource(){
         exercisesTableView.delegate = self
         exercisesTableView.dataSource = self
+        exercisesTableView.emptyDataSetSource = self
+        exercisesTableView.emptyDataSetDelegate = self
     }
     
     func updateExercises(add exercise: ExerciseHeader){
@@ -45,7 +48,7 @@ extension HomeDatasource: UITableViewDelegate,UITableViewDataSource  {
         cell.exerciseNameLabel.text = exercise.exerciseName
         cell.addSetButton.tag = indexPath.row
         cell.addSetButton.addTarget(self, action: #selector(onAddSetButtonTapped(_:)), for: .touchUpInside)
-        cell.setCollectionViewDataSourceDelegate(self, forRow: indexPath.row)
+        cell.setCollectionViewDataSourceDelegate(self, forRow: indexPath.row)       
         return cell
     }
     
@@ -75,5 +78,23 @@ extension HomeDatasource: UICollectionViewDelegate,UICollectionViewDataSource {
         cell.repCountLabel.text = String(set.repCount)
         cell.setNeedsLayout()
         return cell
+    }
+}
+
+extension HomeDatasource: DZNEmptyDataSetSource,DZNEmptyDataSetDelegate {
+    func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
+        let str = "Empty Workout Session"
+        let attrs = [NSAttributedString.Key.font: UIFont(name: "ConduitITC-Bold", size: 18), NSAttributedString.Key.foregroundColor: UIColor.white]
+        return NSAttributedString(string: str, attributes: attrs as [NSAttributedString.Key : Any])
+    }
+    
+    func description(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
+        let str = "Start your workout session by searcing an exercise"
+        let attrs = [NSAttributedString.Key.font: UIFont(name: "ConduitITC-Bold", size: 14), NSAttributedString.Key.foregroundColor: UIColor.white]
+        return NSAttributedString(string: str, attributes: attrs as [NSAttributedString.Key : Any])
+    }
+    
+    func image(forEmptyDataSet scrollView: UIScrollView) -> UIImage? {
+        return UIImage(named: "weight")
     }
 }

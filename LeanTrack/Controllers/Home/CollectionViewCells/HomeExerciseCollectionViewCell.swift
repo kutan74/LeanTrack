@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeExerciseCollectionViewCell: UITableViewCell {
+class HomeExerciseCollectionViewCell: UITableViewCell,UpdateableTableViewCell {
     let exerciseNameLabel: UILabel = {
         let label = UILabel()
         label.setCustomFont(size: 18, fontType: CustomFonts.conduitBold)
@@ -104,3 +104,16 @@ extension HomeExerciseCollectionViewCell {
     }
 }
 
+protocol UpdateableTableViewCell {
+    
+}
+
+extension UpdateableTableViewCell where Self: HomeExerciseCollectionViewCell {
+    func startUpdating(){
+        self.layer.borderColor = UIColor.green.cgColor
+    }
+    
+    func endUpdating(){
+        self.layer.borderColor = UIColor.cellBorder.cgColor
+    }
+}

@@ -34,6 +34,8 @@ class SearchExerciseViewController: BaseViewController {
     
     // MARK: CollectionView Datasource
     func setCollectionViewDatasource(){
+        searchResult = exercises
+        
         subView.collectionView.dataSource = self
         subView.collectionView.delegate = self
     }
@@ -43,7 +45,7 @@ class SearchExerciseViewController: BaseViewController {
 extension SearchExerciseViewController {
     @objc func textFieldDidChange(_ textField: UITextField) {
         guard let typedText = textField.text else {
-            return
+            return searchResult = exercises
         }
         
         searchResult = exercises.filter { $0.prefix(typedText.count).lowercased() == typedText.lowercased()}

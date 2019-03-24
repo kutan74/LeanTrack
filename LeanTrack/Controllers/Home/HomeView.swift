@@ -30,7 +30,8 @@ class HomeView: UIView {
     }
     
     func setupCollectionViewLayout(){        
-        tableView = UITableView()        
+        tableView = UITableView()
+        tableView.allowsSelection = false
         tableView.tableFooterView = UIView()
         tableView.estimatedRowHeight = 120
         tableView.backgroundColor = .clear

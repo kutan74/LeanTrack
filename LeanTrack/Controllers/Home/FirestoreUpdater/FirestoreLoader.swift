@@ -12,12 +12,40 @@ import FirebaseFirestore
 class FirestoreLoader {
     let db = Firestore.firestore()
     var ref: DocumentReference? = nil
+    var sessionRefId: String!
     typealias loaderHandlerBlock = (_ handler: Error?) -> Void
 }
 
 // MARK: Adding collections
 extension FirestoreLoader {
+    func getTodaysWorkoutSession(handler: @escaping (Bool) -> Void){
+        let docRef = db.collection("Workouts").document(getCurrentDate())
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                handler(true)
+            } else {
+                handler(false)
+            }
+        }
+    }
+    
     func createNewWorkoutSession(exerciseName: String, then handler: @escaping (Error?) -> Void) {
+        let docData: [String: Any] = [
+            "exercise": "Hello world!",
+            "booleanExample": true,
+            "numberExample": 3.14159265,
+            "arrayExample": [5, true, "hello"],
+            "nullExample": NSNull(),
+            "objectExample": [
+                "a": 5,
+                "b": [
+                    "nested": "foo"
+                ]
+            ]
+        ]
+        
+        //db.collection("Workouts").document(getCurrentDate()).setData(docData)        
         ref = db.collection("Workouts").addDocument(data: [
             "exerciseName": exerciseName,
             "date": self.getCurrentDate()
@@ -52,14 +80,11 @@ extension FirestoreLoader {
     }
 }
 
-// MARK: Date
+// MARK: Retrieve existing workout session
 extension FirestoreLoader {
-    func getCurrentDate() -> String{
-        let currentDateTime = Date()
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy/MM/dd HH:mm"
-        return formatter.string(from: currentDateTime)
-    }    
+    func haveExistingWorkoutSession(){
+        
+    }
 }
 
 // MARK: Helpers
@@ -75,5 +100,12 @@ extension FirestoreLoader {
             sets.append(set)
         }
         return sets
+    }
+    
+    func getCurrentDate() -> String{
+        let currentDateTime = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy.MM.dd"
+        return formatter.string(from: currentDateTime)
     }
 }
