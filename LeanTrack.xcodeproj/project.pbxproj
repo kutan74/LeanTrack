@@ -190,13 +190,6 @@
 			path = Auth;
 			sourceTree = "<group>";
 		};
-		A05C134422476474003AEB43 /* Activity */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Activity;
-			sourceTree = "<group>";
-		};
 		A06BA9222243D49A0088929F /* CollectionViewCells */ = {
 			isa = PBXGroup;
 			children = (
@@ -331,7 +324,6 @@
 		A0983D2A223D6F46005BEA8E /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				A05C134422476474003AEB43 /* Activity */,
 				A0983D2B223D6F4F005BEA8E /* BaseViewController.swift */,
 			);
 			path = Base;

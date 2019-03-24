@@ -21,6 +21,7 @@ struct ExerciseHeader {
     var documentID: String!
     var exerciseName: String!
     var sets: [ExerciseSet] = []
+    var isUpdating = false
     
     init(exerciseName: String) {
         self.exerciseName = exerciseName        
@@ -28,6 +29,10 @@ struct ExerciseHeader {
     
     mutating func updateDocumentID(_ id: String){
         self.documentID = id
+    }
+    
+    mutating func setUpdateStatus(_ status: Bool){
+        self.isUpdating = status
     }
         
 }

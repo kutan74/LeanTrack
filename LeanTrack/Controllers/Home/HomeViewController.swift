@@ -75,7 +75,7 @@ extension HomeViewController : SearchResultProtocol {
             if let err = error {
                 self.displayLocalizedError(err.localizedDescription)
             }else {
-                let exerciseHeader = ExerciseHeader(exerciseName: exerciseName)
+                let exerciseHeader = ExerciseHeader(exerciseName: exerciseName)                
                 self.exercises.append(exerciseHeader)
                 self.dataSource.updateExercises(add: exerciseHeader)
             }
@@ -87,12 +87,15 @@ extension HomeViewController : SearchResultProtocol {
 extension HomeViewController: ExerciseSettingsProtocol {
     func onDoneButtonTapped(weight: Double, repCount: Int) {
         exerciseSettingsVC.remove()
-        fireStoreLoader.addWorkoutSet(to: "8RGUexbeqPUoVbg74Coc", workout: exercises[selectedExerciseIndex]) { (error) in
+        
+        let set = ExerciseSet(weight: weight, repCount: repCount)
+        exercises[self.selectedExerciseIndex].sets.append(set)
+        dataSource.setExerciseUpdateStatus(with: selectedExerciseIndex, for: true)
+        
+        fireStoreLoader.addWorkoutSet(workout: exercises[selectedExerciseIndex]) { (error) in
             if let err = error {
                 self.displayLocalizedError(err.localizedDescription)
             }else {
-                let set = ExerciseSet(weight: weight, repCount: repCount)
-                self.exercises[self.selectedExerciseIndex].sets.append(set)
                 self.dataSource.updateExerciseSets(with: self.selectedExerciseIndex, for: set)
             }
         }

@@ -43,7 +43,6 @@ class HomeExerciseCollectionViewCell: UITableViewCell,UpdateableTableViewCell {
     }()
     
     var collectionView: UICollectionView!
-    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         [exerciseNameLabel,addSetButton,removeExerciseButton].forEach {
@@ -108,14 +107,8 @@ extension HomeExerciseCollectionViewCell {
         collectionView.delegate = dataSourceDelegate
         collectionView.dataSource = dataSourceDelegate
         collectionView.tag = row
-        //collectionView.setContentOffset(collectionView.contentOffset, animated:false) // Stops collection view if it was scrolling.
         collectionView.reloadData()        
-    }
-    
-    var collectionViewOffset: CGFloat {
-        set { collectionView.contentOffset.x = newValue }
-        get { return collectionView.contentOffset.x }
-    }
+    }    
 }
 
 protocol UpdateableTableViewCell {
@@ -124,10 +117,9 @@ protocol UpdateableTableViewCell {
 
 extension UpdateableTableViewCell where Self: HomeExerciseCollectionViewCell {
     func startUpdating(){
-        self.layer.borderColor = UIColor.green.cgColor
+        
     }
     
-    func endUpdating(){
-        self.layer.borderColor = UIColor.cellBorder.cgColor
+    func endUpdating(){        
     }
 }

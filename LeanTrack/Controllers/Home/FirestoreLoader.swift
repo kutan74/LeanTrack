@@ -20,7 +20,7 @@ class FirestoreLoader {
 extension FirestoreLoader {
     func createNewWorkoutSession(exerciseName: String, then handler: @escaping (Error?) -> Void) {
         let docData: [String: Any] = [
-            "exerciseName": "Hello world!",
+            "exerciseName": exerciseName,
             "date": getCurrentDate()
         ]
         
@@ -34,7 +34,7 @@ extension FirestoreLoader {
         }
     }
         
-    func addWorkoutSet(to documentID: String, workout: ExerciseHeader, then handler: @escaping (Error?) -> Void) {
+    func addWorkoutSet(workout: ExerciseHeader, then handler: @escaping (Error?) -> Void) {
         guard let documentID = ref?.documentID else {
             return
         }

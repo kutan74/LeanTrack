@@ -25,13 +25,19 @@ class HomeDatasource: NSObject{
         exercisesTableView.emptyDataSetDelegate = self
     }
     
-    func updateExercises(add exercise: ExerciseHeader){
+    func updateExercises(add exercise: ExerciseHeader){        
         exercises.append(exercise)
         exercisesTableView.reloadData()
     }
 
     func updateExerciseSets(with exerciseIndex: Int, for exercise: ExerciseSet){
+        exercises[exerciseIndex].setUpdateStatus(false)
         exercises[exerciseIndex].sets.append(exercise)
+        exercisesTableView.reloadData()
+    }
+    
+    func setExerciseUpdateStatus(with index: Int, for status: Bool){
+        exercises[index].setUpdateStatus(status)
         exercisesTableView.reloadData()
     }
 }
@@ -48,7 +54,7 @@ extension HomeDatasource: UITableViewDelegate,UITableViewDataSource  {
         cell.exerciseNameLabel.text = exercise.exerciseName
         cell.addSetButton.tag = indexPath.row
         cell.addSetButton.addTarget(self, action: #selector(onAddSetButtonTapped(_:)), for: .touchUpInside)
-        cell.setCollectionViewDataSourceDelegate(self, forRow: indexPath.row)       
+        cell.setCollectionViewDataSourceDelegate(self, forRow: indexPath.row)
         return cell
     }
     
