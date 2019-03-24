@@ -9,47 +9,31 @@
 import UIKit
 
 class BaseViewController : UIViewController {
+    private lazy var errorDisplayer = LeanTrackErrorDisplayer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setBaseProperties()
         hideKeyboardWhenTappedAround()
-        
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
-    // Set base properties. We have some common properties like background color, status bar color for view controllers
-    func setBaseProperties(){
-        view.backgroundColor = UIColor.background
-    }
-    
-    // Layout subview
-    func setupViews(_ subView : UIView){        
-        view.addSubview(subView)
-        subView.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, traling: view.trailingAnchor)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
     
-}
-
-extension UIViewController {
-    
-    func hideKeyboardWhenTappedAround() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
-        tap.cancelsTouchesInView = false
-        view.addGestureRecognizer(tap)
+    func setBaseProperties(){
+        view.backgroundColor = UIColor.background
     }
     
-    @objc func dismissKeyboard() {
-        view.endEditing(true)
+    func setupViews(_ subView : UIView){        
+        view.addSubview(subView)
+        subView.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, traling: view.trailingAnchor)
     }
-    
 }
 
+// MARK: Error Displayer
+extension BaseViewController {
+    func displayLocalizedError(_ errorDescription: String){
+        
+    }
+}

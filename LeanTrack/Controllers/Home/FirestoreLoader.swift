@@ -12,59 +12,32 @@ import FirebaseFirestore
 class FirestoreLoader {
     let db = Firestore.firestore()
     var ref: DocumentReference? = nil
-    var sessionRefId: String!
+    var haveWorkoutSessionAlready: Bool!
     typealias loaderHandlerBlock = (_ handler: Error?) -> Void
 }
 
-// MARK: Adding collections
+// MARK: Create / Update workout sessions
 extension FirestoreLoader {
-    func getTodaysWorkoutSession(handler: @escaping (Bool) -> Void){
-        let docRef = db.collection("Workouts").document(getCurrentDate())
-        docRef.getDocument { (document, error) in
-            if let document = document, document.exists {
-                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-                handler(true)
-            } else {
-                handler(false)
-            }
-        }
-    }
-    
     func createNewWorkoutSession(exerciseName: String, then handler: @escaping (Error?) -> Void) {
         let docData: [String: Any] = [
-            "exercise": "Hello world!",
-            "booleanExample": true,
-            "numberExample": 3.14159265,
-            "arrayExample": [5, true, "hello"],
-            "nullExample": NSNull(),
-            "objectExample": [
-                "a": 5,
-                "b": [
-                    "nested": "foo"
-                ]
-            ]
+            "exerciseName": "Hello world!",
+            "date": getCurrentDate()
         ]
         
-        //db.collection("Workouts").document(getCurrentDate()).setData(docData)        
-        ref = db.collection("Workouts").addDocument(data: [
-            "exerciseName": exerciseName,
-            "date": self.getCurrentDate()
-        ]) { err in
+        //db.collection("Workouts").document(getCurrentDate()).setData(docData)
+        ref = db.collection("Workouts").addDocument(data: docData) { err in
             if let err = err {
-                print("Error adding document: \(err)")
                 handler(err)
             } else {
-                handler(nil)
-                print("Document added with ID: \(self.ref!.documentID)")
+                handler(nil)                
             }
         }
     }
-    
+        
     func addWorkoutSet(to documentID: String, workout: ExerciseHeader, then handler: @escaping (Error?) -> Void) {
         guard let documentID = ref?.documentID else {
             return
         }
-        
         let workoutsRef = db.collection("Workouts")
         let workoutSession = workoutsRef.document(documentID)
         workoutSession.updateData([
@@ -80,10 +53,20 @@ extension FirestoreLoader {
     }
 }
 
-// MARK: Retrieve existing workout session
+// MARK: Retrieve existing workout sessions
 extension FirestoreLoader {
-    func haveExistingWorkoutSession(){
-        
+    func haveExistingWorkoutSession(handler: @escaping (Bool) -> Void){
+        let docRef = db.collection("Workouts").document(getCurrentDate())
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                self.haveWorkoutSessionAlready = true
+                handler(true)
+            } else {
+                self.haveWorkoutSessionAlready = false
+                handler(false)
+            }
+        }
     }
 }
 

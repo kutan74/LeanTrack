@@ -60,7 +60,7 @@ extension HomeViewController {
     }
 }
 
-// MARK: HomeDatasource delegate methdos
+// MARK: Display ExerciseSettingsViewController on AddSet button action
 extension HomeViewController: HomeDatasourceProtocol {
     func onAddSetButtonTappedForExercise(at index: Int) {
         selectedExerciseIndex = index
@@ -70,13 +70,14 @@ extension HomeViewController: HomeDatasourceProtocol {
 
 // MARK: SearchResultViewController Delegate (Whenever user adds new exercises)
 extension HomeViewController : SearchResultProtocol {
-    func onExerciseSelected(_ exercise: String) {
-        let exerciseHeader = ExerciseHeader(exerciseName: exercise)
-        exercises.append(exerciseHeader)
-        dataSource.updateExercises(add: exerciseHeader)
-        fireStoreLoader.createNewWorkoutSession(exerciseName: exercise) { (error) in
-            if error == nil {
-                
+    func onExerciseSelected(_ exerciseName: String) {
+        fireStoreLoader.createNewWorkoutSession(exerciseName: exerciseName) { (error) in
+            if let err = error {
+                self.displayLocalizedError(err.localizedDescription)
+            }else {
+                let exerciseHeader = ExerciseHeader(exerciseName: exerciseName)
+                self.exercises.append(exerciseHeader)
+                self.dataSource.updateExercises(add: exerciseHeader)
             }
         }
     }
@@ -85,15 +86,16 @@ extension HomeViewController : SearchResultProtocol {
 // MARK: ExerciseSettings ChildViewController (Exercise settings such as rep count and weight)
 extension HomeViewController: ExerciseSettingsProtocol {
     func onDoneButtonTapped(weight: Double, repCount: Int) {
-        let set = ExerciseSet(weight: weight, repCount: repCount)
-        exercises[selectedExerciseIndex].sets.append(set)        
-        dataSource.updateExerciseSets(with: selectedExerciseIndex, for: set)
+        exerciseSettingsVC.remove()
         fireStoreLoader.addWorkoutSet(to: "8RGUexbeqPUoVbg74Coc", workout: exercises[selectedExerciseIndex]) { (error) in
-            if error == nil {
-                
+            if let err = error {
+                self.displayLocalizedError(err.localizedDescription)
+            }else {
+                let set = ExerciseSet(weight: weight, repCount: repCount)
+                self.exercises[self.selectedExerciseIndex].sets.append(set)
+                self.dataSource.updateExerciseSets(with: self.selectedExerciseIndex, for: set)
             }
         }
-        exerciseSettingsVC.remove()
     }
     
     func onCancelButtonTapped() {
