@@ -12,7 +12,12 @@ import Foundation
  Protocol to provide a communication between HomeDatasource and HomeViewController
  */
 protocol HomeDatasourceProtocol: class {
-    // User tapped on addSetButton, displaying ExerciseSettingsChildViewController
     func onAddSetButtonTappedForExercise(at index: Int)
+    
+    /**
+     Remove the selected exercise from tableview
+     Also remove it from firestore too
+    */
+    func onRemoveButtonTapped(at index: Int)
 }
 

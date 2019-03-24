@@ -62,6 +62,17 @@ extension HomeViewController {
 
 // MARK: Display ExerciseSettingsViewController on AddSet button action
 extension HomeViewController: HomeDatasourceProtocol {
+    func onRemoveButtonTapped(at index: Int) {
+        fireStoreLoader.removeExerciseFromWorkout(with: exercises[index].documentID) { [weak self] (error) in
+            if let err = error {
+                self?.displayLocalizedError(err.localizedDescription)
+            }else {
+                self?.exercises.remove(at: index)
+                self?.dataSource.removeExercise(at: index)
+            }
+        }
+    }
+    
     func onAddSetButtonTappedForExercise(at index: Int) {
         selectedExerciseIndex = index
         add(exerciseSettingsVC)
@@ -71,13 +82,15 @@ extension HomeViewController: HomeDatasourceProtocol {
 // MARK: SearchResultViewController Delegate (Whenever user adds new exercises)
 extension HomeViewController : SearchResultProtocol {
     func onExerciseSelected(_ exerciseName: String) {
-        fireStoreLoader.createNewWorkoutSession(exerciseName: exerciseName) { (error) in
-            if let err = error {
-                self.displayLocalizedError(err.localizedDescription)
-            }else {
-                let exerciseHeader = ExerciseHeader(exerciseName: exerciseName)                
-                self.exercises.append(exerciseHeader)
-                self.dataSource.updateExercises(add: exerciseHeader)
+        fireStoreLoader.createNewWorkoutSession(exerciseName: exerciseName) { [weak self] result in
+            switch result {
+            case .failure(let error):
+                self?.displayLocalizedError(error.localizedDescription)
+            case .success(let documentID):
+                var exerciseHeader = ExerciseHeader(exerciseName: exerciseName)
+                exerciseHeader.updateDocumentID(documentID)
+                self?.exercises.append(exerciseHeader)
+                self?.dataSource.addNewExercise(add: exerciseHeader)
             }
         }
     }
@@ -87,16 +100,13 @@ extension HomeViewController : SearchResultProtocol {
 extension HomeViewController: ExerciseSettingsProtocol {
     func onDoneButtonTapped(weight: Double, repCount: Int) {
         exerciseSettingsVC.remove()
-        
         let set = ExerciseSet(weight: weight, repCount: repCount)
-        exercises[self.selectedExerciseIndex].sets.append(set)
-        dataSource.setExerciseUpdateStatus(with: selectedExerciseIndex, for: true)
-        
-        fireStoreLoader.addWorkoutSet(workout: exercises[selectedExerciseIndex]) { (error) in
+        fireStoreLoader.addWorkoutSet(exercise: exercises[selectedExerciseIndex]) { [weak self] (error) in
             if let err = error {
-                self.displayLocalizedError(err.localizedDescription)
+                self?.displayLocalizedError(err.localizedDescription)
             }else {
-                self.dataSource.updateExerciseSets(with: self.selectedExerciseIndex, for: set)
+                self?.exercises[(self?.selectedExerciseIndex)!].sets.append(set)
+                self?.dataSource.updateExerciseSets(with: (self?.selectedExerciseIndex)!, for: set)
             }
         }
     }

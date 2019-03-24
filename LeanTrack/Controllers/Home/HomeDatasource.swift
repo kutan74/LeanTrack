@@ -25,8 +25,13 @@ class HomeDatasource: NSObject{
         exercisesTableView.emptyDataSetDelegate = self
     }
     
-    func updateExercises(add exercise: ExerciseHeader){        
+    func addNewExercise(add exercise: ExerciseHeader){
         exercises.append(exercise)
+        exercisesTableView.reloadData()
+    }
+    
+    func removeExercise(at index: Int){
+        exercises.remove(at: index)
         exercisesTableView.reloadData()
     }
 
@@ -54,6 +59,7 @@ extension HomeDatasource: UITableViewDelegate,UITableViewDataSource  {
         cell.exerciseNameLabel.text = exercise.exerciseName
         cell.addSetButton.tag = indexPath.row
         cell.addSetButton.addTarget(self, action: #selector(onAddSetButtonTapped(_:)), for: .touchUpInside)
+        cell.removeExerciseButton.addTarget(self, action: #selector(onRemoveButtonTapped(_:)), for: .touchUpInside)
         cell.setCollectionViewDataSourceDelegate(self, forRow: indexPath.row)
         return cell
     }
@@ -66,8 +72,12 @@ extension HomeDatasource: UITableViewDelegate,UITableViewDataSource  {
         return 10.0
     }
     
-    @objc func onAddSetButtonTapped(_ sender: UIButton){
+    @objc func onAddSetButtonTapped(_ sender: UIButton) {
         delegate?.onAddSetButtonTappedForExercise(at: sender.tag)
+    }
+    
+    @objc func onRemoveButtonTapped(_ sender: UIButton) {
+        delegate?.onRemoveButtonTapped(at: sender.tag)
     }
 }
 
