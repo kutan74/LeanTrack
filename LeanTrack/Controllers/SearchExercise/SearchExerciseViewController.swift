@@ -35,7 +35,6 @@ class SearchExerciseViewController: BaseViewController {
     // MARK: CollectionView Datasource
     func setCollectionViewDatasource(){
         searchResult = exercises
-        
         subView.collectionView.dataSource = self
         subView.collectionView.delegate = self
     }
@@ -70,6 +69,7 @@ extension SearchExerciseViewController: UICollectionViewDelegate,UICollectionVie
     }
 }
 
+// MARK: Button Actions
 extension SearchExerciseViewController {
     @objc func onDismissByBackButton(){
         dismiss(animated: true, completion: nil)

@@ -28,4 +28,8 @@ extension UIColor {
     @nonobjc class var emerald: UIColor {
         return UIColor(red: 7.0 / 255.0, green: 152.0 / 255.0, blue: 70.0 / 255.0, alpha: 1.0)
     }
+    
+    @nonobjc class var tangerine: UIColor {
+        return UIColor(red: 244.0 / 255.0, green: 152.0 / 255.0, blue: 0.0, alpha: 1.0)
+    }
 }

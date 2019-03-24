@@ -18,7 +18,7 @@ class ExerciseSetCollectionViewCell: UICollectionViewCell {
     
     let repCountLabel: UILabel = {
         let label = UILabel()
-        label.textColor = UIColor.paleRed
+        label.textColor = UIColor.tangerine
         label.setCustomFont(size: 16, fontType: CustomFonts.conduitBold)
         return label
     }()

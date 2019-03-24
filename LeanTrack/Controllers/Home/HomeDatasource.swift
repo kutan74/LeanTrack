@@ -75,7 +75,7 @@ extension HomeDatasource: UICollectionViewDelegate,UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ExerciseSetCollectionViewCell
         let set = exercises[collectionView.tag].sets[indexPath.row]
         cell.weightLabel.text = String(set.weight)
-        cell.repCountLabel.text = String(set.repCount)
+        cell.repCountLabel.text = String(set.repCount) + " reps"
         cell.setNeedsLayout()
         return cell
     }

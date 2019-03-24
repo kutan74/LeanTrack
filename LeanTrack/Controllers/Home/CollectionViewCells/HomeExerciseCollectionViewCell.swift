@@ -29,11 +29,24 @@ class HomeExerciseCollectionViewCell: UITableViewCell,UpdateableTableViewCell {
         return button
     }()
     
+    let removeExerciseButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Remove", for: .normal)
+        button.setTitleColor(UIColor.paleRed, for: .normal)
+        button.titleLabel?.setCustomFont(size: 12, fontType: CustomFonts.conduitBold)
+        button.layer.cornerRadius = 3
+        button.clipsToBounds = true
+        button.layer.borderColor = UIColor.paleRed.cgColor
+        button.layer.borderWidth = 1.0
+        button.backgroundColor = .clear
+        return button
+    }()
+    
     var collectionView: UICollectionView!
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        [exerciseNameLabel,addSetButton].forEach {
+        [exerciseNameLabel,addSetButton,removeExerciseButton].forEach {
             addSubview($0)
         }
         setupBackgroundProperties()
@@ -67,6 +80,7 @@ class HomeExerciseCollectionViewCell: UITableViewCell,UpdateableTableViewCell {
         exerciseNameLabel.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, traling: nil, padding: .init(top: 16, left: 17, bottom: 16, right: 0))
         addSetButton.anchor(top: nil, leading: nil, bottom: nil, traling: trailingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 14), size: .init(width: 55, height: 26))
         addSetButton.centerYAnchor.constraint(equalTo: exerciseNameLabel.centerYAnchor).isActive = true
+        removeExerciseButton.anchor(top: addSetButton.topAnchor, leading: nil, bottom: addSetButton.bottomAnchor, traling: addSetButton.leadingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 10), size: .init(width: 55, height: 26))        
     }
     
     func setupCollectionViewLayout(){

@@ -9,7 +9,6 @@
 import UIKit
 
 class SearchExerciseView: UIView {
-    
     let backButton: UIButton = {
        
         let button = UIButton()
@@ -25,7 +24,6 @@ class SearchExerciseView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         setupViews()
         setupCollectionViewLayout()
     }
