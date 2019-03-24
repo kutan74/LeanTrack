@@ -13,11 +13,6 @@ import Foundation
  */
 protocol HomeDatasourceProtocol: class {
     func onAddSetButtonTappedForExercise(at index: Int)
-    
-    /**
-     Remove the selected exercise from tableview
-     Also remove it from firestore too
-    */
     func onRemoveButtonTapped(at index: Int)
 }
 
