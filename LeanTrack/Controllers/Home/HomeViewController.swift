@@ -100,7 +100,7 @@ extension HomeViewController : SearchResultProtocol {
 extension HomeViewController: ExerciseSettingsProtocol {
     func onDoneButtonTapped(weight: Double, repCount: Int) {
         exerciseSettingsVC.remove()
-        var set = ExerciseSet(weight: weight, repCount: repCount)
+        let set = ExerciseSet(weight: weight, repCount: repCount)
         exercises[selectedExerciseIndex].sets.append(set)
         fireStoreLoader.addWorkoutSet(exercise: exercises[selectedExerciseIndex]) { [weak self] (error) in
             if let err = error {
