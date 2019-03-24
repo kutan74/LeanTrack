@@ -9,6 +9,7 @@ target 'LeanTrack' do
   pod 'Hero'
   pod 'Firebase/Core'
   pod 'Firebase/Firestore'
+  pod 'DZNEmptyDataSet'
 
   target 'LeanTrackTests' do
     inherit! :search_paths

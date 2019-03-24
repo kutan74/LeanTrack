@@ -10,11 +10,9 @@ import Foundation
 import FirebaseFirestore
 
 class FirestoreLoader {
-    
     let db = Firestore.firestore()
     var ref: DocumentReference? = nil
     typealias loaderHandlerBlock = (_ handler: Error?) -> Void
-    
 }
 
 // MARK: Adding collections
@@ -34,7 +32,7 @@ extension FirestoreLoader {
         }
     }
     
-    func addWorkoutSet(to documentID: String, workout: ExerciseHeader, then handler: @escaping (Error?) -> Void) {        
+    func addWorkoutSet(to documentID: String, workout: ExerciseHeader, then handler: @escaping (Error?) -> Void) {
         guard let documentID = ref?.documentID else {
             return
         }
@@ -51,7 +49,6 @@ extension FirestoreLoader {
                 handler(nil)
             }
         }
-        
     }
 }
 
@@ -62,8 +59,7 @@ extension FirestoreLoader {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy/MM/dd HH:mm"
         return formatter.string(from: currentDateTime)
-    }
-    
+    }    
 }
 
 // MARK: Helpers

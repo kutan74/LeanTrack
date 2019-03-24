@@ -195,6 +195,13 @@
 			path = FirestoreUpdater;
 			sourceTree = "<group>";
 		};
+		A05C134422476474003AEB43 /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Activity;
+			sourceTree = "<group>";
+		};
 		A06BA9222243D49A0088929F /* CollectionViewCells */ = {
 			isa = PBXGroup;
 			children = (
@@ -329,6 +336,7 @@
 		A0983D2A223D6F46005BEA8E /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				A05C134422476474003AEB43 /* Activity */,
 				A0983D2B223D6F4F005BEA8E /* BaseViewController.swift */,
 			);
 			path = Base;
@@ -537,8 +545,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "
-";
+			shellScript = "\n";
 		};
 		C7494D3C75226A0260CDB3D5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -594,6 +601,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-LeanTrack/Pods-LeanTrack-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
@@ -607,6 +615,7 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
