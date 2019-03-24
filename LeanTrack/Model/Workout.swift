@@ -17,26 +17,17 @@ enum CellType {
     case set
 }
 
-class WorkoutSession {
-    var workouts = [Workout<Any>]()
-}
-
-struct Workout<T> {
-    var cellType: CellType!
-    var item : T!
-    
-    mutating func load(_ item: T, cellType: CellType){
-        self.item = item
-        self.cellType = cellType
-    }
-}
-
 struct ExerciseHeader {
+    var documentID: String!
     var exerciseName: String!
     var sets: [ExerciseSet] = []
     
     init(exerciseName: String) {
         self.exerciseName = exerciseName        
+    }
+    
+    mutating func updateDocumentID(_ id: String){
+        self.documentID = id
     }
 }
 

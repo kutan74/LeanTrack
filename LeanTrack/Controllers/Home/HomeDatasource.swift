@@ -9,8 +9,7 @@
 import UIKit
 
 class HomeDatasource: NSObject{
-    var exercisesTableView: UITableView!
-    var workoutSession = WorkoutSession()
+    var exercisesTableView: UITableView!    
     var exercises: [ExerciseHeader] = []
     weak var delegate: HomeDatasourceProtocol?
     

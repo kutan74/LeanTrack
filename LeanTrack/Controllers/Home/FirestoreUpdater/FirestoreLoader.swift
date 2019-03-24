@@ -34,15 +34,18 @@ extension FirestoreLoader {
         }
     }
     
-    func addWorkoutSet(to documentID: String, workout: ExerciseHeader, then handler: @escaping (Error?) -> Void) {
-        //let stringDefinationOfSet = String(weight) + "x" + String(repCount)
-        let dict = Dictionary(uniqueKeysWithValues: workout.sets.map{ ($0.weight, $0) })
+    func addWorkoutSet(to documentID: String, workout: ExerciseHeader, then handler: @escaping (Error?) -> Void) {        
+        guard let documentID = ref?.documentID else {
+            return
+        }
+        
         let workoutsRef = db.collection("Workouts")
         let workoutSession = workoutsRef.document(documentID)
         workoutSession.updateData([
-            "sets" : ""
+            "sets" : getSetsDictionary(for: workout)
         ])  { (error) in
             if let err = error {
+                print(err.localizedDescription)
                 handler(err)
             }else {
                 handler(nil)
@@ -61,4 +64,20 @@ extension FirestoreLoader {
         return formatter.string(from: currentDateTime)
     }
     
+}
+
+// MARK: Helpers
+/**
+ Since firestore doesn't append dict array properly we should create a [[String : String]] and save it to
+ Firebase everytimeu users wants to add a new set
+ */
+extension FirestoreLoader {
+    func getSetsDictionary(for workout: ExerciseHeader) -> [[String : String]] {
+        var sets : [[String : String]] = []
+        for index in 0...workout.sets.count - 1 {
+            let set = ["weight" : String(workout.sets[index].weight), "repCount" : String(workout.sets[index].repCount)]
+            sets.append(set)
+        }
+        return sets
+    }
 }

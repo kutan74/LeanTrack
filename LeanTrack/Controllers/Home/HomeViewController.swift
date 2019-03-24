@@ -72,6 +72,7 @@ extension HomeViewController: HomeDatasourceProtocol {
 extension HomeViewController : SearchResultProtocol {
     func onExerciseSelected(_ exercise: String) {
         let exerciseHeader = ExerciseHeader(exerciseName: exercise)
+        exercises.append(exerciseHeader)
         dataSource.updateExercises(add: exerciseHeader)
         fireStoreLoader.createNewWorkoutSession(exerciseName: exercise) { (error) in
             if error == nil {
@@ -87,7 +88,7 @@ extension HomeViewController: ExerciseSettingsProtocol {
         let set = ExerciseSet(weight: weight, repCount: repCount)
         exercises[selectedExerciseIndex].sets.append(set)
         dataSource.updateExerciseSets(with: selectedExerciseIndex, for: set)
-        fireStoreLoader.addWorkoutSet(to: "2JJhuYvn4PEPiIeLD2eD", workout: exercises[selectedExerciseIndex]) { (error) in
+        fireStoreLoader.addWorkoutSet(to: "8RGUexbeqPUoVbg74Coc", workout: exercises[selectedExerciseIndex]) { (error) in
             if error == nil {
                 
             }
