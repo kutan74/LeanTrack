@@ -9,16 +9,6 @@
 import UIKit
 
 class SearchExerciseView: UIView {
-    let backButton: UIButton = {
-       
-        let button = UIButton()
-        button.setImage(UIImage(named: "back"), for: .normal)
-        button.imageView?.contentMode = .scaleAspectFill
-        button.imageView?.clipsToBounds = true
-        return button
-        
-    }()
-    
     var searchTextField = HomeSearchTextField()
     var collectionView: UICollectionView!
     
@@ -33,12 +23,8 @@ class SearchExerciseView: UIView {
     }
     
     func setupViews(){
-        [backButton,searchTextField].forEach {
-            addSubview($0)
-        }
-        
-        backButton.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, traling: nil, padding: .init(top: 26, left: 14, bottom: 0, right: 0), size: .init(width: 25, height: 25))
-        searchTextField.anchor(top: backButton.bottomAnchor, leading: leadingAnchor, bottom: nil, traling: trailingAnchor, padding: .init(top: 31, left: 26, bottom: 0, right: 26),size: .init(width: 0, height: 20))
+        addSubview(searchTextField)
+        searchTextField.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, traling: trailingAnchor, padding: .init(top: 8, left: 26, bottom: 0, right: 26),size: .init(width: 0, height: 20))
     }
     
     func setupCollectionViewLayout(){

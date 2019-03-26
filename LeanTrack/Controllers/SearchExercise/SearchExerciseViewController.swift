@@ -19,17 +19,20 @@ class SearchExerciseViewController: BaseViewController {
     override func loadView() {
         view = UIView()
         view.backgroundColor = UIColor.background
-        
         subView.searchTextField.becomeFirstResponder()
         setupViews(subView)
         setCollectionViewDatasource()
         setInitialValues()
     }
-        
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()        
+    }
+    
     func setInitialValues(){
+        title = "Search Exercise"
         hero.isEnabled = true
         subView.searchTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
-        subView.backButton.addTarget(self, action: #selector(onDismissByBackButton), for: .touchUpInside)
     }
     
     // MARK: CollectionView Datasource
@@ -70,14 +73,9 @@ extension SearchExerciseViewController: UICollectionViewDelegate,UICollectionVie
 }
 
 // MARK: Button Actions
-extension SearchExerciseViewController {
-    @objc func onDismissByBackButton(){
-        dismiss(animated: true, completion: nil)
-    }
-    
+extension SearchExerciseViewController {    
     func onDismissBySelection(_ selection : String){
-        dismiss(animated: true, completion: {
-            self.searchDelegate?.onExerciseSelected(selection)
-        })
+        navigationController?.popViewController(animated: true)
+        searchDelegate?.onExerciseSelected(selection)
     }
 }

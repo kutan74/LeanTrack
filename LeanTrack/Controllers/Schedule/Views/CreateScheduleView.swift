@@ -25,8 +25,7 @@ class CreateScheduleView: UIView {
     
     func setupDaysCollectionView(){
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = .zero
-        layout.estimatedItemSize = .init(width: 60, height: 20)
+        layout.itemSize = .init(width: 100, height: 35)
         layout.minimumLineSpacing = 8
         layout.minimumInteritemSpacing = 8
         layout.scrollDirection = .horizontal

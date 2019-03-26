@@ -13,6 +13,7 @@ class ScheduleDayCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.textColor = .black
         label.setCustomFont(size: 18, fontType: CustomFonts.conduitLight)
+        label.textAlignment = .center
         return label
     }()
     
@@ -24,6 +25,21 @@ class ScheduleDayCollectionViewCell: UICollectionViewCell {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init (coder) has not been implemented")
+    }
+}
+
+// MARK: UI Settings for selected / deselected states
+extension ScheduleDayCollectionViewCell {
+    func applySelected(){
+        UIView.animate(withDuration: 0.7, animations: {
+            self.dayLabel.setCustomFont(size: 22, fontType: CustomFonts.conduitBold)
+            self.dayLabel.alpha = 1.0
+        })
+    }
+    
+    func applyDefault(){
+        dayLabel.setCustomFont(size: 14, fontType: CustomFonts.conduitLight)
+        dayLabel.alpha = 0.25
     }
 }
 

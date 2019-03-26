@@ -10,6 +10,8 @@ import UIKit
 
 class BaseViewController : UIViewController {
     private lazy var errorDisplayer = LeanTrackErrorDisplayer()
+    private lazy var addExerciseButton = AddExerciseButton()
+    
     weak var delegate: BaseViewControllerDelegate?
     
     override func viewDidLoad() {
@@ -20,6 +22,7 @@ class BaseViewController : UIViewController {
     
     func setBaseProperties(){
         view.backgroundColor = UIColor.white
+        navigationController?.navigationBar.tintColor = .black
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationController?.navigationBar.shadowImage = UIImage()
@@ -31,12 +34,16 @@ class BaseViewController : UIViewController {
     }
     
     func setupAddExerciseButton(){
-        let addExerciseButton = AddExerciseButton()
         addExerciseButton.addTarget(self, action: #selector(onAddExerciseButtonTapped), for: .touchUpInside)
-        
         guard let navigationBar = self.navigationController?.navigationBar else { return }
         navigationBar.addSubview(addExerciseButton)
         addExerciseButton.anchor(top: nil, leading: nil, bottom: navigationBar.bottomAnchor, traling: navigationBar.trailingAnchor, padding: .init(top: 0, left: 0, bottom: 16, right: 10), size: .init(width: 70, height: 25))       
+    }
+    
+    func showAddExerciseButton(_ status: Bool){
+        UIView.animate(withDuration: 0.4, animations: {
+            self.addExerciseButton.alpha = status ? 1.0 : 0.0
+        })
     }
 }
 
