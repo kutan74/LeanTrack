@@ -17,12 +17,11 @@ class BaseViewController : UIViewController {
         hideKeyboardWhenTappedAround()
     }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-    
     func setBaseProperties(){
-        view.backgroundColor = UIColor.background
+        view.backgroundColor = UIColor.white
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navigationController?.navigationBar.shadowImage = UIImage()
     }
     
     func setupViews(_ subView : UIView){        

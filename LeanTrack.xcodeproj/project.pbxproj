@@ -16,6 +16,7 @@
 		A05C134122469DC1003AEB43 /* FirestoreLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C134022469DC1003AEB43 /* FirestoreLoader.swift */; };
 		A05C134322475CE2003AEB43 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A05C134222475CE2003AEB43 /* GoogleService-Info.plist */; };
 		A05C13462247B2E0003AEB43 /* LeanTrackErrorDisplayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C13452247B2E0003AEB43 /* LeanTrackErrorDisplayer.swift */; };
+		A069AA42224A672D000806AA /* ScheduleDayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A069AA41224A672D000806AA /* ScheduleDayCollectionViewCell.swift */; };
 		A06BA9242243D4AE0088929F /* HomeExerciseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06BA9232243D4AE0088929F /* HomeExerciseCollectionViewCell.swift */; };
 		A06BA9262243DB230088929F /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06BA9252243DB230088929F /* Workout.swift */; };
 		A06BA9282243DE360088929F /* UIView+UICollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06BA9272243DE360088929F /* UIView+UICollectionViewLayout.swift */; };
@@ -42,6 +43,8 @@
 		A0983D3C223EBBB7005BEA8E /* SearchResultProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0983D3B223EBBB7005BEA8E /* SearchResultProtocol.swift */; };
 		A0983D3F223EC1F4005BEA8E /* ExerciseSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0983D3E223EC1F4005BEA8E /* ExerciseSettingsViewController.swift */; };
 		A0983D41223EC21B005BEA8E /* ExerciseSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0983D40223EC21B005BEA8E /* ExerciseSettingsView.swift */; };
+		A09A716C224A4F4C0041A817 /* CreateScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09A716B224A4F4C0041A817 /* CreateScheduleViewController.swift */; };
+		A09A716E224A4F950041A817 /* CreateScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09A716D224A4F950041A817 /* CreateScheduleView.swift */; };
 		BC4861F7BD9DE016447475B2 /* Pods_LeanTrack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CD66A6788522CE3E9567F26 /* Pods_LeanTrack.framework */; };
 		FFF0B5E9A551183C84FA05DE /* Pods_LeanTrackUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A100B6D4AE79EDEEC2F9E81 /* Pods_LeanTrackUITests.framework */; };
 /* End PBXBuildFile section */
@@ -77,6 +80,7 @@
 		A05C134022469DC1003AEB43 /* FirestoreLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreLoader.swift; sourceTree = "<group>"; };
 		A05C134222475CE2003AEB43 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A05C13452247B2E0003AEB43 /* LeanTrackErrorDisplayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeanTrackErrorDisplayer.swift; sourceTree = "<group>"; };
+		A069AA41224A672D000806AA /* ScheduleDayCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleDayCollectionViewCell.swift; sourceTree = "<group>"; };
 		A06BA9232243D4AE0088929F /* HomeExerciseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExerciseCollectionViewCell.swift; sourceTree = "<group>"; };
 		A06BA9252243DB230088929F /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		A06BA9272243DE360088929F /* UIView+UICollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+UICollectionViewLayout.swift"; sourceTree = "<group>"; };
@@ -109,6 +113,8 @@
 		A0983D3B223EBBB7005BEA8E /* SearchResultProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultProtocol.swift; sourceTree = "<group>"; };
 		A0983D3E223EC1F4005BEA8E /* ExerciseSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseSettingsViewController.swift; sourceTree = "<group>"; };
 		A0983D40223EC21B005BEA8E /* ExerciseSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseSettingsView.swift; sourceTree = "<group>"; };
+		A09A716B224A4F4C0041A817 /* CreateScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateScheduleViewController.swift; sourceTree = "<group>"; };
+		A09A716D224A4F950041A817 /* CreateScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateScheduleView.swift; sourceTree = "<group>"; };
 		A653212EBC00494990434004 /* Pods-LeanTrackTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeanTrackTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LeanTrackTests/Pods-LeanTrackTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AD92783674C7F6F0CD71300F /* Pods-LeanTrackTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeanTrackTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LeanTrackTests/Pods-LeanTrackTests.release.xcconfig"; sourceTree = "<group>"; };
 		D590F0F984177A4EE8D75F8E /* Pods-LeanTrack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeanTrack.release.xcconfig"; path = "Pods/Target Support Files/Pods-LeanTrack/Pods-LeanTrack.release.xcconfig"; sourceTree = "<group>"; };
@@ -190,6 +196,14 @@
 			path = Auth;
 			sourceTree = "<group>";
 		};
+		A069AA40224A671C000806AA /* CollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				A069AA41224A672D000806AA /* ScheduleDayCollectionViewCell.swift */,
+			);
+			path = CollectionViewCells;
+			sourceTree = "<group>";
+		};
 		A06BA9222243D49A0088929F /* CollectionViewCells */ = {
 			isa = PBXGroup;
 			children = (
@@ -266,6 +280,7 @@
 		A0983D13223C0F75005BEA8E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A09A716A224A4F200041A817 /* Schedule */,
 				A05C133C22462A7A003AEB43 /* Auth */,
 				A016A0E52244D1FB000CA546 /* ErrorHandling */,
 				A0983D33223E7277005BEA8E /* SearchExercise */,
@@ -358,6 +373,16 @@
 			path = ExerciseSettings;
 			sourceTree = "<group>";
 		};
+		A09A716A224A4F200041A817 /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				A069AA40224A671C000806AA /* CollectionViewCells */,
+				A09A716B224A4F4C0041A817 /* CreateScheduleViewController.swift */,
+				A09A716D224A4F950041A817 /* CreateScheduleView.swift */,
+			);
+			path = Schedule;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -432,13 +457,16 @@
 				TargetAttributes = {
 					A0983CDC223C0F56005BEA8E = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 					A0983CF3223C0F57005BEA8E = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = A0983CDC223C0F56005BEA8E;
 					};
 					A0983CFE223C0F57005BEA8E = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = A0983CDC223C0F56005BEA8E;
 					};
 				};
@@ -646,6 +674,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A069AA42224A672D000806AA /* ScheduleDayCollectionViewCell.swift in Sources */,
 				A016A0E42244D1F6000CA546 /* LeanTrackErrors.swift in Sources */,
 				A05C134122469DC1003AEB43 /* FirestoreLoader.swift in Sources */,
 				A0983D3C223EBBB7005BEA8E /* SearchResultProtocol.swift in Sources */,
@@ -653,6 +682,7 @@
 				A016A0E922450624000CA546 /* HomeDatasource.swift in Sources */,
 				A0983D19223D6BA7005BEA8E /* HomeViewController.swift in Sources */,
 				A0983CE9223C0F56005BEA8E /* LeanTrack.xcdatamodeld in Sources */,
+				A09A716C224A4F4C0041A817 /* CreateScheduleViewController.swift in Sources */,
 				A06BA9242243D4AE0088929F /* HomeExerciseCollectionViewCell.swift in Sources */,
 				A0983D3F223EC1F4005BEA8E /* ExerciseSettingsViewController.swift in Sources */,
 				A016A0E22244D11D000CA546 /* ExerciseSettingsProtocol.swift in Sources */,
@@ -660,6 +690,7 @@
 				A0983D29223D6F2C005BEA8E /* UIColor+Colors.swift in Sources */,
 				A016A0E72245052B000CA546 /* ExerciseSetCollectionViewCell.swift in Sources */,
 				A0983D16223C10F4005BEA8E /* UIView+NSConstraints.swift in Sources */,
+				A09A716E224A4F950041A817 /* CreateScheduleView.swift in Sources */,
 				A0983D41223EC21B005BEA8E /* ExerciseSettingsView.swift in Sources */,
 				A016A0EE22455C7B000CA546 /* HomeDatasourceProtocol.swift in Sources */,
 				A0983D3A223E73E5005BEA8E /* SearchExerciseCollectionViewCell.swift in Sources */,
@@ -847,7 +878,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kutan.LeanTrack;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -866,7 +897,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kutan.LeanTrack;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -887,7 +918,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kutan.LeanTrackTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LeanTrack.app/LeanTrack";
 			};
@@ -909,7 +940,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kutan.LeanTrackTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LeanTrack.app/LeanTrack";
 			};
@@ -930,7 +961,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kutan.LeanTrackUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = LeanTrack;
 			};
@@ -951,7 +982,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kutan.LeanTrackUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = LeanTrack;
 			};
