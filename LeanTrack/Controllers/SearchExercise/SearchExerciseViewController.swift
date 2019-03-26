@@ -14,7 +14,7 @@ class SearchExerciseViewController: BaseViewController {
     let exercises = ["Back Squat", "Front Squat", "Deadlift", "Overhead Press","Barbell Row",
                      "Bench Press", "Chin Ups", "Triceps Pulldown"]
     var searchResult: [String] = []
-    weak var delegate: SearchResultProtocol?
+    weak var searchDelegate: SearchResultProtocol?
     
     override func loadView() {
         view = UIView()
@@ -25,7 +25,7 @@ class SearchExerciseViewController: BaseViewController {
         setCollectionViewDatasource()
         setInitialValues()
     }
-    
+        
     func setInitialValues(){
         hero.isEnabled = true
         subView.searchTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
@@ -77,7 +77,7 @@ extension SearchExerciseViewController {
     
     func onDismissBySelection(_ selection : String){
         dismiss(animated: true, completion: {
-            self.delegate?.onExerciseSelected(selection)
+            self.searchDelegate?.onExerciseSelected(selection)
         })
     }
 }

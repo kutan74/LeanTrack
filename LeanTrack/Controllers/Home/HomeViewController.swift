@@ -54,7 +54,7 @@ class HomeViewController: BaseViewController {
 extension HomeViewController {
     @objc func onSearchTapped(){
         let controller = SearchExerciseViewController()
-        controller.delegate = self
+        controller.searchDelegate = self
         self.hero.modalAnimationType = .selectBy(presenting:.fade, dismissing:.fade)
         self.present(controller, animated: true, completion: nil)
     }

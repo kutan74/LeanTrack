@@ -44,7 +44,7 @@ class HomeView: UIView {
 class HomeSearchTextField: UITextField {
     let divider: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.white.withAlphaComponent(0.23)
+        view.backgroundColor = UIColor.black
         return view
     }()
     
@@ -61,8 +61,8 @@ class HomeSearchTextField: UITextField {
     
     func setupTextFieldProperties(){
         clearButtonMode = .whileEditing
-        textColor = .white
-        attributedPlaceholder = NSAttributedString(string:"Do you even lift bro ?", attributes:[NSAttributedString.Key.foregroundColor: UIColor.white.withAlphaComponent(0.23),NSAttributedString.Key.font : UIFont(name: "ConduitITC-Bold", size: 12)!])
+        textColor = .black
+        attributedPlaceholder = NSAttributedString(string:"Do you even lift bro ?", attributes:[NSAttributedString.Key.foregroundColor: UIColor.black.withAlphaComponent(0.23),NSAttributedString.Key.font : UIFont(name: "ConduitITC-Bold", size: 12)!])
         font = UIFont(name: "ConduitITC-Bold", size: 12)!
     }
     

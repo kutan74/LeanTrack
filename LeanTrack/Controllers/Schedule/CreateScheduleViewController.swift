@@ -11,6 +11,7 @@ import UIKit
 class CreateScheduleViewController: BaseViewController {
     
     let subView = CreateScheduleView()
+    var dataSource: CreateScheduleDataSource!
     let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
     
     override func loadView() {
@@ -22,24 +23,21 @@ class CreateScheduleViewController: BaseViewController {
     
     func setViewControllerProperties(){
         setupViews(subView)
+        setupAddExerciseButton()
+        delegate = self
         title = "SCHEDULE"
     }
     
     func setCollectionViewDataSource(){
-        subView.daysCollectionView.delegate = self
-        subView.daysCollectionView.dataSource = self
-        subView.daysCollectionView.scrollToItem(at: IndexPath(row: 3, section: 0), at: .right, animated: false)
+        dataSource = CreateScheduleDataSource(days: self.days)
+        subView.daysCollectionView.delegate = dataSource
+        subView.daysCollectionView.dataSource = dataSource
     }
 }
 
-extension CreateScheduleViewController: UICollectionViewDelegate,UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return days.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ScheduleDayCollectionViewCell
-        cell.dayLabel.text = days[indexPath.row]
-        return cell
+extension CreateScheduleViewController: BaseViewControllerDelegate {
+    override func onAddExerciseButtonTapped() {
+        let controller = SearchExerciseViewController()
+        navigationController?.pushViewController(controller, animated: true)        
     }
 }

@@ -17,6 +17,9 @@
 		A05C134322475CE2003AEB43 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A05C134222475CE2003AEB43 /* GoogleService-Info.plist */; };
 		A05C13462247B2E0003AEB43 /* LeanTrackErrorDisplayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C13452247B2E0003AEB43 /* LeanTrackErrorDisplayer.swift */; };
 		A069AA42224A672D000806AA /* ScheduleDayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A069AA41224A672D000806AA /* ScheduleDayCollectionViewCell.swift */; };
+		A069AA44224A69C8000806AA /* CreateScheduleDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A069AA43224A69C8000806AA /* CreateScheduleDataSource.swift */; };
+		A069AA46224A6B81000806AA /* BaseViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A069AA45224A6B81000806AA /* BaseViewControllerDelegate.swift */; };
+		A069AA49224A6FD5000806AA /* AddExerciseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A069AA48224A6FD5000806AA /* AddExerciseButton.swift */; };
 		A06BA9242243D4AE0088929F /* HomeExerciseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06BA9232243D4AE0088929F /* HomeExerciseCollectionViewCell.swift */; };
 		A06BA9262243DB230088929F /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06BA9252243DB230088929F /* Workout.swift */; };
 		A06BA9282243DE360088929F /* UIView+UICollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06BA9272243DE360088929F /* UIView+UICollectionViewLayout.swift */; };
@@ -81,6 +84,9 @@
 		A05C134222475CE2003AEB43 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A05C13452247B2E0003AEB43 /* LeanTrackErrorDisplayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeanTrackErrorDisplayer.swift; sourceTree = "<group>"; };
 		A069AA41224A672D000806AA /* ScheduleDayCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleDayCollectionViewCell.swift; sourceTree = "<group>"; };
+		A069AA43224A69C8000806AA /* CreateScheduleDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateScheduleDataSource.swift; sourceTree = "<group>"; };
+		A069AA45224A6B81000806AA /* BaseViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewControllerDelegate.swift; sourceTree = "<group>"; };
+		A069AA48224A6FD5000806AA /* AddExerciseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddExerciseButton.swift; path = LeanTrack/Controllers/Base/AddExerciseButton.swift; sourceTree = SOURCE_ROOT; };
 		A06BA9232243D4AE0088929F /* HomeExerciseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExerciseCollectionViewCell.swift; sourceTree = "<group>"; };
 		A06BA9252243DB230088929F /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		A06BA9272243DE360088929F /* UIView+UICollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+UICollectionViewLayout.swift"; sourceTree = "<group>"; };
@@ -204,6 +210,14 @@
 			path = CollectionViewCells;
 			sourceTree = "<group>";
 		};
+		A069AA47224A6FCB000806AA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A069AA48224A6FD5000806AA /* AddExerciseButton.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		A06BA9222243D49A0088929F /* CollectionViewCells */ = {
 			isa = PBXGroup;
 			children = (
@@ -280,11 +294,11 @@
 		A0983D13223C0F75005BEA8E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A0983D2A223D6F46005BEA8E /* Base */,
 				A09A716A224A4F200041A817 /* Schedule */,
 				A05C133C22462A7A003AEB43 /* Auth */,
 				A016A0E52244D1FB000CA546 /* ErrorHandling */,
 				A0983D33223E7277005BEA8E /* SearchExercise */,
-				A0983D2A223D6F46005BEA8E /* Base */,
 				A0983D17223D6B9A005BEA8E /* Home */,
 			);
 			path = Controllers;
@@ -339,7 +353,9 @@
 		A0983D2A223D6F46005BEA8E /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				A069AA47224A6FCB000806AA /* Views */,
 				A0983D2B223D6F4F005BEA8E /* BaseViewController.swift */,
+				A069AA45224A6B81000806AA /* BaseViewControllerDelegate.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -379,6 +395,7 @@
 				A069AA40224A671C000806AA /* CollectionViewCells */,
 				A09A716B224A4F4C0041A817 /* CreateScheduleViewController.swift */,
 				A09A716D224A4F950041A817 /* CreateScheduleView.swift */,
+				A069AA43224A69C8000806AA /* CreateScheduleDataSource.swift */,
 			);
 			path = Schedule;
 			sourceTree = "<group>";
@@ -681,6 +698,7 @@
 				A0983D37223E72FC005BEA8E /* SearchExerciseView.swift in Sources */,
 				A016A0E922450624000CA546 /* HomeDatasource.swift in Sources */,
 				A0983D19223D6BA7005BEA8E /* HomeViewController.swift in Sources */,
+				A069AA49224A6FD5000806AA /* AddExerciseButton.swift in Sources */,
 				A0983CE9223C0F56005BEA8E /* LeanTrack.xcdatamodeld in Sources */,
 				A09A716C224A4F4C0041A817 /* CreateScheduleViewController.swift in Sources */,
 				A06BA9242243D4AE0088929F /* HomeExerciseCollectionViewCell.swift in Sources */,
@@ -694,6 +712,7 @@
 				A0983D41223EC21B005BEA8E /* ExerciseSettingsView.swift in Sources */,
 				A016A0EE22455C7B000CA546 /* HomeDatasourceProtocol.swift in Sources */,
 				A0983D3A223E73E5005BEA8E /* SearchExerciseCollectionViewCell.swift in Sources */,
+				A069AA46224A6B81000806AA /* BaseViewControllerDelegate.swift in Sources */,
 				A0983D2C223D6F4F005BEA8E /* BaseViewController.swift in Sources */,
 				A0983CE1223C0F56005BEA8E /* AppDelegate.swift in Sources */,
 				A06BA9282243DE360088929F /* UIView+UICollectionViewLayout.swift in Sources */,
@@ -702,6 +721,7 @@
 				A0983D35223E728C005BEA8E /* SearchExerciseViewController.swift in Sources */,
 				A06BA9262243DB230088929F /* Workout.swift in Sources */,
 				A05C13462247B2E0003AEB43 /* LeanTrackErrorDisplayer.swift in Sources */,
+				A069AA44224A69C8000806AA /* CreateScheduleDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

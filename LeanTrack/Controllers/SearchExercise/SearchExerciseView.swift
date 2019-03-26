@@ -53,7 +53,7 @@ class SearchExerciseView: UIView {
         addSubview(collectionView)
         
         collectionView.register(SearchExerciseCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
-        collectionView.backgroundColor = UIColor.background
+        collectionView.backgroundColor = UIColor.white
         collectionView.anchor(top: searchTextField.bottomAnchor, leading: leadingAnchor, bottom: bottomAnchor, traling: trailingAnchor, padding: .init(top: 29, left: 0, bottom: 0, right: 0), size: .init(width: 0, height: 62))
         
     }    

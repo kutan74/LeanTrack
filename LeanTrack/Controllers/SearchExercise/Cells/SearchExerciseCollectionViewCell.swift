@@ -9,14 +9,11 @@
 import UIKit
 
 class SearchExerciseCollectionViewCell : UICollectionViewCell {
-    
     let exerciseTitle : UILabel = {
-       
         let label = UILabel()
-        label.textColor = .white
+        label.textColor = .black
         label.setCustomFont(size: 18, fontType: CustomFonts.conduitBold)
         return label
-        
     }()
     
     override init(frame: CGRect) {
@@ -31,7 +28,7 @@ class SearchExerciseCollectionViewCell : UICollectionViewCell {
     func setupViews(){
         addSubview(exerciseTitle)
         
-        layer.borderColor = UIColor.cellBorder.cgColor
+        layer.borderColor = UIColor.black.cgColor
         layer.borderWidth = 1.0
         layer.cornerRadius = 3
         clipsToBounds = true
