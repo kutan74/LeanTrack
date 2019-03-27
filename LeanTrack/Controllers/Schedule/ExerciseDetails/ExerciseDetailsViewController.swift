@@ -28,7 +28,7 @@ class ExerciseDetailsViewController: BaseViewController {
     override func loadView() {
         view = UIView()
         view.backgroundColor = .white
-        
+                
         setupViews(subView)
         setViewControllerProperties()
         setTableViewDataSource()
@@ -39,7 +39,7 @@ class ExerciseDetailsViewController: BaseViewController {
     }
     
     func setTableViewDataSource(){
-        dataSource = ExerciseDetailsDataSource(exerciseName: selectedExercise.exerciseName)
+        dataSource = ExerciseDetailsDataSource(exerciseName: selectedExercise.exerciseName, placeholderSchedule: placeholderSchedule)
         dataSource.delegate = self
         subView.tableView.delegate = dataSource
         subView.tableView.dataSource = dataSource
@@ -49,11 +49,15 @@ class ExerciseDetailsViewController: BaseViewController {
 // MARK: ExerciseDetailsDatasource Delegate Methods
 extension ExerciseDetailsViewController: ExerciseDetailsDataSourceDelegate {
     func onConvertToKilogramSelected() {
-        placeholderSchedule.updateMetricUnit(to: .kilogram)
+        placeholderSchedule.updateMetricUnit(to: .kilograms)
+        dataSource.updatePlaceholderSchedule(placeholderSchedule: placeholderSchedule)
+        subView.tableView.reloadData()
     }
     
     func onConvertToLbsSelected() {
-        placeholderSchedule.updateMetricUnit(to: .lbs)
+        placeholderSchedule.updateMetricUnit(to: .pounds)
+        dataSource.updatePlaceholderSchedule(placeholderSchedule: placeholderSchedule)
+        subView.tableView.reloadData()
     }
     
     func onRPTSelected() {
@@ -66,10 +70,10 @@ extension ExerciseDetailsViewController: ExerciseDetailsDataSourceDelegate {
     
     func onMaximumWeightEntered(maxWeight: Double) {
         placeholderSchedule.exerciseMaxWeight = maxWeight
-        print("max weight for \(selectedExercise.exerciseName!) is \(placeholderSchedule.exerciseMaxWeight) in \(placeholderSchedule.metricUnit)")
     }
     
     func onSetCountEntered(setCount: Int) {
-        
+        placeholderSchedule.setCount = setCount
+        dataSource.updatePlaceholderSchedule(placeholderSchedule: placeholderSchedule)
     }
 }

@@ -65,7 +65,7 @@ extension CreateScheduleDataSource {
         if collectionView.tag == 0 {
             delegate?.onDaySwitched(newIndex: indexPath.row)
         }else {
-            delegate?.onExerciseSelected(exercise: exercises[indexPath.row])
+            delegate?.onExerciseDetailsTapped(exercise: exercises[indexPath.row])
         }
     }
 }

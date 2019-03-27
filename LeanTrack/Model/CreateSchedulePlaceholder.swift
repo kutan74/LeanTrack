@@ -8,16 +8,11 @@
 
 import Foundation
 
-enum WeightMetricUnit {
-    case kilogram
-    case lbs
-}
-
 /* Placeholder class to hold temporary create schedule values
 */
 class CreateSchedulePlaceholder {
     var exerciseMaxWeight = 0.0
-    var metricUnit = WeightMetricUnit.kilogram
+    var metricUnit = UnitMass.kilograms
     var setCount = 0
     var isRPT = false
     var isStrongman = false
@@ -26,14 +21,30 @@ class CreateSchedulePlaceholder {
 
 // MARK: Conversion between metric units
 extension CreateSchedulePlaceholder {
-    func updateMetricUnit(to unit: WeightMetricUnit){
-        switch unit {
-        case .kilogram:
-            metricUnit = .kilogram
-            exerciseMaxWeight = exerciseMaxWeight * 2.20462262
-        case .lbs:
-            metricUnit = .lbs
-            exerciseMaxWeight = exerciseMaxWeight / 2.20462262
+    func updateMetricUnit(to unit: UnitMass){
+        guard unit != metricUnit else {
+            return
         }
+        
+        var measurement = Measurement(value: exerciseMaxWeight, unit: metricUnit)
+        
+        switch unit {
+        case UnitMass.kilograms:
+            metricUnit = .kilograms
+        case UnitMass.pounds:
+            metricUnit = .pounds
+        default:
+            break
+        }
+        
+        measurement.convert(to: metricUnit)
+        exerciseMaxWeight = measurement.value.rounded(digits: 1)
+    }
+}
+
+extension Double {
+    func rounded(digits: Int) -> Double {
+        let multiplier = pow(10.0, Double(digits))
+        return (self * multiplier).rounded() / multiplier
     }
 }

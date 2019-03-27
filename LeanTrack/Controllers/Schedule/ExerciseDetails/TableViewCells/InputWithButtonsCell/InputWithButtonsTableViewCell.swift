@@ -10,8 +10,8 @@ import UIKit
 
 class InputWithButtonsTableViewCell: UITableViewCell {
     let cellInputView = InputView()
-    let primaryButton = ExerciseDetailsButton()
-    let secondaryButton = ExerciseDetailsButton()
+    let primaryButton = CreateScheduleActionButton()
+    let secondaryButton = CreateScheduleActionButton()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

@@ -12,7 +12,7 @@ import Hero
 class SearchExerciseViewController: BaseViewController {
     let subView = SearchExerciseView()
     let exercises = ["Back Squat", "Front Squat", "Deadlift", "Overhead Press","Barbell Row",
-                     "Bench Press", "Chin Ups", "Triceps Pulldown"]
+                     "Bench Press", "Chin Ups", "Triceps Pulldown","Hammer Curl","Close Grip Bench Press","Seal Row","Pendlay Row"]
     var searchResult: [String] = []
     weak var searchDelegate: SearchResultProtocol?
     

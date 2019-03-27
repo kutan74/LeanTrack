@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ExerciseDetailsButton: UIButton {
+class CreateScheduleActionButton: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setButtonProperties()
@@ -28,8 +28,13 @@ class ExerciseDetailsButton: UIButton {
         titleLabel?.setCustomFont(size: 12, fontType: CustomFonts.conduitBold)
     }
     
-    func applySelectedProperties(){
-        backgroundColor = UIColor.blackTwo
-        setTitleColor(.white, for: .normal)
+    func setSelectionStatus(_ status: Bool){
+        if status {
+            backgroundColor = UIColor.blackTwo
+            setTitleColor(.white, for: .normal)
+        }else {
+            backgroundColor = UIColor.clear
+            setTitleColor(UIColor.brownishGrey, for: .normal)
+        }
     }
 }

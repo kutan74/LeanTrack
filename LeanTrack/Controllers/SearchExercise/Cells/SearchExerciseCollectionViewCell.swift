@@ -26,13 +26,7 @@ class SearchExerciseCollectionViewCell : UICollectionViewCell {
     }
     
     func setupViews(){
-        addSubview(exerciseTitle)
-        
-        layer.borderColor = UIColor.black.cgColor
-        layer.borderWidth = 1.0
-        layer.cornerRadius = 3
-        clipsToBounds = true
-        
+        addSubview(exerciseTitle)        
         exerciseTitle.anchor(top: nil, leading: leadingAnchor, bottom: nil, traling: trailingAnchor, padding: .init(top: 0, left: 11, bottom: 0, right: 0))
         exerciseTitle.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
     }

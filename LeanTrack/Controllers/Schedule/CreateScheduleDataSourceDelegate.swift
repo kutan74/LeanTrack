@@ -10,5 +10,5 @@ import Foundation
 
 protocol CreateScheduleDataSourceDelegate: class {
     func onDaySwitched(newIndex: Int)
-    func onExerciseSelected(exercise: WorkoutExercise)
+    func onExerciseDetailsTapped(exercise: WorkoutExercise)
 }

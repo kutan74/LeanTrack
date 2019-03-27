@@ -30,6 +30,7 @@ class CreateScheduleViewController: BaseViewController {
     func setViewControllerProperties(){
         setupViews(subView)
         setupAddExerciseButton()
+        addExerciseButton.setTitle("Add Exercise", for: .normal)
         delegate = self
         title = "SCHEDULE"
     }
@@ -59,8 +60,8 @@ extension CreateScheduleViewController: BaseViewControllerDelegate {
 
 // MARK: Current Day Switches
 extension CreateScheduleViewController: CreateScheduleDataSourceDelegate {
-    func onExerciseSelected(exercise: WorkoutExercise) {
-        showAddExerciseButton(false)
+    func onExerciseDetailsTapped(exercise: WorkoutExercise) {
+        addExerciseButton.setTitle("Save", for: .normal)
         let controller = ExerciseDetailsViewController(selectedExercise: exercise)
         navigationController?.pushViewController(controller, animated: true)
     }

@@ -10,7 +10,7 @@ import UIKit
 
 class BaseViewController : UIViewController {
     private lazy var errorDisplayer = LeanTrackErrorDisplayer()
-    private lazy var addExerciseButton = AddExerciseButton()
+    lazy var addExerciseButton = AddExerciseButton()
     
     weak var delegate: BaseViewControllerDelegate?
     
