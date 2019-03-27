@@ -42,7 +42,7 @@ class CreateScheduleView: UIView {
     
     func setupExercisesCollectionView(){
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = .init(width: UIScreen.main.bounds.size.width - 40, height: 20)
+        layout.itemSize = .init(width: UIScreen.main.bounds.size.width - 40, height: 30)
         layout.minimumLineSpacing = 8
         layout.minimumInteritemSpacing = 8
         layout.scrollDirection = .vertical

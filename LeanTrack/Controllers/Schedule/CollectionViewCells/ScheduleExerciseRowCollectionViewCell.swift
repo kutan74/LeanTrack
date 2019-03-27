@@ -17,9 +17,22 @@ class ScheduleExerciseRowCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
+    let addSetButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Add Set", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.titleLabel?.setCustomFont(size: 12, fontType: CustomFonts.conduitBold)
+        button.layer.cornerRadius = 3
+        button.clipsToBounds = true
+        button.layer.borderColor = UIColor.black.cgColor
+        button.layer.borderWidth = 1.0
+        button.backgroundColor = .clear
+        return button
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        [exerciseNameLabel].forEach {
+        [exerciseNameLabel,addSetButton].forEach {
             addSubview($0)
         }
         setupViews()
@@ -31,5 +44,7 @@ class ScheduleExerciseRowCollectionViewCell: UICollectionViewCell {
     
     func setupViews(){
         exerciseNameLabel.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, traling: nil)
+        addSetButton.anchor(top: nil, leading: nil, bottom: nil, traling: trailingAnchor, padding: .zero, size: .init(width: 60, height: 25))
+        addSetButton.centerYAnchor.constraint(equalTo: exerciseNameLabel.centerYAnchor).isActive = true
     }
 }

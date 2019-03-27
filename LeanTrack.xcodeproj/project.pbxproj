@@ -237,6 +237,13 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		A069AA91224B46C6000806AA /* ExerciseSettingsViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ExerciseSettingsViewController;
+			sourceTree = "<group>";
+		};
 		A06BA9222243D49A0088929F /* CollectionViewCells */ = {
 			isa = PBXGroup;
 			children = (
@@ -414,6 +421,7 @@
 		A09A716A224A4F200041A817 /* Schedule */ = {
 			isa = PBXGroup;
 			children = (
+				A069AA91224B46C6000806AA /* ExerciseSettingsViewController */,
 				A069AA54224A954F000806AA /* Views */,
 				A069AA40224A671C000806AA /* CollectionViewCells */,
 				A09A716B224A4F4C0041A817 /* CreateScheduleViewController.swift */,
