@@ -25,12 +25,12 @@ class CreateScheduleViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         showAddExerciseButton(true)
+        addExerciseButton.setTitle("Add Exercise", for: .normal)
     }
     
     func setViewControllerProperties(){
         setupViews(subView)
         setupAddExerciseButton()
-        addExerciseButton.setTitle("Add Exercise", for: .normal)
         delegate = self
         title = "SCHEDULE"
     }
