@@ -64,6 +64,8 @@ extension CreateScheduleDataSource {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView.tag == 0 {
             delegate?.onDaySwitched(newIndex: indexPath.row)
+        }else {
+            delegate?.onExerciseSelected(exercise: exercises[indexPath.row])
         }
     }
 }

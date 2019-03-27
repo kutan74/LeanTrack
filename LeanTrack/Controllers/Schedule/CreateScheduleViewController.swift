@@ -59,6 +59,12 @@ extension CreateScheduleViewController: BaseViewControllerDelegate {
 
 // MARK: Current Day Switches
 extension CreateScheduleViewController: CreateScheduleDataSourceDelegate {
+    func onExerciseSelected(exercise: WorkoutExercise) {
+        showAddExerciseButton(false)
+        let controller = ExerciseDetailsViewController(selectedExercise: exercise)
+        navigationController?.pushViewController(controller, animated: true)
+    }
+    
     func onDaySwitched(newIndex: Int) {
         guard newIndex != currentDayIndex else {
             return
