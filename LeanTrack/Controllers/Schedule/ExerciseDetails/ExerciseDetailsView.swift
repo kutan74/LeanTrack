@@ -31,11 +31,12 @@ class ExerciseDetailsView: UIView {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.backgroundColor = .clear
         addSubview(tableView)
-        tableView.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, traling: trailingAnchor, padding: .init(top: 30, left: 22, bottom: 30, right: 22), size: .init(width: 0, height: UIScreen.main.bounds.size.height - 70))
+        tableView.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, traling: trailingAnchor, padding: .init(top: 20, left: 22, bottom: 30, right: 22), size: .init(width: 0, height: UIScreen.main.bounds.size.height - 70))
     }
     
     func registerTableViewCells(){
         tableView.register(ExerciseDetailsTitleTableViewCell.self, forCellReuseIdentifier: "titleCell")
+        tableView.register(MultipleButtonsCell.self, forCellReuseIdentifier: "multipleButtonsCell")
         tableView.register(InputWithButtonsTableViewCell.self, forCellReuseIdentifier: "inputCell")
         tableView.register(AdjustRepsTableViewCell.self, forCellReuseIdentifier: "multipleInputsCell")
     }

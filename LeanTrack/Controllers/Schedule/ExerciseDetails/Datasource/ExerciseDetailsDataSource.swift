@@ -26,22 +26,20 @@ class ExerciseDetailsDataSource: NSObject {
 // MARK: TableView Datasource & Delegate
 extension ExerciseDetailsDataSource: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 6
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "titleCell", for: indexPath) as! ExerciseDetailsTitleTableViewCell
-            cell.titleLabel.text = "Enter your maximum weight for \(exerciseName!)"
+            cell.titleLabel.text = "Metric unit?"
             return cell
         case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "inputCell", for: indexPath) as! InputWithButtonsTableViewCell
-            cell.cellInputView.text = String(placeholderSchedule.exerciseMaxWeight)
-            cell.cellInputView.addTarget(self, action: #selector(maximumWeightDidChange(_:)), for: .editingChanged)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "multipleButtonsCell", for: indexPath) as! MultipleButtonsCell
             cell.primaryButton.addTarget(self, action: #selector(onConvertToKilogramSelected), for: .touchUpInside)
             cell.secondaryButton.addTarget(self, action: #selector(onConvertToLbsSelected), for: .touchUpInside)
-            cell.primaryButton.setTitle("KG", for: .normal)            
+            cell.primaryButton.setTitle("KG", for: .normal)
             cell.secondaryButton.setTitle("LBS", for: .normal)
             
             if placeholderSchedule.metricUnit == .kilograms {
@@ -51,15 +49,23 @@ extension ExerciseDetailsDataSource: UITableViewDelegate,UITableViewDataSource {
                 cell.secondaryButton.setSelectionStatus(true)
                 cell.primaryButton.setSelectionStatus(false)
             }
-            
             return cell
         case 2:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "titleCell", for: indexPath) as! ExerciseDetailsTitleTableViewCell
+            cell.titleLabel.text = "Enter your maximum weight for \(exerciseName!)"
+            return cell
+        case 3:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "inputCell", for: indexPath) as! InputWithButtonsTableViewCell
+            cell.cellInputView.text = String(placeholderSchedule.exerciseMaxWeight)
+            cell.cellInputView.addTarget(self, action: #selector(maximumWeightDidChange(_:)), for: .editingChanged)            
+            return cell
+        case 4:
             let cell = tableView.dequeueReusableCell(withIdentifier: "titleCell", for: indexPath) as! ExerciseDetailsTitleTableViewCell
             cell.titleLabel.text = "Adjust your reps"
             cell.enablePrimaryButton(title: "Add Set")
             cell.primaryButton.addTarget(self, action: #selector(onAddSetButtonTapped), for: .touchUpInside)
             return cell
-        case 3:
+        case 5:
             let cell = tableView.dequeueReusableCell(withIdentifier: "multipleInputsCell", for: indexPath) as! AdjustRepsTableViewCell
             cell.setCollectionViewDataSourceDelegate(self, forRow: indexPath.row)
             return cell
@@ -69,17 +75,13 @@ extension ExerciseDetailsDataSource: UITableViewDelegate,UITableViewDataSource {
         }
     }
     
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 10.0
-    }
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 3 {
+        if indexPath.row == 5 {
             return CGFloat(40 + (placeholderSchedule.sets.count * 30) + ((placeholderSchedule.sets.count - 1) * 8))
         }else {
-            return CGFloat(40)            
+            return CGFloat(36)
         }
-    }
+    }        
 }
 
 // MARK: TableView's CollectionView Datasource & Delegate

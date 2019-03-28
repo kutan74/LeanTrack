@@ -15,6 +15,7 @@
 		A016A0EE22455C7B000CA546 /* HomeDatasourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A016A0ED22455C7B000CA546 /* HomeDatasourceProtocol.swift */; };
 		A044AB3D224C992E00056A7E /* AdjustRepsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A044AB3C224C992E00056A7E /* AdjustRepsTableViewCell.swift */; };
 		A044AB3F224C9A3000056A7E /* MultipleInputCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A044AB3E224C9A3000056A7E /* MultipleInputCollectionViewCell.swift */; };
+		A044AB42224D032B00056A7E /* MultipleButtonsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A044AB41224D032B00056A7E /* MultipleButtonsCell.swift */; };
 		A05C134122469DC1003AEB43 /* FirestoreLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C134022469DC1003AEB43 /* FirestoreLoader.swift */; };
 		A05C134322475CE2003AEB43 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A05C134222475CE2003AEB43 /* GoogleService-Info.plist */; };
 		A05C13462247B2E0003AEB43 /* LeanTrackErrorDisplayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C13452247B2E0003AEB43 /* LeanTrackErrorDisplayer.swift */; };
@@ -99,6 +100,7 @@
 		A016A0ED22455C7B000CA546 /* HomeDatasourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDatasourceProtocol.swift; sourceTree = "<group>"; };
 		A044AB3C224C992E00056A7E /* AdjustRepsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjustRepsTableViewCell.swift; sourceTree = "<group>"; };
 		A044AB3E224C9A3000056A7E /* MultipleInputCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleInputCollectionViewCell.swift; sourceTree = "<group>"; };
+		A044AB41224D032B00056A7E /* MultipleButtonsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleButtonsCell.swift; sourceTree = "<group>"; };
 		A05C134022469DC1003AEB43 /* FirestoreLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreLoader.swift; sourceTree = "<group>"; };
 		A05C134222475CE2003AEB43 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A05C13452247B2E0003AEB43 /* LeanTrackErrorDisplayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeanTrackErrorDisplayer.swift; sourceTree = "<group>"; };
@@ -229,6 +231,14 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		A044AB40224D030100056A7E /* MultipleButtonsCell */ = {
+			isa = PBXGroup;
+			children = (
+				A044AB41224D032B00056A7E /* MultipleButtonsCell.swift */,
+			);
+			path = MultipleButtonsCell;
+			sourceTree = "<group>";
+		};
 		A069AA40224A671C000806AA /* CollectionViewCells */ = {
 			isa = PBXGroup;
 			children = (
@@ -260,6 +270,7 @@
 		A069AA99224B9DE7000806AA /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				A044AB40224D030100056A7E /* MultipleButtonsCell */,
 				A069AAAD224BE7F3000806AA /* AdjustReps */,
 				A069AA9F224BA185000806AA /* InputWithButtonsCell */,
 				A069AA9A224B9DF2000806AA /* TitleCell */,
@@ -809,6 +820,7 @@
 				A0983D29223D6F2C005BEA8E /* UIColor+Colors.swift in Sources */,
 				A069AAA5224BAA5B000806AA /* UIView+DropShadow.swift in Sources */,
 				A016A0E72245052B000CA546 /* ExerciseSetCollectionViewCell.swift in Sources */,
+				A044AB42224D032B00056A7E /* MultipleButtonsCell.swift in Sources */,
 				A0983D16223C10F4005BEA8E /* UIView+NSConstraints.swift in Sources */,
 				A069AAA9224BD7FC000806AA /* ExerciseDetailsDataSourceDelegate.swift in Sources */,
 				A044AB3D224C992E00056A7E /* AdjustRepsTableViewCell.swift in Sources */,
