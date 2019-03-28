@@ -72,8 +72,9 @@ extension ExerciseDetailsViewController: ExerciseDetailsDataSourceDelegate {
         placeholderSchedule.exerciseMaxWeight = maxWeight
     }
     
-    func onSetCountEntered(setCount: Int) {
-        placeholderSchedule.setCount = setCount
+    func onAddSetButtonTapped() {
+        placeholderSchedule.sets.append(WorkoutExerciseSet(weight: 0, repCount: 0))
         dataSource.updatePlaceholderSchedule(placeholderSchedule: placeholderSchedule)
+        subView.tableView.reloadData()
     }
 }

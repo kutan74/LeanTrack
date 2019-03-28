@@ -16,5 +16,5 @@ protocol ExerciseDetailsDataSourceDelegate: class {
     func onRPTSelected()
     func onStrongmanSelected()
     func onMaximumWeightEntered(maxWeight: Double)
-    func onSetCountEntered(setCount: Int)
+    func onAddSetButtonTapped()
 }

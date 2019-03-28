@@ -13,13 +13,15 @@
 		A016A0E72245052B000CA546 /* ExerciseSetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A016A0E62245052B000CA546 /* ExerciseSetCollectionViewCell.swift */; };
 		A016A0E922450624000CA546 /* HomeDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A016A0E822450624000CA546 /* HomeDatasource.swift */; };
 		A016A0EE22455C7B000CA546 /* HomeDatasourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A016A0ED22455C7B000CA546 /* HomeDatasourceProtocol.swift */; };
+		A044AB3D224C992E00056A7E /* AdjustRepsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A044AB3C224C992E00056A7E /* AdjustRepsTableViewCell.swift */; };
+		A044AB3F224C9A3000056A7E /* MultipleInputCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A044AB3E224C9A3000056A7E /* MultipleInputCollectionViewCell.swift */; };
 		A05C134122469DC1003AEB43 /* FirestoreLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C134022469DC1003AEB43 /* FirestoreLoader.swift */; };
 		A05C134322475CE2003AEB43 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A05C134222475CE2003AEB43 /* GoogleService-Info.plist */; };
 		A05C13462247B2E0003AEB43 /* LeanTrackErrorDisplayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C13452247B2E0003AEB43 /* LeanTrackErrorDisplayer.swift */; };
 		A069AA42224A672D000806AA /* ScheduleDayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A069AA41224A672D000806AA /* ScheduleDayCollectionViewCell.swift */; };
 		A069AA44224A69C8000806AA /* CreateScheduleDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A069AA43224A69C8000806AA /* CreateScheduleDataSource.swift */; };
 		A069AA46224A6B81000806AA /* BaseViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A069AA45224A6B81000806AA /* BaseViewControllerDelegate.swift */; };
-		A069AA49224A6FD5000806AA /* AddExerciseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A069AA48224A6FD5000806AA /* AddExerciseButton.swift */; };
+		A069AA49224A6FD5000806AA /* NavigationBarActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A069AA48224A6FD5000806AA /* NavigationBarActionButton.swift */; };
 		A069AA4D224A87A7000806AA /* ScheduleExerciseRowCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A069AA4C224A87A7000806AA /* ScheduleExerciseRowCollectionViewCell.swift */; };
 		A069AA4F224A891C000806AA /* WorkoutSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A069AA4E224A891C000806AA /* WorkoutSchedule.swift */; };
 		A069AA51224A8F02000806AA /* WorkoutExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = A069AA50224A8F02000806AA /* WorkoutExercise.swift */; };
@@ -95,13 +97,15 @@
 		A016A0E62245052B000CA546 /* ExerciseSetCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseSetCollectionViewCell.swift; sourceTree = "<group>"; };
 		A016A0E822450624000CA546 /* HomeDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDatasource.swift; sourceTree = "<group>"; };
 		A016A0ED22455C7B000CA546 /* HomeDatasourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDatasourceProtocol.swift; sourceTree = "<group>"; };
+		A044AB3C224C992E00056A7E /* AdjustRepsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjustRepsTableViewCell.swift; sourceTree = "<group>"; };
+		A044AB3E224C9A3000056A7E /* MultipleInputCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleInputCollectionViewCell.swift; sourceTree = "<group>"; };
 		A05C134022469DC1003AEB43 /* FirestoreLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreLoader.swift; sourceTree = "<group>"; };
 		A05C134222475CE2003AEB43 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A05C13452247B2E0003AEB43 /* LeanTrackErrorDisplayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeanTrackErrorDisplayer.swift; sourceTree = "<group>"; };
 		A069AA41224A672D000806AA /* ScheduleDayCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleDayCollectionViewCell.swift; sourceTree = "<group>"; };
 		A069AA43224A69C8000806AA /* CreateScheduleDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateScheduleDataSource.swift; sourceTree = "<group>"; };
 		A069AA45224A6B81000806AA /* BaseViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewControllerDelegate.swift; sourceTree = "<group>"; };
-		A069AA48224A6FD5000806AA /* AddExerciseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddExerciseButton.swift; path = LeanTrack/Controllers/Base/AddExerciseButton.swift; sourceTree = SOURCE_ROOT; };
+		A069AA48224A6FD5000806AA /* NavigationBarActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NavigationBarActionButton.swift; path = LeanTrack/Controllers/Base/NavigationBarActionButton.swift; sourceTree = SOURCE_ROOT; };
 		A069AA4C224A87A7000806AA /* ScheduleExerciseRowCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleExerciseRowCollectionViewCell.swift; sourceTree = "<group>"; };
 		A069AA4E224A891C000806AA /* WorkoutSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSchedule.swift; sourceTree = "<group>"; };
 		A069AA50224A8F02000806AA /* WorkoutExercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutExercise.swift; sourceTree = "<group>"; };
@@ -225,13 +229,6 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
-		A05C133C22462A7A003AEB43 /* Auth */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Auth;
-			sourceTree = "<group>";
-		};
 		A069AA40224A671C000806AA /* CollectionViewCells */ = {
 			isa = PBXGroup;
 			children = (
@@ -244,7 +241,7 @@
 		A069AA47224A6FCB000806AA /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A069AA48224A6FD5000806AA /* AddExerciseButton.swift */,
+				A069AA48224A6FD5000806AA /* NavigationBarActionButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -300,6 +297,8 @@
 		A069AAAD224BE7F3000806AA /* AdjustReps */ = {
 			isa = PBXGroup;
 			children = (
+				A044AB3C224C992E00056A7E /* AdjustRepsTableViewCell.swift */,
+				A044AB3E224C9A3000056A7E /* MultipleInputCollectionViewCell.swift */,
 			);
 			path = AdjustReps;
 			sourceTree = "<group>";
@@ -386,7 +385,6 @@
 			children = (
 				A0983D2A223D6F46005BEA8E /* Base */,
 				A09A716A224A4F200041A817 /* Schedule */,
-				A05C133C22462A7A003AEB43 /* Auth */,
 				A016A0E52244D1FB000CA546 /* ErrorHandling */,
 				A0983D33223E7277005BEA8E /* SearchExercise */,
 				A0983D17223D6B9A005BEA8E /* Home */,
@@ -794,7 +792,7 @@
 				A016A0E922450624000CA546 /* HomeDatasource.swift in Sources */,
 				A069AAA7224BC791000806AA /* CreateScheduleActionButton.swift in Sources */,
 				A0983D19223D6BA7005BEA8E /* HomeViewController.swift in Sources */,
-				A069AA49224A6FD5000806AA /* AddExerciseButton.swift in Sources */,
+				A069AA49224A6FD5000806AA /* NavigationBarActionButton.swift in Sources */,
 				A069AAA1224BA1A1000806AA /* InputWithButtonsTableViewCell.swift in Sources */,
 				A0983CE9223C0F56005BEA8E /* LeanTrack.xcdatamodeld in Sources */,
 				A09A716C224A4F4C0041A817 /* CreateScheduleViewController.swift in Sources */,
@@ -803,6 +801,7 @@
 				A069AAA3224BA1E6000806AA /* InputView.swift in Sources */,
 				A0983D3F223EC1F4005BEA8E /* ExerciseSettingsViewController.swift in Sources */,
 				A069AA98224B9CF7000806AA /* ExerciseDetailsView.swift in Sources */,
+				A044AB3F224C9A3000056A7E /* MultipleInputCollectionViewCell.swift in Sources */,
 				A016A0E22244D11D000CA546 /* ExerciseSettingsProtocol.swift in Sources */,
 				A0983D1B223D6D49005BEA8E /* HomeView.swift in Sources */,
 				A069AA4F224A891C000806AA /* WorkoutSchedule.swift in Sources */,
@@ -812,6 +811,7 @@
 				A016A0E72245052B000CA546 /* ExerciseSetCollectionViewCell.swift in Sources */,
 				A0983D16223C10F4005BEA8E /* UIView+NSConstraints.swift in Sources */,
 				A069AAA9224BD7FC000806AA /* ExerciseDetailsDataSourceDelegate.swift in Sources */,
+				A044AB3D224C992E00056A7E /* AdjustRepsTableViewCell.swift in Sources */,
 				A09A716E224A4F950041A817 /* CreateScheduleView.swift in Sources */,
 				A0983D41223EC21B005BEA8E /* ExerciseSettingsView.swift in Sources */,
 				A016A0EE22455C7B000CA546 /* HomeDatasourceProtocol.swift in Sources */,

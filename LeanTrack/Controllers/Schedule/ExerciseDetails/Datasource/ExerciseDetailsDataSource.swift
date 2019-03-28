@@ -26,7 +26,7 @@ class ExerciseDetailsDataSource: NSObject {
 // MARK: TableView Datasource & Delegate
 extension ExerciseDetailsDataSource: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -55,18 +55,13 @@ extension ExerciseDetailsDataSource: UITableViewDelegate,UITableViewDataSource {
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "titleCell", for: indexPath) as! ExerciseDetailsTitleTableViewCell
-            cell.titleLabel.text = "How many sets will you perform ?"
+            cell.titleLabel.text = "Adjust your reps"
+            cell.enablePrimaryButton(title: "Add Set")
+            cell.primaryButton.addTarget(self, action: #selector(onAddSetButtonTapped), for: .touchUpInside)
             return cell
         case 3:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "inputCell", for: indexPath) as! InputWithButtonsTableViewCell
-            cell.cellInputView.text = String(placeholderSchedule.setCount)
-            cell.primaryButton.isHidden = true
-            cell.secondaryButton.isHidden = true
-            cell.secondaryButton.setTitle("STRONGMAN", for: .normal)
-            return cell
-        case 4:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "titleCell", for: indexPath) as! ExerciseDetailsTitleTableViewCell
-            cell.titleLabel.text = "Adjust your reps"
+            let cell = tableView.dequeueReusableCell(withIdentifier: "multipleInputsCell", for: indexPath) as! AdjustRepsTableViewCell
+            cell.setCollectionViewDataSourceDelegate(self, forRow: indexPath.row)
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
@@ -77,10 +72,30 @@ extension ExerciseDetailsDataSource: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 10.0
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 3 {
+            return CGFloat(40 + (placeholderSchedule.sets.count * 26))
+        }else {
+            return CGFloat(40)
+        }
+    }
+}
+
+extension ExerciseDetailsDataSource: UICollectionViewDelegate,UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return placeholderSchedule.sets.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! MultipleInputCollectionViewCell
+        return cell
+    }
 }
 
 // MARK: TableViewCells TextField Delegate
 extension ExerciseDetailsDataSource {
+    // User typed max weight for selected exercise
     @objc func maximumWeightDidChange(_ textField: UITextField) {
         guard let typedText = textField.text else {
             return
@@ -92,12 +107,19 @@ extension ExerciseDetailsDataSource {
         delegate?.onMaximumWeightEntered(maxWeight: maximumWeightInput)
     }
     
+    // Unitmass conversion
     @objc func onConvertToKilogramSelected(){
         delegate?.onConvertToKilogramSelected()
     }
     
+    // Unitmass conversion
     @objc func onConvertToLbsSelected(){
         delegate?.onConvertToLbsSelected()
+    }
+    
+    // Adjust reps TableViewCell AddSet button tapped
+    @objc func onAddSetButtonTapped(){
+        delegate?.onAddSetButtonTapped()
     }
 }
 

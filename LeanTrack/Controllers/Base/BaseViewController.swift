@@ -10,7 +10,7 @@ import UIKit
 
 class BaseViewController : UIViewController {
     private lazy var errorDisplayer = LeanTrackErrorDisplayer()
-    lazy var addExerciseButton = AddExerciseButton()
+    lazy var addExerciseButton = NavigationBarActionButton()
     
     weak var delegate: BaseViewControllerDelegate?
     
@@ -37,7 +37,7 @@ class BaseViewController : UIViewController {
         addExerciseButton.addTarget(self, action: #selector(onAddExerciseButtonTapped), for: .touchUpInside)
         guard let navigationBar = self.navigationController?.navigationBar else { return }
         navigationBar.addSubview(addExerciseButton)
-        addExerciseButton.anchor(top: nil, leading: nil, bottom: navigationBar.bottomAnchor, traling: navigationBar.trailingAnchor, padding: .init(top: 0, left: 0, bottom: 16, right: 10), size: .init(width: 70, height: 25))       
+        addExerciseButton.anchor(top: nil, leading: nil, bottom: navigationBar.bottomAnchor, traling: navigationBar.trailingAnchor, padding: .init(top: 0, left: 0, bottom: 16, right: 22), size: .init(width: 65, height: 25))
     }
     
     func showAddExerciseButton(_ status: Bool){

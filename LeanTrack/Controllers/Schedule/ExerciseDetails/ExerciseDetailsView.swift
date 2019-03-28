@@ -15,6 +15,7 @@ class ExerciseDetailsView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupCollectionViewLayout()
+        registerTableViewCells()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -30,8 +31,12 @@ class ExerciseDetailsView: UIView {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.backgroundColor = .clear
         addSubview(tableView)
+        tableView.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, traling: trailingAnchor, padding: .init(top: 30, left: 22, bottom: 30, right: 22), size: .init(width: 0, height: UIScreen.main.bounds.size.height - 70))
+    }
+    
+    func registerTableViewCells(){
         tableView.register(ExerciseDetailsTitleTableViewCell.self, forCellReuseIdentifier: "titleCell")
         tableView.register(InputWithButtonsTableViewCell.self, forCellReuseIdentifier: "inputCell")
-        tableView.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, traling: trailingAnchor, padding: .init(top: 30, left: 22, bottom: 30, right: 22), size: .init(width: 0, height: UIScreen.main.bounds.size.height - 70))
+        tableView.register(AdjustRepsTableViewCell.self, forCellReuseIdentifier: "multipleInputsCell")
     }
 }

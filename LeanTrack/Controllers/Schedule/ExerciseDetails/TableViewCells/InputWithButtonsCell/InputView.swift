@@ -20,7 +20,7 @@ class InputView: UITextField {
     
     func setProperties(){
         layer.cornerRadius = 3
-        layer.borderColor = UIColor.apricot.cgColor
+        layer.borderColor = UIColor.black.cgColor
         layer.borderWidth = 1.0
         clipsToBounds = true
         attributedPlaceholder = NSAttributedString(string:"0.00", attributes:[NSAttributedString.Key.foregroundColor: UIColor.black.withAlphaComponent(0.23),NSAttributedString.Key.font : UIFont(name: "ConduitITC-Bold", size: 12)!])

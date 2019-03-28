@@ -23,6 +23,8 @@ class ExerciseDetailsTitleTableViewCell: UITableViewCell {
         return label
     }()
     
+    let primaryButton = NavigationBarActionButton()
+    
     var titleBottomConstraint: NSLayoutConstraint!
     var titleTrailingConstraint: NSLayoutConstraint!
     
@@ -31,11 +33,11 @@ class ExerciseDetailsTitleTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        [titleLabel,subTitleLabel].forEach {
+        [titleLabel,subTitleLabel,primaryButton].forEach {
             addSubview($0)
         }
         
-        titleLabel.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, traling: nil)
+        titleLabel.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, traling: nil, padding: .init(top: 10, left: 0, bottom: 0, right: 0))
         titleBottomConstraint = titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10)
         titleBottomConstraint.isActive = true
         titleTrailingConstraint = titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
@@ -46,6 +48,10 @@ class ExerciseDetailsTitleTableViewCell: UITableViewCell {
         subTitleBottomConstraint.isActive = false
         subTitleTrailingConstraint = subTitleLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
         subTitleTrailingConstraint.isActive = false
+        
+        primaryButton.anchor(top: nil, leading: nil, bottom: nil, traling: trailingAnchor,padding: .zero, size: .init(width: 65, height: 25))
+        primaryButton.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor).isActive = true
+        primaryButton.isHidden = true
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -55,6 +61,11 @@ class ExerciseDetailsTitleTableViewCell: UITableViewCell {
    
     override func awakeFromNib() {
         super.awakeFromNib()
+    }
+    
+    func enablePrimaryButton(title: String){
+        primaryButton.isHidden = false
+        primaryButton.setTitle(title, for: .normal)
     }
     
 }
