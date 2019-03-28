@@ -75,13 +75,14 @@ extension ExerciseDetailsDataSource: UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 3 {
-            return CGFloat(40 + (placeholderSchedule.sets.count * 26))
+            return CGFloat(40 + (placeholderSchedule.sets.count * 30) + ((placeholderSchedule.sets.count - 1) * 8))
         }else {
-            return CGFloat(40)
+            return CGFloat(40)            
         }
     }
 }
 
+// MARK: TableView's CollectionView Datasource & Delegate
 extension ExerciseDetailsDataSource: UICollectionViewDelegate,UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return placeholderSchedule.sets.count
@@ -89,7 +90,29 @@ extension ExerciseDetailsDataSource: UICollectionViewDelegate,UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! MultipleInputCollectionViewCell
+        cell.weightInput.tag = indexPath.row
+        cell.repInput.tag = indexPath.row
+        cell.weightInput.applyPlaceHolderWithString("weight")
+        cell.repInput.applyPlaceHolderWithString("reps")
+        cell.weightInput.addTarget(self, action: #selector(setWeightChanged(_:)), for: .editingChanged)
+        cell.repInput.addTarget(self, action: #selector(setRepChanged(_:)), for: .editingChanged)
+        cell.weightInput.delegate = self
+        cell.repInput.delegate = self
         return cell
+    }
+    
+    @objc func setWeightChanged(_ textField: UITextField){
+        guard let typedText = textField.text else {
+            return
+        }
+        delegate?.didSetWeightChanged(at: textField.tag, newValue: typedText)
+    }
+    
+    @objc func setRepChanged(_ textField: UITextField){
+        guard let typedText = textField.text else {
+            return
+        }
+        delegate?.didSetRepChanged(at: textField.tag, newValue: typedText)
     }
 }
 
@@ -104,22 +127,35 @@ extension ExerciseDetailsDataSource {
         guard let maximumWeightInput = Double(typedText) else {
             return
         }
-        delegate?.onMaximumWeightEntered(maxWeight: maximumWeightInput)
+        delegate?.didMaximumWeightEntered(maxWeight: maximumWeightInput)
     }
     
     // Unitmass conversion
     @objc func onConvertToKilogramSelected(){
-        delegate?.onConvertToKilogramSelected()
+        delegate?.didConvertToKilogramSelected()
     }
     
     // Unitmass conversion
     @objc func onConvertToLbsSelected(){
-        delegate?.onConvertToLbsSelected()
+        delegate?.didConvertToLbsSelected()
     }
     
     // Adjust reps TableViewCell AddSet button tapped
     @objc func onAddSetButtonTapped(){
-        delegate?.onAddSetButtonTapped()
+        delegate?.didAddSetButtonTapped()
+    }
+}
+
+// MARK: TextField Validator
+extension ExerciseDetailsDataSource: UITextFieldDelegate {
+    func textField(_ textField: UITextField,
+                   shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool {
+        let dotsCount = textField.text!.components(separatedBy: ",").count - 1
+        if dotsCount > 0 && string == "," {
+            return false
+        }
+        return true
     }
 }
 

@@ -48,33 +48,41 @@ class ExerciseDetailsViewController: BaseViewController {
 
 // MARK: ExerciseDetailsDatasource Delegate Methods
 extension ExerciseDetailsViewController: ExerciseDetailsDataSourceDelegate {
-    func onConvertToKilogramSelected() {
+    func didConvertToKilogramSelected() {
         placeholderSchedule.updateMetricUnit(to: .kilograms)
         dataSource.updatePlaceholderSchedule(placeholderSchedule: placeholderSchedule)
         subView.tableView.reloadData()
     }
     
-    func onConvertToLbsSelected() {
+    func didConvertToLbsSelected() {
         placeholderSchedule.updateMetricUnit(to: .pounds)
         dataSource.updatePlaceholderSchedule(placeholderSchedule: placeholderSchedule)
         subView.tableView.reloadData()
     }
     
-    func onRPTSelected() {
+    func didRPTSelected() {
         
     }
     
-    func onStrongmanSelected() {
+    func didStrongmanSelected() {
         
     }
     
-    func onMaximumWeightEntered(maxWeight: Double) {
+    func didMaximumWeightEntered(maxWeight: Double) {
         placeholderSchedule.exerciseMaxWeight = maxWeight
     }
     
-    func onAddSetButtonTapped() {
+    func didAddSetButtonTapped() {
         placeholderSchedule.sets.append(WorkoutExerciseSet(weight: 0, repCount: 0))
         dataSource.updatePlaceholderSchedule(placeholderSchedule: placeholderSchedule)
         subView.tableView.reloadData()
+    }
+    
+    func didSetWeightChanged(at index: Int, newValue: String) {
+        
+    }
+    
+    func didSetRepChanged(at index: Int, newValue: String) {
+        
     }
 }

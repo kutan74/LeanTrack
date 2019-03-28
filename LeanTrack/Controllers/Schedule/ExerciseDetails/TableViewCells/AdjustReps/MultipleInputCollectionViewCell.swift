@@ -20,9 +20,16 @@ class MultipleInputCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
+    let deleteButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(named: "recycle"), for: .normal)
+        button.imageView?.contentMode = .scaleAspectFit
+        return button
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        [weightInput,multiplierLabel,repInput].forEach {
+        [weightInput,multiplierLabel,repInput,deleteButton].forEach {
             addSubview($0)
         }
         
@@ -34,9 +41,11 @@ class MultipleInputCollectionViewCell: UICollectionViewCell {
     }
     
     func layoutViews(){
-        weightInput.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, traling: nil,padding: .zero, size: .init(width: 71, height: 26))
+        weightInput.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, traling: nil,padding: .zero, size: .init(width: 71, height: 30))
         multiplierLabel.anchor(top: nil, leading: weightInput.trailingAnchor, bottom: nil, traling: nil, padding: .init(top: 0, left: 8, bottom: 0, right: 0))
         multiplierLabel.centerYAnchor.constraint(equalTo: weightInput.centerYAnchor).isActive = true
-        repInput.anchor(top: weightInput.topAnchor, leading: multiplierLabel.trailingAnchor, bottom: weightInput.bottomAnchor, traling: nil, padding: .init(top: 0, left: 8, bottom: 0, right: 0), size: .init(width: 58, height: 26))
+        repInput.anchor(top: weightInput.topAnchor, leading: multiplierLabel.trailingAnchor, bottom: weightInput.bottomAnchor, traling: nil, padding: .init(top: 0, left: 8, bottom: 0, right: 0), size: .init(width: 58, height: 30))       
+        deleteButton.anchor(top: nil, leading: repInput.trailingAnchor, bottom: nil, traling: nil, padding: .init(top: 0, left: 20, bottom: 0, right: 0), size: .init(width: 20, height: 20))
+        deleteButton.centerYAnchor.constraint(equalTo: weightInput.centerYAnchor).isActive = true
     }
 }

@@ -28,7 +28,7 @@ class AdjustRepsTableViewCell: UITableViewCell {
     
     func layoutCollectionView(){
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = .init(width: UIScreen.main.bounds.size.width - 44, height: 26)
+        layout.itemSize = .init(width: UIScreen.main.bounds.size.width - 44, height: 30)
         layout.minimumLineSpacing = 8
         layout.minimumInteritemSpacing = 0
         layout.scrollDirection = .vertical

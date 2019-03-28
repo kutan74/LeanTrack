@@ -11,10 +11,12 @@ import Foundation
 /* ExerciseDetailsDataSource Actions
 */
 protocol ExerciseDetailsDataSourceDelegate: class {
-    func onConvertToKilogramSelected()
-    func onConvertToLbsSelected()
-    func onRPTSelected()
-    func onStrongmanSelected()
-    func onMaximumWeightEntered(maxWeight: Double)
-    func onAddSetButtonTapped()
+    func didConvertToKilogramSelected()
+    func didConvertToLbsSelected()
+    func didRPTSelected()
+    func didStrongmanSelected()
+    func didMaximumWeightEntered(maxWeight: Double)
+    func didAddSetButtonTapped()
+    func didSetWeightChanged(at index: Int, newValue: String)
+    func didSetRepChanged(at index: Int, newValue: String)
 }
