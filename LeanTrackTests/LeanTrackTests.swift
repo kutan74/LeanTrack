@@ -11,6 +11,8 @@ import XCTest
 
 class LeanTrackTests: XCTestCase {
 
+    let exerciseDetails = ExerciseDetailsViewController(selectedExercise: WorkoutExercise(exerciseName: "Back Squat"))
+    
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -20,8 +22,7 @@ class LeanTrackTests: XCTestCase {
     }
 
     func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
     }
 
     func testPerformanceExample() {
