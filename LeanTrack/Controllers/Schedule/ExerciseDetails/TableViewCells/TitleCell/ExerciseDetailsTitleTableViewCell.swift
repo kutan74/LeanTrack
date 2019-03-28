@@ -8,6 +8,10 @@
 
 import UIKit
 
+/* TableViewCell containts two UILabels
+ There is no usage for subTitleLabel right now. I'm planning to add description to each title in the future
+ I might want to refactor it's dynamic constriant implementation. It sucks now
+*/
 class ExerciseDetailsTitleTableViewCell: UITableViewCell {
     let titleLabel: UILabel = {
         let label = UILabel()

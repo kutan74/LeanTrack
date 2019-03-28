@@ -8,6 +8,9 @@
 
 import UIKit
 
+/* TableViewCell that contains two CreateScheduleActionButton next to each other
+ I use it to ask users a selection based questions
+*/
 class MultipleButtonsCell: UITableViewCell {
     let primaryButton = CreateScheduleActionButton()
     let secondaryButton = CreateScheduleActionButton()

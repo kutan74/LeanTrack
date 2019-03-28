@@ -8,6 +8,10 @@
 
 import UIKit
 
+/* Responsible for controlling all TableViews & CollectionViews Datasource / Delegates
+ TableView has a dynamic cell height expect for the indexPath 6 which is AdjustReps section
+ Because it should be dynamic depends on how many sets users might want to add
+*/
 class ExerciseDetailsDataSource: NSObject {
     var placeholderSchedule: CreateSchedulePlaceholder!
     var exerciseName: String!
@@ -84,7 +88,7 @@ extension ExerciseDetailsDataSource: UITableViewDelegate,UITableViewDataSource {
     }        
 }
 
-// MARK: TableView's CollectionView Datasource & Delegate
+// MARK: AdjustRepsCell child CollectionView Delegate & Datasource
 extension ExerciseDetailsDataSource: UICollectionViewDelegate,UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return placeholderSchedule.sets.count
@@ -100,6 +104,8 @@ extension ExerciseDetailsDataSource: UICollectionViewDelegate,UICollectionViewDa
         cell.repInput.addTarget(self, action: #selector(setRepChanged(_:)), for: .editingChanged)
         cell.weightInput.delegate = self
         cell.repInput.delegate = self
+        cell.weightInput.text = String(placeholderSchedule.sets[indexPath.row].weight)
+        cell.repInput.text = String(placeholderSchedule.sets[indexPath.row].repCount)
         return cell
     }
     

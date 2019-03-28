@@ -47,7 +47,7 @@ class ExerciseDetailsViewController: BaseViewController {
 }
 
 // MARK: ExerciseDetailsDatasource Delegate Methods
-extension ExerciseDetailsViewController: ExerciseDetailsDataSourceDelegate {
+extension ExerciseDetailsViewController: ExerciseDetailsDataSourceDelegate {        
     func didConvertToKilogramSelected() {
         placeholderSchedule.updateMetricUnit(to: .kilograms)
         dataSource.updatePlaceholderSchedule(placeholderSchedule: placeholderSchedule)
@@ -79,7 +79,14 @@ extension ExerciseDetailsViewController: ExerciseDetailsDataSourceDelegate {
     }
     
     func didSetWeightChanged(at index: Int, newValue: String) {
+        guard let weight = Double(newValue) else {
+            return
+        }
         
+        guard weight > 0.0 else {
+            return
+        }
+        placeholderSchedule.sets[index].weight = weight
     }
     
     func didSetRepChanged(at index: Int, newValue: String) {

@@ -107,7 +107,7 @@
 		A069AA41224A672D000806AA /* ScheduleDayCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleDayCollectionViewCell.swift; sourceTree = "<group>"; };
 		A069AA43224A69C8000806AA /* CreateScheduleDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateScheduleDataSource.swift; sourceTree = "<group>"; };
 		A069AA45224A6B81000806AA /* BaseViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewControllerDelegate.swift; sourceTree = "<group>"; };
-		A069AA48224A6FD5000806AA /* NavigationBarActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NavigationBarActionButton.swift; path = LeanTrack/Controllers/Base/NavigationBarActionButton.swift; sourceTree = SOURCE_ROOT; };
+		A069AA48224A6FD5000806AA /* NavigationBarActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NavigationBarActionButton.swift; path = LeanTrack/Views/NavigationBarActionButton.swift; sourceTree = SOURCE_ROOT; };
 		A069AA4C224A87A7000806AA /* ScheduleExerciseRowCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleExerciseRowCollectionViewCell.swift; sourceTree = "<group>"; };
 		A069AA4E224A891C000806AA /* WorkoutSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSchedule.swift; sourceTree = "<group>"; };
 		A069AA50224A8F02000806AA /* WorkoutExercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutExercise.swift; sourceTree = "<group>"; };
@@ -239,6 +239,16 @@
 			path = MultipleButtonsCell;
 			sourceTree = "<group>";
 		};
+		A044AB47224D331100056A7E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A069AAA6224BC791000806AA /* CreateScheduleActionButton.swift */,
+				A069AAA2224BA1E6000806AA /* InputView.swift */,
+				A069AA48224A6FD5000806AA /* NavigationBarActionButton.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		A069AA40224A671C000806AA /* CollectionViewCells */ = {
 			isa = PBXGroup;
 			children = (
@@ -246,14 +256,6 @@
 				A069AA4C224A87A7000806AA /* ScheduleExerciseRowCollectionViewCell.swift */,
 			);
 			path = CollectionViewCells;
-			sourceTree = "<group>";
-		};
-		A069AA47224A6FCB000806AA /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				A069AA48224A6FD5000806AA /* NavigationBarActionButton.swift */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		A069AA94224B9B33000806AA /* ExerciseDetails */ = {
@@ -289,8 +291,6 @@
 		A069AA9F224BA185000806AA /* InputWithButtonsCell */ = {
 			isa = PBXGroup;
 			children = (
-				A069AAA6224BC791000806AA /* CreateScheduleActionButton.swift */,
-				A069AAA2224BA1E6000806AA /* InputView.swift */,
 				A069AAA0224BA1A1000806AA /* InputWithButtonsTableViewCell.swift */,
 			);
 			path = InputWithButtonsCell;
@@ -348,6 +348,7 @@
 		A0983CDF223C0F56005BEA8E /* LeanTrack */ = {
 			isa = PBXGroup;
 			children = (
+				A044AB47224D331100056A7E /* Views */,
 				A0983D1C223D6D51005BEA8E /* Resources */,
 				A0983D14223C10D7005BEA8E /* Extensions */,
 				A0983D13223C0F75005BEA8E /* Controllers */,
@@ -453,7 +454,6 @@
 		A0983D2A223D6F46005BEA8E /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				A069AA47224A6FCB000806AA /* Views */,
 				A0983D2B223D6F4F005BEA8E /* BaseViewController.swift */,
 				A069AA45224A6B81000806AA /* BaseViewControllerDelegate.swift */,
 			);

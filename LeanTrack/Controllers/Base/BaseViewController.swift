@@ -9,9 +9,8 @@
 import UIKit
 
 class BaseViewController : UIViewController {
-    private lazy var errorDisplayer = LeanTrackErrorDisplayer()
+    lazy var errorDisplayer = LeanTrackErrorDisplayer()
     lazy var addExerciseButton = NavigationBarActionButton()
-    
     weak var delegate: BaseViewControllerDelegate?
     
     override func viewDidLoad() {

@@ -8,6 +8,8 @@
 
 import UIKit
 
+/* TableViewCell which contains two InputView side by side
+*/
 class MultipleInputCollectionViewCell: UICollectionViewCell {
     let weightInput = InputView()
     let repInput = InputView()

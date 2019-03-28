@@ -8,6 +8,8 @@
 
 import UIKit
 
+/* UIButton with customized attributes
+*/
 class CreateScheduleActionButton: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)

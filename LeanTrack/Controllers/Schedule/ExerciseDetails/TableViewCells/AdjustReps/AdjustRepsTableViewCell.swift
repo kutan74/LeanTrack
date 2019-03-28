@@ -8,7 +8,8 @@
 
 import UIKit
 
-/* TableView with CollectionView inside it
+/* TableViewCell which contains UICollectionView
+ Main usage for displaying exercise sets dynamically
 */
 class AdjustRepsTableViewCell: UITableViewCell {
     var collectionView: UICollectionView!
@@ -42,10 +43,12 @@ class AdjustRepsTableViewCell: UITableViewCell {
         collectionView.showsVerticalScrollIndicator = false
         collectionView.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, traling: trailingAnchor)
     }
-    
 }
 
 // MARK: CollectionViewCell DataSource
+/* In order to manage all TableView and CollectionView in one single class, I set CollectionViews delegate and datasource to it's parent dataSource
+ in this case it'd be ExerciseDetailsDataSource
+*/
 extension AdjustRepsTableViewCell {
     func setCollectionViewDataSourceDelegate<D: UICollectionViewDataSource & UICollectionViewDelegate>(_ dataSourceDelegate: D, forRow row: Int) {
         collectionView.delegate = dataSourceDelegate
