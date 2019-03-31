@@ -156,7 +156,7 @@
 		A0983D3E223EC1F4005BEA8E /* ExerciseSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseSettingsViewController.swift; sourceTree = "<group>"; };
 		A0983D40223EC21B005BEA8E /* ExerciseSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseSettingsView.swift; sourceTree = "<group>"; };
 		A09A716B224A4F4C0041A817 /* CreateScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateScheduleViewController.swift; sourceTree = "<group>"; };
-		A09A716D224A4F950041A817 /* CreateScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreateScheduleView.swift; path = CollectionViewCells/CreateScheduleView.swift; sourceTree = "<group>"; };
+		A09A716D224A4F950041A817 /* CreateScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreateScheduleView.swift; path = Views/CreateScheduleView.swift; sourceTree = "<group>"; };
 		A653212EBC00494990434004 /* Pods-LeanTrackTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeanTrackTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LeanTrackTests/Pods-LeanTrackTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AD92783674C7F6F0CD71300F /* Pods-LeanTrackTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeanTrackTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LeanTrackTests/Pods-LeanTrackTests.release.xcconfig"; sourceTree = "<group>"; };
 		D590F0F984177A4EE8D75F8E /* Pods-LeanTrack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeanTrack.release.xcconfig"; path = "Pods/Target Support Files/Pods-LeanTrack/Pods-LeanTrack.release.xcconfig"; sourceTree = "<group>"; };
@@ -492,12 +492,12 @@
 		A09A716A224A4F200041A817 /* Schedule */ = {
 			isa = PBXGroup;
 			children = (
-				A069AA94224B9B33000806AA /* ExerciseDetails */,
-				A069AA40224A671C000806AA /* CollectionViewCells */,
+				A09A716D224A4F950041A817 /* CreateScheduleView.swift */,
 				A09A716B224A4F4C0041A817 /* CreateScheduleViewController.swift */,
 				A069AA43224A69C8000806AA /* CreateScheduleDataSource.swift */,
 				A069AA55224A9580000806AA /* CreateScheduleDataSourceDelegate.swift */,
-				A09A716D224A4F950041A817 /* CreateScheduleView.swift */,
+				A069AA94224B9B33000806AA /* ExerciseDetails */,
+				A069AA40224A671C000806AA /* CollectionViewCells */,
 			);
 			path = Schedule;
 			sourceTree = "<group>";

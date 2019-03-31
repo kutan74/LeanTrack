@@ -42,7 +42,7 @@ class ExerciseDetailsTitleTableViewCell: UITableViewCell {
         }
         
         titleLabel.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, traling: nil, padding: .init(top: 10, left: 0, bottom: 0, right: 0))
-        titleBottomConstraint = titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10)
+        titleBottomConstraint = titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0)
         titleBottomConstraint.isActive = true
         titleTrailingConstraint = titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
         titleTrailingConstraint.isActive = true
